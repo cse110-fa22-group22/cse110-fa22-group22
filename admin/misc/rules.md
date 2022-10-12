@@ -1,7 +1,7 @@
-Team Working Agreement
-Term (Fall 2022)
+Team Working Agreement for Fall 2022
+
 Creation 10/11/2022;
-Group Identification  
+
 Instructor – Navya 
 Team Name – Team 22
 
@@ -23,6 +23,7 @@ Subash Katel
 Yaohui Chen
 
 Zijian Su
+
 
 1. Primary Means of Communication and Expectations
 
