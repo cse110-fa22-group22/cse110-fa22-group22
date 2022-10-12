@@ -38,12 +38,15 @@ N/A
 - Navya's Team Lead Meeting 
 
 ## Unresolved Business?
-- Nope
+- Have everyone brainstorm 2 ideas for team name and branding. 
+- Have everyone think towards the introduction video we have to create for the branding assignment. 
 
 ## Additional Information / Comments
-Initially talk about CRUD and how it is important. Understand Webapp and brainstorm.
-Shopping list application.  
-Figure out the roles of each person. 
+Initially talk about CRUD and how it is important. Explain the concept of web application for project and brainstorm ideas of how to utilize CRUD. Shopping list application.  
+
+Figure out the roles of each person.
+
+Go over the rules and general team management concerns.
 
 ## Important Notes / Decisions
 Teams:
