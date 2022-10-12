@@ -1,44 +1,54 @@
-Sample Team Working Agreement
-Term (Example: Autumn 201X)
-Creation XX/XX/XXXX; Revised XX/XX/XXXX (If revised)
-1) Group Identification
-Lab section # –
-Table # –
-Instructor –
-Team Name (Optional) –
+Team Working Agreement
+Term (Fall 2022)
+Creation 10/11/2022;
+Group Identification  
+Instructor – Navya 
+Team Name – Team 22
 
-Team member info:
+## Team member info:   
+Varun Singhal
 
-NAME:	EMAIL:	PHONE:	OTHER:
-Teammate 1			
-Teammate 2			
-Teammate 3			
-Teammate 4			
-2) Primary Means of Communication and Expectations
+Mustansir Taquee
 
-State your team’s agreed upon various means of communication and expectations for response. (Example: All members will be expected to read emails from anyone in the group on a daily basis and respond in not more than 12 hours.)
+Anh Vuong
 
-3) Scheduling Meetings (Schedule at least one meeting as part of constructing your team agreement.)
+Jack Chou
 
-Agreed upon means of scheduling meetings. (Example: Team will agree, at the end of each class, to set any meetings times and agenda needed before the next class and beyond if possible. Team members will take turns to send out a reminder of the meeting with an agenda within eight hours after the class.)
+Paul Nguyen
 
-4) General Responsibilities for All Team Members
+Stephen Wilcox
 
-This element of the team working agreement is the list of rules/agreements or the contract that all members agrees to live by.
+Subash Katel
 
-5) Specific Team Member Responsibilities/Deadlines (Optional)
+Yaohui Chen
 
-This section may be used to record specific tasks or responsibilities particular team members have assumed.
+Zijian Su
 
-6) Conflict Resolution
+1. Primary Means of Communication and Expectations
 
-Each team should have an agreed-upon approach to addressing issues that may arise. For example, if a team member is not meeting deadlines, the team agrees to do X [specific action decided by the team] to address the problem before bringing the issue to a TA or professor.
+- Text Message correspondance should not take more than 3 hours for a colleague to get back before 6 PM.
+Pull requests require 4 approvals to be committed to main and should be done 36 hours in advance of the deadline for bug checks and etc... 
 
-7) Expectations of Faculty and GTA’s
+2. Scheduling Meetings (Schedule at least one meeting as part of constructing your team agreement.)
 
-Suggested Statement:
-If a team member fails to live up to this agreement, the situation may be reported to the staff, but the team will still be responsible for submitting a completed assignment. Staff will be available to meet with teams to resolve issues.
+- Team Members will agree on a time to set meetings and we will update this rules when we do. Team leads will create agenda points for the next meeting and take notes. If a member is unable to attend please let us know 24 hours in advance - and what you were working on so we can fill everyone in. 
 
-8) Team Signatures
+3. Voting   
 
-Include signature for each student.
+- Decisions regarding the project should be brought forth to team members and should be a voting process by majority vote. 
+
+4. General Responsibilities for All Team Members
+
+- Work Early and Communicate Early. This is an open channel of communication come forth with any issues and ideas ASAP.
+
+5. Conflict Resolution
+
+- We will bring any conflicts up and vote as a team. 2 warnings before we go to TA. Team will decide what to do before we go to TA or professor. If a conflict is due to harrassment, respect, etc... team lead will bring it up to the TA immediately.
+
+6. Daily Standup
+- Must require deadlines of when you plan to start something by and when you will TRY to get it done by.
+Write down what you plan to do, or what you have done regarding the project. If you have done nothing that day mention what you want in terms of goal for the project. 
+
+7. Expectations of Faculty and GTA’s
+
+- If a team member fails to live up to this agreement, the situation may be reported to the staff, but the team will still be responsible for submitting a completed assignment. Staff will be available to meet with teams to resolve issues.
