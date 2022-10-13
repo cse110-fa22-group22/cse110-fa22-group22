@@ -34,8 +34,9 @@ N/A
 ## New Developments
 
 
-## Unresolved Business?
-
+## Unresolved Business from last time?
+- Have everyone brainstorm 2 ideas for team name and branding.
+- Have everyone think towards the introduction video we have to create for the branding assignment.
 
 ## Additional Information / Comments
 
