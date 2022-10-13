@@ -5,7 +5,7 @@ Creation 10/11/2022;
 Instructor – Navya 
 Team Name – Team 22
 
-Team member info:   
+## Team member info:   
 Varun Singhal
 
 Mustansir Taquee
@@ -44,8 +44,7 @@ Pull requests require 4 approvals to be committed to main and should be done 36 
 
 5. Conflict Resolution
 
-- We will bring any conflicts up and vote as a team. 2 warnings before we go to TA. Team will decide what to do before we go to TA or professor. 
-If a conflict is due to harrassment, respect, etc... team lead will bring it up to the TA immediately.
+- We will bring any conflicts up and vote as a team. 2 warnings before we go to TA. Team will decide what to do before we go to TA or professor. If a conflict is due to harrassment, respect, etc... team lead will bring it up to the TA immediately.
 
 6. Daily Standup
 - Must require deadlines of when you plan to start something by and when you will TRY to get it done by.
@@ -55,5 +54,5 @@ Write down what you plan to do, or what you have done regarding the project. If 
 
 - If a team member fails to live up to this agreement, the situation may be reported to the staff, but the team will still be responsible for submitting a completed assignment. Staff will be available to meet with teams to resolve issues.
 
-
-Signature: Varun Singhal
+## Signature
+Varun Singhal
