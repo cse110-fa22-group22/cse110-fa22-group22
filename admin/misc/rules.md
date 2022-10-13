@@ -53,3 +53,8 @@ Write down what you plan to do, or what you have done regarding the project. If 
 7. Expectations of Faculty and GTA’s
 
 - If a team member fails to live up to this agreement, the situation may be reported to the staff, but the team will still be responsible for submitting a completed assignment. Staff will be available to meet with teams to resolve issues.
+
+
+I, Mustansir Taquee, do acknowledge the above rules and agree to abide by them. 
+Signed,
+Mustansir Taquee
