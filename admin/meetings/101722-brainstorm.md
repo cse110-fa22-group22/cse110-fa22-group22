@@ -9,7 +9,7 @@
 
 **Note Taker:** Varun Singhal
 
-**Meeting End Time:** 
+**Meeting End Time:** 10/17/22 4:30 PM
 
 ## Attendance List
 - Varun Singhal
