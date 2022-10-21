@@ -55,6 +55,5 @@ Notes app - Simple CRUD app for people to create notes.
 ## Important Notes / Decisions
 - What is the local aspect of the app vs the remote aspect? And does this have to do with the user’s data and how we are storing it? What does “Arch: Local first, remote second” mean.
 - What is our app allowed to do in terms of internet? Should our app be solely reliable on the internet or should it work without flaw even without internet access. Should the data for the user be stored locally or should it be stored on the cloud?
-- 
 - We voted on ideas, look at the picture to see votes for each of the ideas. 
 - Meeting we will decided after insight from Navya
