@@ -1,0 +1,21 @@
+Reflect on a time where this app would have been useful to you. How did a competitor app not correctly solve your problem?
+
+- When I am going out to buy one product I sometimes don't realize that I can buy another product that I need at the same store because I don't remember what I am missing at home. Using a notes app would be useful for keeping track of items I have, but their are so many items and so it would clutter other notes that are not shopping items.
+- I have had many instances where I go out for groceries and end up buying something I already had or forgot to buy something because I had it. Inventory App (NAME TBD) will solve this problem because it will have all the information about what groceries I have, cross referencing with what I have written down to buy, and removing duplicate items. that way I only buy what I need!
+- I usually think about what dish to make when I am at the grocery store. And often forget if I have the spices and condiments for those dishes. The inventory app will allow me to keep track of specific items I need to buy and avoid buying things I already have.
+- I always go to the store and forget what I have at home and if I have already bought it or not. I also never remember if I am running out of a certain item. This app would let me track my grocerries, what items and essentials I need to buy, etc... I have tried to use the notes app, but it doesn't have a good interface and it is hard to organize my entire inventory as a list like that. 
+- This app will be handy in multiple different scenarios, but one scenario would be like Mustansir mentioned above groceries shopping. Every time I go grocery shopping, I end up buying an unnecessary thing that I don't use in any way, so I end up wasting money. However, with this app, I would be able to track all the things I have at home and create a list of things that I need to buy for the things I'm making so that way I don't buy any unnecessary things and waste extra money.
+-  I go to the supermarket to buy groceries every week, but every time I go home, I realize that I have something I forgot to buy. With this Inventory App (NAME TBD) I can keep track of what I need to buy. I can add items, do some tagging on items, etc.This solved my problem of always forgetting things.
+-  Most of the time I buy unintentionally some groceries that I had at home. Hence, those old groceries I bought at home got ignored and expired. Thus, it wastes a lot of money. Even if I know I already have those needed groceries at home, I cannot remember where I put them and it takes time to find them as well. This app will solve all the above problems I have and help me have a well-organized kitchen or stockroom.
+-  This app will be useful when I do grocery shopping. When I am doing grocery shopping I don't remember what I have and what I don't have and In many times I will buy double what I have and none for things I don't have
+
+
+What could be better about the notes app?
+- Notes apps dont have this feature, which is a huge problem because I never know if I need to buy something or not
+- A inventory app would help organize my shopping information away from my other important notes.
+- The categories structure allows me to manage the items more efficiently which the Notes app doesn't have.
+- It will let me create lists of different things and let me know if I'm buying anything I already have at home.
+- The traditional notebook app can only simply write some text without complicated functions. Our app has more and better features than notebooks.
+- Compared to Goodnote or Flow Planner apps, this app's features concentrate more on what I should buy every week and how to arrange my kitchen well with simple functions. This app is also friendlier to users and easier to use.
+- The notes app doesn't have a good interface and it is hard to organize my entire inventory as a list like that. With categories and items and etc.. would really help. 
+- It keeps track of what I have and what I don't have when I do grocery shopping I simply check the app what I don't have and get only what I need.
