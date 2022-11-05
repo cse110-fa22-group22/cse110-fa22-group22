@@ -3,12 +3,4 @@ module.exports = class Utils {
         shopping.push({name: name, quantity: quantity, category: category});
         // add to localStorage
     }
-
-    static update(shopping, name, quantity, category){
-        
-    }
-
-    static remove(shopping, name){
-
-    }
 }
