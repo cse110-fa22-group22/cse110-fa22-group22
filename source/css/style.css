@@ -6,9 +6,10 @@ body {
 }
 
 main {
-    /* split main into a single row of two columns
-     * one for shopping and other for inverntory 
-     */
+    /* Split main into a single row of multiple columns.
+       Two columns atm since only two element in main. 
+       One is shopping section and other is inverntory 
+       section */
     display: flex;
     flex-direction: row;
 }
