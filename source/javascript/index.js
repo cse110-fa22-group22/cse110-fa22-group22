@@ -1,16 +1,18 @@
+import create from './shopping/create.js';
+import update from './shopping/update.js';
+import remove from './shopping/delete.js'; // delete is a keyword
+import test from './shopping/test.js';
+
 let client = {
     shopList: [],
     invList: {},
 };
 
 client.shopping = {
-    create: require('./shopping/create.js'),
-    update: require('./shopping/update.js'),
-    delete: require('./shopping/delete.js'),
+    create: create,
+    update: update,
+    delete: remove,
+    test: test
 }
 
-
-// let button = document.getElementById();
-// button.addEventListener('click', ()=>{ client.shopping.create(client.shopList, name, quantity, category); })
-// client.shopping.create(client.shopList, name, quantity, category);
-
+client.shopping.test("hello");

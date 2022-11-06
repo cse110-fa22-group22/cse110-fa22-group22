@@ -1,5 +1,3 @@
-module.exports = class Utils {
-    static update(shopping, name, quantity, category){
-        
-    }
+export default function(shopping, name, quantity, category) {
+    
 }
