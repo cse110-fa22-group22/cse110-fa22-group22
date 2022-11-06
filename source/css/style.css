@@ -1,0 +1,14 @@
+body {
+    /* position all content under a center column */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    /* split main into a single row of two columns
+     * one for shopping and other for inverntory 
+     */
+    display: flex;
+    flex-direction: row;
+}
