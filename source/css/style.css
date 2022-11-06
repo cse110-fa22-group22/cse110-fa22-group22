@@ -13,3 +13,7 @@ main {
     display: flex;
     flex-direction: row;
 }
+
+section {
+    margin: 20px;
+}
