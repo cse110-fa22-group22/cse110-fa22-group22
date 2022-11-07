@@ -18,7 +18,7 @@ section {
     margin: 130px;
 }
 
-nav ul {
+ul {
     position: relative;
     height: 230px; 
     width: 130%;
@@ -31,7 +31,7 @@ nav ul {
     list-style: none;
 }
 
-nav li{
+li{
     padding: 10px 100px;
     border: 1px solid #ccc;
 }
