@@ -49,7 +49,8 @@ N/A
     - Updates on the project progress - what is completed and what is the plan for next week. Please plan to demo the progress in the next week's meeting. The next thing on our TODO list is the shopping list feature
     - Testing needs to be done as you finish each feature. You can only to final integration testing later but each feature wise testing must be done as and when you develop. Start the unit tests and writing JS docs now.
 ## New Developments
-- 
+
+
 
 ## Unresolved Business?
 - 
@@ -58,5 +59,7 @@ N/A
 
 
 ## Important Notes / Decisions
-
-
+- Linting is done, Jack has already created a eslint file that we can use throughout
+- [HTML Validation link](https://validator.w3.org/)
+- Paul will look into Minification
+- jsdocs and unit testing: Jack, Mustansir and Yahoo will look into a process for this
