@@ -11,31 +11,20 @@
     <body>
         <h1 id="title">Kaimono</h1>
 
-        <dialog id="add_item">
-            <table style="text-align: center;">
-                <tr>
-                    <td><label for="item">Item name</label></td>
-                </tr>
-                <tr>
-                    <td><input type="text" id="item" name="item"></td>
-                </tr>
-                <tr>
-                    <td><label for="num_item">Number of items</label></td>
-                </tr>
-                <tr>
-                    <td><input type="text" id="num_item" name="num_item"></td>
-                </tr>
-                <tr>
-                    <td><label for="cate">Category</label></td>
-                </tr>
-                <tr>
-                    <td><input type="text" id="cate" name="cate"></td>
-                </tr>
-                <tr>
-                    <td><button id="itme_ok">OK</button> <button id="itme_cancel">Cancel</button></td>
-                </tr>
-            </table>
-        </dialog>
+        <div id="shopping_modal">
+            <form>
+                <h3>Add Shopping Item</h3>
+                <p>Item name</p>
+                <input type="text" id="shopping_name" required>
+                <p>Number of items</p>
+                <input type="text" id="shopping_quantity" required>
+                <p>Category</p>
+                <input type="text" id="shopping_category" required>
+                <br/>
+                <button id="shopping_submit">OK</button>
+                <button id="shopping_cancel">Cancel</button>
+            </form>
+        </div>
 
 
         <main>
@@ -45,7 +34,7 @@
                 <!-- title of section -->
                 <h2 class="sectionTitle">Shopping list</h2>
                 
-                <ul id = "add_list">
+                <ul id = "shopping_list">
                     <li>Product 1</li>
                     <li>Product 2</li>
                     <li>Product 3</li>
@@ -64,7 +53,7 @@
                 </ul>
 
                 <!-- Button for adding shopping items -->
-                <button type="button" id = "add_but">Add Item</button>
+                <button id="shopping_add">Add Item</button>
 
             </section>
 
@@ -93,7 +82,7 @@
                 </ul>
 
                 <!-- Button for adding inventory items -->
-                <button type="button">Add Item</button>
+                <button>Add Item</button>
             </section>
 
         </main>
