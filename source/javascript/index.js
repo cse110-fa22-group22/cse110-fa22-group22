@@ -51,7 +51,7 @@ function addShoppingItem(){
     list.innerHTML += `
         <li>
             <input type="checkbox">
-            <span>${name}</span> | <span>quantity: ${quanity}</span> | <span>${category} </span>
+            <span>${name}</span> | <span>quantity: ${quanity}</span> | <span>${category} </span><span><button>update</button></span>
             <span>X</span>
         </li>
     `
