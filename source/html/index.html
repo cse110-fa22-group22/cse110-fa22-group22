@@ -4,10 +4,40 @@
         <title></title> <!-- TODO: Add title -->
         <meta charset=utf-8>
         <link rel="stylesheet" href="/source/css/style.css">
+        <script type="module" src="/source/javascript/shopping/create.js"></script>
+        <script type="module" src="/source/javascript/index.js"></script>
     </head>
 
     <body>
         <h1 id="title">Kaimono</h1>
+
+        <dialog id="add_item">
+            <table style="text-align: center;">
+                <tr>
+                    <td><label for="item">Item name</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="item" name="item"></td>
+                </tr>
+                <tr>
+                    <td><label for="num_item">Number of items</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="num_item" name="num_item"></td>
+                </tr>
+                <tr>
+                    <td><label for="cate">Category</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="cate" name="cate"></td>
+                </tr>
+                <tr>
+                    <td><button id="itme_ok">OK</button> <button id="itme_cancel">Cancel</button></td>
+                </tr>
+            </table>
+        </dialog>
+
+
         <main>
             <!-- shopping list section -->
             <section class="shopping">
@@ -15,7 +45,7 @@
                 <!-- title of section -->
                 <h2 class="sectionTitle">Shopping list</h2>
                 
-                <ul>
+                <ul id = "add_list">
                     <li>Product 1</li>
                     <li>Product 2</li>
                     <li>Product 3</li>
@@ -34,7 +64,7 @@
                 </ul>
 
                 <!-- Button for adding shopping items -->
-                <button type="button">Add Item</button>
+                <button type="button" id = "add_but">Add Item</button>
 
             </section>
 
