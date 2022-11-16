@@ -1,3 +1,3 @@
-// export default function (name) {
-//     console.log("Testing: " + name)
-// }
+export default function (a, b) {
+    return a + b
+}
