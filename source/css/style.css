@@ -33,7 +33,7 @@ section {
 
     /* sizing of box */
     width: 400px;
-    height: 70vh; /* sizing based on window size */
+    height: 70vh; /* height based on window size */
     min-height: 400px;
     margin: 20px;
     border-radius: 10px;
