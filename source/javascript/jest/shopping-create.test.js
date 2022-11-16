@@ -9,4 +9,5 @@ test('create item in shopping', () => {
   expect(shopping[0].name).toBe('apple')
   expect(shopping[0].quantity).toBe('1')
   expect(shopping[0].category).toBe('fruit')
+  
 })
