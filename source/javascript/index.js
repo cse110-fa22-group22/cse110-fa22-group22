@@ -4,15 +4,15 @@ import remove from './shopping/delete.js' // delete is a keyword
 import test from './shopping/test.js'
 
 const client = {
-  shopList: [],
-  invList: {}
+    shopList: [],
+    invList: {}
 }
 
 client.shopping = {
-  create,
-  update,
-  delete: remove,
-  test
+    create,
+    update,
+    delete: remove,
+    test
 }
 
 client.shopping.test('hello')
