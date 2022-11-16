@@ -33,7 +33,7 @@ jobs:
       - name: Run ESLint
         working-directory: ./source
         run: |
-          npm run lint --fix
+          npm run lint
       
       - name: Run Jest
         working-directory: ./source
