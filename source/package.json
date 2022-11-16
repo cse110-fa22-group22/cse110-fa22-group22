@@ -4,7 +4,7 @@
   "description": "[Click here to check out team PEBKAC!](admin/team.md)",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./javascript/index.js && eslint ./javascript/shopping/*.js",
+    "lint": "eslint ./source/javascript/index.js && eslint ./source/javascript/shopping/*.js",
     "test": "jest"
   },
   "repository": {
