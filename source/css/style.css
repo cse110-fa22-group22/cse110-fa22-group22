@@ -1,83 +1,43 @@
-body {
-    /* position all content under a center column */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main {
-    /* Split main into a single row of multiple columns.
-       Two columns atm since only two element in main. 
-       One is shopping section and other is inverntory 
-       section */
-    display: flex;
-    flex-direction: row;
-}
-
-section {
-    width: 400px;
-    height: 400px;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center; /* Note: centers title and button but not list */
-    float: left;
-    border-radius: 10px;
-    border: 1px solid rgb(31, 130, 31);
-}
-
-ul {
-    position: relative;
-    height: 230px; 
-    width: 380px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    overflow: scroll;
-    padding: 5px;
-    border: 1px solid rgb(31, 130, 31);
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-    list-style: none;
-    background-color: white;  
-}
-
-li{
-    padding: 10px 100px;
-    border: 1px solid #ccc;
-}
-
 *{
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
     font-family: sans-serif;
     
 }
 
-.wrapper{ /* TODO: implement (pretty sure this doesn't affect page atm) */
-    max-width: 1280px;
-    height: 600px;
-   
-    margin-top: 80px;
-    margin: auto;
-    padding: 30px;
+body {
+    /* positioning of elements inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    border: 1px solid green;
+    /* background color of entire page */
     background-color: rgb(30, 142, 30);
 }
 
-.navbar{ /* TODO: implement (navbar does not exist in web page atm) */
-   max-width: 1280px;
-   margin: 0 auto;
-   padding: 10px;
+main {
+    /* positioning of elements inside */
+    display: flex;
+    flex-direction: row;
 
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+    background-color: rgb(30, 142, 30);
+}
 
-   background-color: rgb(255, 178, 34);
+section {
+    /* positioning of elements inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* sizing of box */
+    width: 400px;
+    height: 70vh; /* sizing based on window size */
+    min-height: 400px;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 section.shopping{
@@ -88,14 +48,37 @@ section.inventory{
     background-color: rgb(235, 51, 51);
 }
 
+ul {
+    /* sizing of box */
+    height: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 5px;
+
+    /* other list properties */
+    overflow: scroll;
+    list-style: none;
+    background-color: white;  
+}
+
+li{
+    /* sizing of box */
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    /* text apearance */
+    text-align: center;
+    font-size: 16px;
+}
+
 button {
-    display: inline-block;
-    border: none;
+    /* box sizing */
     border-radius: 10px;
     padding: 6px 15px;
-    margin: 0;
-    text-decoration: none;
     background: #eff3f7;
+
+    /* text appearance */
     color: #242323;
     font-family: sans-serif;
     font-size: 1rem;
