@@ -4,7 +4,7 @@
   "description": "[Click here to check out team PEBKAC!](admin/team.md)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./javascript/index.js && eslint ./javascript/shopping/*.js" 
   },
   "repository": {
     "type": "git",
