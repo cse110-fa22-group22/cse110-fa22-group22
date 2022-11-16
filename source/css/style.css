@@ -21,8 +21,6 @@ main {
     /* positioning of elements inside */
     display: flex;
     flex-direction: row;
-
-    background-color: rgb(30, 142, 30);
 }
 
 section {
