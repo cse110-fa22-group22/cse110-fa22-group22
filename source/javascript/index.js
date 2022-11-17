@@ -30,6 +30,12 @@ function init () {
 
   document.getElementById('shopping_cancel').addEventListener('click', hideShoppingModal)
   document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
+  readItemFromStorage()
+  document.querySelectorAll('.update').forEach((update)=>{
+    update.addEventListener('click',(event)=>{
+      document.getElementById('shopping_modal').style.display = 'flex'
+    })
+  });
 }
 
 function hideShoppingModal () {
@@ -50,11 +56,28 @@ function addShoppingItem () {
   list.innerHTML += `
         <li>
             <input type="checkbox">
-            <span>${name}</span> | <span>quantity: ${quanity}</span> | <span>${category} </span><span><button>update</button></span>
+            <span>${name}</span> | <span>quantity: ${quanity}</span> | <span>${category} </span><span><button class = 'update'>update</button></span>
             <span>X</span>
         </li>
     `
   client.shopping.create(shoppingList, name, quanity, category)
 
   hideShoppingModal()
+}
+
+function readItemFromStorage() {
+  const test = JSON.parse(localStorage.getItem('shoppingList'))
+  let name = test[0].name;
+  let quanity = test[0].quantity
+  let category = test[0].category
+  const list = document.getElementById('shopping_list')
+  for (let item of test) {
+    list.innerHTML += `
+  <li>
+      <input type="checkbox">
+      <span>${item.name}</span> | <span>quantity: ${item.quantity}</span> | <span>${category} </span><span><button class = 'update'>update</button></span>
+      <span>X</span>
+  </li>
+  `
+  }
 }
