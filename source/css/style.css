@@ -7,10 +7,33 @@
     
 }
 
-body {
-    /* positioning of elements inside */
+.container{
+    /* navbar container */
+    max-width: 1500px;
+    margin: 0 auto;
+  
+    
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+   
+} 
+
+nav { 
+    /* positioning of the navbar */
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 10px 32px;
+    background-color: rgb(255, 178, 34);
+}
+
+body{
+    /* positioning of elements inside */
+     display: flex;  
+    flex-direction: column; 
     align-items: center;
 
     /* background color of entire page */
