@@ -34,6 +34,7 @@ function init () {
   document.querySelectorAll('.update').forEach((update)=>{
     update.addEventListener('click',(event)=>{
       document.getElementById('shopping_modal').style.display = 'flex'
+      console.log(event)
     })
   });
 }
@@ -67,17 +68,19 @@ function addShoppingItem () {
 
 function readItemFromStorage() {
   const test = JSON.parse(localStorage.getItem('shoppingList'))
-  let name = test[0].name;
-  let quanity = test[0].quantity
-  let category = test[0].category
+  let name 
+  let quanity
+  let category
   const list = document.getElementById('shopping_list')
-  for (let item of test) {
-    list.innerHTML += `
+  if (test != null) {
+    for (let item of test) {
+      list.innerHTML += `
   <li>
       <input type="checkbox">
-      <span>${item.name}</span> | <span>quantity: ${item.quantity}</span> | <span>${category} </span><span><button class = 'update'>update</button></span>
+      <span>${item.name}</span> | <span>quantity: ${item.quantity}</span> | <span>${item.category} </span><span><button class = 'update'>update</button></span>
       <span>X</span>
   </li>
   `
+    }
   }
 }
