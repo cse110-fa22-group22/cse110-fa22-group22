@@ -30,3 +30,6 @@ We are using **Jest** for unit testing.
 - or -
 3. Run `npm test` in terminal. We have already implemented test in npm scripts so it can test all unit tests.
 
+## Pipeline Diagram
+
+![pipeline diagram](Pipelinediagram.png "Pipeline Diagram")
