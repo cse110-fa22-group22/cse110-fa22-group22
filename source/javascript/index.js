@@ -68,7 +68,7 @@ function addShoppingItem () {
 
 function readItemFromStorage() {
   const test = JSON.parse(localStorage.getItem('shoppingList'))
-  let name 
+  let name
   let quanity
   let category
   const list = document.getElementById('shopping_list')
@@ -81,6 +81,7 @@ function readItemFromStorage() {
       <span>X</span>
   </li>
   `
+  shoppingList.push({name: item.name, quantity: item.quantity, category: item.category})
     }
   }
 }
