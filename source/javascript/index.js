@@ -34,7 +34,7 @@ function init () {
   document.querySelectorAll('.update').forEach((update)=>{
     update.addEventListener('click',(event)=>{
       document.getElementById('shopping_modal').style.display = 'flex'
-      console.log(event)
+      console.log(event.target.parentNode.parentNode.getElementsByTagName('span')[0].textContent)
     })
   });
 }
