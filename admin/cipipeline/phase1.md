@@ -22,3 +22,6 @@ We are using **Jest** for unit testing.
 - or -
 3. Run `npm test` in terminal. We have already implemented test in npm scripts so it can test all unit tests.
 
+### Push/Pull Request Action
+We setup a simple action that will automatically run lint the appropiate files and test for all unit test files.
+
