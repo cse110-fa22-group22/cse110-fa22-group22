@@ -108,7 +108,6 @@ nav {
 
 body{
     /* positioning of elements inside */
-    display: flex; 
     margin-top: 110px; 
     flex-direction: column; 
     align-items: center;
