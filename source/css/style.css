@@ -127,6 +127,7 @@ main {
     /* positioning of elements inside */
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 section {
