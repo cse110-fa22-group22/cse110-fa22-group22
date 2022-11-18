@@ -2,9 +2,18 @@
 - [Changed idea more geared towards shopping list](/specs/adrs/102122-TeamBreakdown%2BProjectIdea.md)
 - Finished the presentations and diagram, now we just have to present.
 
+Problem: Get teams split and organize who does what in terms of development for the app. These are all based on each individual's preferences. Also change the gear towards shopping list
+
+Determining Factors: We were looking at how we wanted to implement the inventory, and we realized that shopping list was the essential feature we need to complete and get narrowed in on. 
+
+Pro: We understand what we need to do in terms of roadmap and development stages. We understand that shopping list is essential and that we need to get that delivered.
+
+Cons: We have to shift the plan slightly, so will take some time in terms of maneuvering everything towards shopping list rather than inventory. Small con. Pro >> 
+
 Hey guys,
 Navya reached out to Varun and I emphasizing that we should divide into two teams: one for pitch/documentation (team 1) and the other for pipeline (team 2).
 Additionally, team 1 will handle half of the pitch and team 2 will handle the other half. 
+
 The teams are as follows:
 
 Varun: Yahui, Paul, Subash (Documentation / Pitch) 
