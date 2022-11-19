@@ -1,15 +1,15 @@
 import create from './shopping/create.js'
-import update from './shopping/update.js'
-import remove from './shopping/delete.js' // delete is a keyword
+// import update from './shopping/update.js'
+// import remove from './shopping/delete.js' // delete is a keyword
 
 const shoppingList = []
 // const inventoryList = {}
 const client = {}
 
 client.shopping = {
-    create,
-    update,
-    delete: remove
+    create
+    // update
+    // delete: remove
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -33,6 +33,7 @@ function init () {
 }
 
 function hideShoppingModal () {
+    event.preventDefault()
     document.getElementById('shopping_modal').style.display = 'none'
 }
 
@@ -46,6 +47,11 @@ function addShoppingItem () {
     if (!name || !quanity || !category) {
         return
     }
+
+    if (!client.shopping.create(shoppingList, name, quanity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
+    }
+
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
           <li>
@@ -54,7 +60,6 @@ function addShoppingItem () {
               <span>X</span>
           </li>
       `
-    client.shopping.create(shoppingList, name, quanity, category)
 
-    hideShoppingModal()
+    document.getElementById('shopping_modal').style.display = 'none'
 }
