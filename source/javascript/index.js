@@ -64,7 +64,7 @@ function addShoppingItem () {
           </li>
       `
     client.shopping.create(shoppingList, name, quanity, category)
-
+    addEvents()
     hideShoppingModal()
 }
 
