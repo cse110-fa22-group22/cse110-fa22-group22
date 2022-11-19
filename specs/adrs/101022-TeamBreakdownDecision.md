@@ -1,4 +1,5 @@
-## Important Notes / Decisions
+Problem: Initial Team Split
+
 Teams:
 
 Backend

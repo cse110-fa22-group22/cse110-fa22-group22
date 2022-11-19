@@ -1,3 +1,7 @@
+Problem: N/A
+
+Decision: We need to go over the sprint and then understand what all we need to update and fix. Progress report as well. 
+
 ## Sprint Items 
 - Shopping List
   - Create: Jack, Zijian
@@ -22,6 +26,8 @@
   - [HTML Validation link](https://validator.w3.org/)
   - Paul will look into Minification
   - jsdocs and unit testing: Jack, Mustansir and Yahoo will look into a process for this
+
+Future Decisions - 
 
 ## Next Week Sprint
 - Inventory
