@@ -1,15 +1,15 @@
 import create from './shopping/create.js'
-import update from './shopping/update.js'
-import remove from './shopping/delete.js' // delete is a keyword
+// import update from './shopping/update.js'
+// import remove from './shopping/delete.js' // delete is a keyword
 
 const shoppingList = []
 // const inventoryList = {}
 const client = {}
 
 client.shopping = {
-    create,
-    update,
-    delete: remove
+    create
+    // update,
+    // delete: remove
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -50,11 +50,31 @@ function addShoppingItem () {
     list.innerHTML += `
           <li>
               <input type="checkbox">
-              <span>${name}</span> | <span>quantity: ${quanity}</span> | <span>${category} </span><span><button>update</button></span>
-              <span>X</span>
+              <span class="name">${name}</span> | 
+              <span class="quantity">quantity: ${quanity}</span> | 
+              <span class="category">${category} </span>
+              <span><button class="update">update</button></span>
+              <span class="remove-button">X</span>
           </li>
       `
     client.shopping.create(shoppingList, name, quanity, category)
-
+    addEvents()
     hideShoppingModal()
+}
+
+function getItemName (element) {
+    const parent = element.parentNode
+    return parent.innerHTML.split('>')[2].split('<')[0]
+}
+
+function addEvents () {
+    const removeButtons = document.getElementsByClassName('remove-button')
+    const removeButton = removeButtons[removeButtons.length - 1]
+
+    removeButton.addEventListener('click', () => { removeShoppingItem(getItemName(removeButton)) })
+}
+
+function removeShoppingItem (item) {
+    // delete(shoppingList, item)
+    // refreshPage()
 }
