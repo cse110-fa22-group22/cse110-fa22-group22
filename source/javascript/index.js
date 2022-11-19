@@ -30,6 +30,13 @@ function init () {
 
     document.getElementById('shopping_cancel').addEventListener('click', hideShoppingModal)
     document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
+    readItemFromStorage()
+    document.querySelectorAll('.update').forEach((update) => {
+        update.addEventListener('click', (event) => {
+            document.getElementById('shopping_modal').style.display = 'flex'
+            console.log(event.target.parentNode.parentNode.getElementsByTagName('span')[0].textContent)
+        })
+    })
 }
 
 function hideShoppingModal () {
@@ -62,4 +69,24 @@ function addShoppingItem () {
       `
 
     document.getElementById('shopping_modal').style.display = 'none'
+}
+
+function readItemFromStorage () {
+    const test = JSON.parse(localStorage.getItem('shoppingList'))
+    let name
+    let quanity
+    let category
+    const list = document.getElementById('shopping_list')
+    if (test != null) {
+        for (const item of test) {
+            list.innerHTML += `
+  <li>
+      <input type="checkbox">
+      <span>${item.name}</span> | <span>quantity: ${item.quantity}</span> | <span>${item.category} </span><span><button class = 'update'>update</button></span>
+      <span>X</span>
+  </li>
+  `
+            shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
+        }
+    }
 }
