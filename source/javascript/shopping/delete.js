@@ -1,4 +1,2 @@
-export default function(shopping, name) {
-    
-}
-
+// export default function (shopping, name) {
+// }
