@@ -62,19 +62,16 @@ function addShoppingItem () {
     hideShoppingModal()
 }
 
-function getItemName (element) {
-    const parent = element.parentNode
-    return parent.innerHTML.split('>')[2].split('<')[0]
-}
-
 function addEvents () {
     const removeButtons = document.getElementsByClassName('remove-button')
     const removeButton = removeButtons[removeButtons.length - 1]
 
-    removeButton.addEventListener('click', () => { removeShoppingItem(getItemName(removeButton)) })
+    removeButton.addEventListener('click', () => { removeShoppingItem(removeButton) })
 }
 
-function removeShoppingItem (item) {
-    // delete(shoppingList, item)
-    // refreshPage()
+function removeShoppingItem (button) {
+    const item = button.parentNode
+    const name = item.innerHTML.split('>')[2].split('<')[0]
+    item.parentNode.removeChild(item)
+    // delete(shoppingList, name)
 }
