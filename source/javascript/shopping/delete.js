@@ -3,7 +3,8 @@ export default function (shopping, name) {
         if(shopping[i].name == name){
             shopping.splice(i, 1);
             localStorage.setItem('shoppingList', JSON.stringify(shopping));
-            return;
+            return true;
         }
     }
+    return false;
 }
