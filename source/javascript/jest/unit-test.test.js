@@ -7,3 +7,7 @@ test('Testing sum', () => {
 test('Testing sum 1', () => {
     expect(sum(3, 3)).toBe(6)
 })
+
+test('Testing sum 2', () => {
+    expect(sum(3, 5)).toBe(8)
+})
