@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/cse110-fa22-group22/cse110-fa22-group22#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
