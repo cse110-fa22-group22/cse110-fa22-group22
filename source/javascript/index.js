@@ -69,8 +69,9 @@ function addShoppingItem () {
 }
 
 function addEvents () {
-    // const updateButtons = document.getElementsByClassName('update')
-    // const updateButton = updateButtons[last]
+    const updateButtons = document.getElementsByClassName('update')
+    const updateButton = updateButtons[updateButtons.length - 1]
+    updateButton.addEventListener('click', () => { updateItem(updateButton) })
 
     // addEventListener pass in updateButton
 
@@ -80,12 +81,24 @@ function addEvents () {
     removeButton.addEventListener('click', () => { removeShoppingItem(removeButton) })
 }
 
-/*
-update function(button) {
+function updateItem (button) {
+    const modal = document.getElementById('shopping_modal')
+    modal.style.display = 'flex'
+    const name = document.getElementById('shopping_name').value
+    const quanity = document.getElementById('shopping_quantity').value
+    const category = document.getElementById('shopping_category').value
     const item = button.parentNode
-    const name = item.innerHTML.split('>')[2].split('<')[0]
+    const prevName = item.innerHTML.split('>')[2].split('<')[0]
 
-    client.shopping.update(shoppingList, prevName, name, quanyity, category)
+    if (!name || !quanity || !category) {
+        return
+    }
+
+    if (!client.shopping.create(shoppingList, name, quanity, category)) {
+        return alert('Item with the same name already existed. Please consider other name or reuse the current name')
+    }
+
+    client.shopping.update(shoppingList, prevName, name, quanity, category)
 
     item.innerHTML = `<input type="checkbox">
               <span class="name">${name}</span> |
@@ -94,7 +107,6 @@ update function(button) {
               <span><button class="update">update</button></span>
               <span class="remove-button">X</span>`
 }
-*/
 
 function removeShoppingItem (button) {
     const item = button.parentNode
