@@ -12,7 +12,7 @@ client.shopping = {
     delete: remove
 }
 
-function readItemFromStorage() {
+function readItemFromStorage () {
     const shoppingListFromStorage = JSON.parse(localStorage.getItem('shoppingList'))
     const list = document.getElementById('shopping_list')
     if (shoppingListFromStorage != null) {
