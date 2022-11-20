@@ -27,3 +27,8 @@ test('Testing update', () => {
     update(shoppingList, "Apple", "Milk", "10", "Drink")
     expect(shoppingList).toStrictEqual([{"name":"Orange","quantity":"5","category":"fruit"},{"name":"Milk","quantity":"10","category":"Drink"}])
 })
+test('Testing update', () => {
+    let shoppingList = [{"name":"Orange","quantity":"5","category":"fruit"},{"name":"Apple","quantity":"15","category":"fruit"}]
+    update(shoppingList, "Orange", "Apple", "10", "Drink")
+    expect(update(shoppingList, "Orange", "Apple", "10", "Drink")).toBe(false)
+})
