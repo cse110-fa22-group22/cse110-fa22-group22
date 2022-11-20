@@ -5,6 +5,7 @@ import remove from './shopping/delete.js' // delete is a keyword
 const shoppingList = []
 // const inventoryList = {}
 const client = {}
+let updatingItem = {}
 
 client.shopping = {
     create,
@@ -83,9 +84,10 @@ function addEvents () {
     const updateButtons = document.getElementsByClassName('update')
     const updateButton = updateButtons[updateButtons.length - 1]
 
-    updateButton.addEventListener('click', () => {
+    updateButton.addEventListener('click', (updateButton) => {
         const modal = document.getElementById('shopping_modal_update')
         modal.style.display = 'flex'
+        updatingItem = updateButton.parentNode
     })
 
     const removeButtons = document.getElementsByClassName('remove-button')
@@ -109,10 +111,9 @@ function updateItem (button) {
         return alert('Item with the same name already existed. Please consider updating that item.')
     }
 
-    const item = button.parentNode
-    item.child[1] = name
-    item.child[2] = quantity
-    item.child[3] = category
+    updatingItem.child[1] = name
+    updatingItem.child[2] = quantity
+    updatingItem.child[3] = category
     hideShoppingUpdateModal()
 }
 
