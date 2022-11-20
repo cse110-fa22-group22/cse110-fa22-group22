@@ -106,6 +106,7 @@ function updateItem (button) {
               <span class="category">${category} </span>
               <span><button class="update">update</button></span>
               <span class="remove-button">X</span>`
+    hideShoppingModal()
 }
 
 function removeShoppingItem (button) {
