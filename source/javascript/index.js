@@ -1,6 +1,6 @@
 import create from './shopping/create.js'
 import update from './shopping/update.js'
-import remove from './shopping/delete.js' // delete is a keyword
+// import remove from './shopping/delete.js' // delete is a keyword
 
 const shoppingList = []
 // const inventoryList = {}
@@ -9,8 +9,8 @@ let updatingItem = {}
 
 client.shopping = {
     create,
-    update,
-    delete: remove
+    update
+    // delete: remove
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -119,7 +119,7 @@ function updateItem (button) {
 
 function removeShoppingItem (button) {
     const item = button.parentNode
-    const name = item.innerHTML.split('>')[2].split('<')[0]
+    // const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     // delete(shoppingList, name)
 }
