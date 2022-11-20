@@ -77,7 +77,7 @@ function addEvents () {
 
 function removeShoppingItem (button) {
     const item = button.parentNode
-    const name = item.innerHTML.split('>')[2].split('<')[0]
+    // const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     // delete(shoppingList, name)
 }
