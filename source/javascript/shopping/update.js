@@ -14,4 +14,5 @@ export default function (shoppingList, prevName, name, quantity, category) {
         }
     }
     localStorage.setItem('shoppingList', JSON.stringify(shoppingList)) // push the shoppingList back to localStorage
+    return true
 }
