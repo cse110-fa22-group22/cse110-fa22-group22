@@ -84,10 +84,11 @@ function addEvents () {
     const updateButtons = document.getElementsByClassName('update')
     const updateButton = updateButtons[updateButtons.length - 1]
 
-    updateButton.addEventListener('click', (updateButton) => {
+    updateButton.addEventListener('click', () => {
         const modal = document.getElementById('shopping_modal_update')
         modal.style.display = 'flex'
-        updatingItem = updateButton.parentNode
+        updatingItem = updateButton.parentNode.parentNode
+        console.log(updatingItem)
     })
 
     const removeButtons = document.getElementsByClassName('remove-button')
@@ -99,6 +100,8 @@ function addEvents () {
 function updateItem (button) {
     event.preventDefault()
     // get the value from the input
+    const prevName = updatingItem.innerHTML.split('>')[2].split('<')[0]
+    console.log(prevName)
     const name = document.getElementById('shopping_name_update').value
     const quantity = document.getElementById('shopping_quantity_update').value
     const category = document.getElementById('shopping_category_update').value
@@ -107,13 +110,13 @@ function updateItem (button) {
         return
     }
 
-    if (!client.shopping.update(shoppingList, name, quantity, category)) {
+    if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating that item.')
     }
 
-    updatingItem.child[1] = name
-    updatingItem.child[2] = quantity
-    updatingItem.child[3] = category
+    updatingItem.children[1].innerText = name
+    updatingItem.children[2].innerText = 'quantity: ' + quantity
+    updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
 }
 
