@@ -41,14 +41,14 @@ function addShoppingItem () {
     event.preventDefault()
     // get the value from the input
     const name = document.getElementById('shopping_name').value
-    const quanity = document.getElementById('shopping_quantity').value
+    const quantity = document.getElementById('shopping_quantity').value
     const category = document.getElementById('shopping_category').value
 
-    if (!name || !quanity || !category) {
+    if (!name || !quantity || !category) {
         return
     }
 
-    if (!client.shopping.create(shoppingList, name, quanity, category)) {
+    if (!client.shopping.create(shoppingList, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
 
@@ -57,13 +57,13 @@ function addShoppingItem () {
           <li>
               <input type="checkbox">
               <span class="name">${name}</span> | 
-              <span class="quantity">quantity: ${quanity}</span> | 
+              <span class="quantity">quantity: ${quantity}</span> | 
               <span class="category">${category} </span>
               <span><button class="update">update</button></span>
               <span class="remove-button">X</span>
           </li>
       `
-    client.shopping.create(shoppingList, name, quanity, category)
+    client.shopping.create(shoppingList, name, quantity, category)
     addEvents()
     hideShoppingModal()
 }
