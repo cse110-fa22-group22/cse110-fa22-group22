@@ -18,8 +18,12 @@ window.addEventListener('DOMContentLoaded', init)
 function init () {
     window.onclick = function (event) {
         const modal = document.getElementById('shopping_modal')
+        const updateModal = document.getElementById('shopping_modal_update')
         if (event.target === modal) {
             modal.style.display = 'none'
+        }
+        if (event.target === updateModal) {
+            updateModal.style.display = 'none'
         }
     }
 
@@ -30,11 +34,18 @@ function init () {
 
     document.getElementById('shopping_cancel').addEventListener('click', hideShoppingModal)
     document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
+    document.getElementById('shopping_cancel_update').addEventListener('click', hideShoppingUpdateModal)
+    document.getElementById('shopping_submit_update').addEventListener('click', updateItem)
 }
 
 function hideShoppingModal () {
     event.preventDefault()
     document.getElementById('shopping_modal').style.display = 'none'
+}
+
+function hideShoppingUpdateModal () {
+    event.preventDefault()
+    document.getElementById('shopping_modal_update').style.display = 'none'
 }
 
 function addShoppingItem () {
@@ -69,10 +80,13 @@ function addShoppingItem () {
 }
 
 function addEvents () {
-    // const updateButtons = document.getElementsByClassName('update')
-    // const updateButton = updateButtons[last]
+    const updateButtons = document.getElementsByClassName('update')
+    const updateButton = updateButtons[updateButtons.length - 1]
 
-    // addEventListener pass in updateButton
+    updateButton.addEventListener('click', () => {
+        const modal = document.getElementById('shopping_modal_update')
+        modal.style.display = 'flex'
+    })
 
     const removeButtons = document.getElementsByClassName('remove-button')
     const removeButton = removeButtons[removeButtons.length - 1]
@@ -80,21 +94,27 @@ function addEvents () {
     removeButton.addEventListener('click', () => { removeShoppingItem(removeButton) })
 }
 
-/*
-update function(button) {
+function updateItem (button) {
+    event.preventDefault()
+    // get the value from the input
+    const name = document.getElementById('shopping_name_update').value
+    const quantity = document.getElementById('shopping_quantity_update').value
+    const category = document.getElementById('shopping_category_update').value
+
+    if (!name || !quantity || !category) {
+        return
+    }
+
+    if (!client.shopping.update(shoppingList, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating that item.')
+    }
+
     const item = button.parentNode
-    const name = item.innerHTML.split('>')[2].split('<')[0]
-
-    client.shopping.update(shoppingList, prevName, name, quanyity, category)
-
-    item.innerHTML = `<input type="checkbox">
-              <span class="name">${name}</span> |
-              <span class="quantity">quantity: ${quanity}</span> |
-              <span class="category">${category} </span>
-              <span><button class="update">update</button></span>
-              <span class="remove-button">X</span>`
+    item.child[1] = name
+    item.child[2] = quantity
+    item.child[3] = category
+    hideShoppingUpdateModal()
 }
-*/
 
 function removeShoppingItem (button) {
     const item = button.parentNode

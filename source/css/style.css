@@ -40,7 +40,7 @@ li{
     border: 1px solid #ccc;
 }
 
-#shopping_modal{
+#shopping_modal, #shopping_modal_update{
     display: none;
     justify-content: center;
     align-items: center;
@@ -51,7 +51,7 @@ li{
     background-color: rgba(0,0,0,0.4);
 }
 
-#shopping_modal form{
+#shopping_modal form, #shopping_modal_update form{
     width: 20%;
     background: white;
     
