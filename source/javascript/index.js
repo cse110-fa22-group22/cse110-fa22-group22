@@ -158,7 +158,7 @@ async function readItemFromStorage () {
                 <span class="quantity">quantity: ${item.quantity}</span> | 
                 <span class="category">category: ${item.category} </span>
                 <span><button class="update">update</button></span>
-                <span class="remove-button">X</span>
+                <span class="remove-button">❌</span>
             </li>
             `
             shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
