@@ -18,8 +18,8 @@ window.addEventListener('DOMContentLoaded', init)
 // put all eventlisteners here
 function init () {
     window.onclick = function (event) {
-        const modal = document.getElementById('shopping_modal')
-        const updateModal = document.getElementById('shopping_modal_update')
+        const modal = document.getElementById('shopping_add_modal')
+        const updateModal = document.getElementById('shopping_update_modal')
         if (event.target === modal) {
             modal.style.display = 'none'
             if (modal.style.display === 'none') {
@@ -35,36 +35,36 @@ function init () {
     }
 
     document.getElementById('shopping_add').addEventListener('click', () => {
-        const modal = document.getElementById('shopping_modal')
+        const modal = document.getElementById('shopping_add_modal')
         modal.style.display = 'flex'
         document.getElementById('background_for_modal').style.display = 'flex'
     })
 
-    document.getElementById('shopping_cancel').addEventListener('click', hideShoppingModal)
-    document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
-    document.getElementById('shopping_cancel_update').addEventListener('click', hideShoppingUpdateModal)
-    document.getElementById('shopping_submit_update').addEventListener('click', updateItem)
+    document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingModal)
+    document.getElementById('shopping_add_submit').addEventListener('click', addShoppingItem)
+    document.getElementById('shopping_update_cancel').addEventListener('click', hideShoppingUpdateModal)
+    document.getElementById('shopping_update_submit').addEventListener('click', updateItem)
     readItemFromStorage()
 }
 
 function hideShoppingModal () {
     event.preventDefault()
-    document.getElementById('shopping_modal').style.display = 'none'
+    document.getElementById('shopping_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
 function hideShoppingUpdateModal () {
     event.preventDefault()
-    document.getElementById('shopping_modal_update').style.display = 'none'
+    document.getElementById('shopping_update_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
 function addShoppingItem () {
     event.preventDefault()
     // get the value from the input
-    const name = document.getElementById('shopping_name').value
-    const quantity = document.getElementById('shopping_quantity').value
-    const category = document.getElementById('shopping_category').value
+    const name = document.getElementById('shopping_add_name').value
+    const quantity = document.getElementById('shopping_add_quantity').value
+    const category = document.getElementById('shopping_add_category').value
 
     if (!name || !quantity || !category) {
         return alert('name or quantity or category can not be empty!')
@@ -88,9 +88,9 @@ function addShoppingItem () {
     client.shopping.create(shoppingList, name, quantity, category)
     addEvents()
     hideShoppingModal()
-    document.getElementById('shopping_name').value = ''
-    document.getElementById('shopping_quantity').value = ''
-    document.getElementById('shopping_category').value = ''
+    document.getElementById('shopping_add_name').value = ''
+    document.getElementById('shopping_add_quantity').value = ''
+    document.getElementById('shopping_add_category').value = ''
 }
 
 function addEvents () {
@@ -98,7 +98,7 @@ function addEvents () {
 
     for (const button of updateButtons) {
         button.addEventListener('click', () => {
-            const modal = document.getElementById('shopping_modal_update')
+            const modal = document.getElementById('shopping_update_modal')
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
             updatingItem = button.parentNode.parentNode
@@ -118,9 +118,9 @@ function updateItem (button) {
     // get the value from the input
     const prevName = updatingItem.innerHTML.split('>')[2].split('<')[0]
     console.log(prevName)
-    const name = document.getElementById('shopping_name_update').value
-    const quantity = document.getElementById('shopping_quantity_update').value
-    const category = document.getElementById('shopping_category_update').value
+    const name = document.getElementById('shopping_update_name').value
+    const quantity = document.getElementById('shopping_update_quantity').value
+    const category = document.getElementById('shopping_update_category').value
 
     if (!name || !quantity || !category) {
         return alert('name or quantity or category can not be empty!')
@@ -134,9 +134,9 @@ function updateItem (button) {
     updatingItem.children[2].innerText = 'quantity: ' + quantity
     updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
-    document.getElementById('shopping_name_update').value = ''
-    document.getElementById('shopping_quantity_update').value = ''
-    document.getElementById('shopping_category_update').value = ''
+    document.getElementById('shopping_update_name').value = ''
+    document.getElementById('shopping_update_quantity').value = ''
+    document.getElementById('shopping_update_category').value = ''
 }
 
 function removeShoppingItem (button) {

@@ -34,7 +34,7 @@ h2{
    
 } 
 
-#shopping_modal, #shopping_modal_update{
+#shopping_add_modal, #shopping_update_modal{
     display: none;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ h2{
     
 }
 
-#shopping_modal form, #shopping_modal_update form{
+#shopping_add_modal form, #shopping_update_modal form{
     margin: auto;
     background: rgb(132, 153, 136);
     
@@ -55,7 +55,7 @@ h2{
     border-radius: 20px;
 }
 
-#background_for_modal{
+.background_for_modal{
     display: none;
     position: fixed;
     margin: auto;
