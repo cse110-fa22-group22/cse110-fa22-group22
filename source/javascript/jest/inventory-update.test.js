@@ -1,4 +1,5 @@
-import create from '../inventory/update.js'
+import create from '../inventory/create.js'
+import update from '../inventory/update.js'
 
 class LocalStorageMock {
     constructor() {
@@ -31,9 +32,6 @@ test('Create 1 item with non-existence category', () => {
     let category = 'Fruit'
 
     create(inventoryList, name, quantity, category)
-
-    expect(inventoryList[category].length).toBe(1)
-    expect(inventoryList[category][0]['name']).toBe('Apple')
-    expect(inventoryList[category][0]['quantity']).toBe('1')
-    expect(inventoryList[category][0]['category']).toBe('Fruit')
+    create(inventoryList, 'orange', '3', 'notFruit')
+    update(inventoryList,name,category,name,'10',category)
 })
