@@ -20,17 +20,16 @@ function init () {
     window.onclick = function (event) {
         const modal = document.getElementById('shopping_modal')
         const updateModal = document.getElementById('shopping_modal_update')
-        const bg_for_modal = document.getElementById('background_for_modal')
         if (event.target === modal) {
             modal.style.display = 'none'
-            if(modal.style.display == 'none'){
-                bg_for_modal.style.display = 'none'
+            if(modal.style.display === 'none'){
+                document.getElementById('background_for_modal').style.display = 'none'
             }
         }
         if (event.target === updateModal) {
             updateModal.style.display = 'none'
-            if(updateModal.style.display == 'none'){
-                bg_for_modal.style.display = 'none'
+            if(updateModal.style.display === 'none'){
+                document.getElementById('background_for_modal').style.display = 'none'
             }
         }
 
