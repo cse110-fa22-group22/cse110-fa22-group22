@@ -14,7 +14,7 @@
     
         <div id="shopping_modal">
             <form>
-                <h3>Add Shopping Item</h3>
+                <h3 id="shopping-modal-title">Add Shopping Item</h3>
                 <p>Item name</p>
                 <input type="text" id="shopping_name" required>
                 <p>Number of items</p>
@@ -26,6 +26,24 @@
                 <button id="shopping_cancel">Cancel</button>
             </form>
         </div>
+
+        <div id="shopping_modal_update">
+            <form>
+                <h3 id="shopping_modal_title">Update Shopping Item</h3>
+                <p>Item name</p>
+                <input type="text" id="shopping_name_update" required>
+                <p>Number of items</p>
+                <input type="text" id="shopping_quantity_update" required>
+                <p>Category</p>
+                <input type="text" id="shopping_category_update" required>
+                <br/>
+                <button id="shopping_submit_update">OK</button>
+                <button id="shopping_cancel_update">Cancel</button>
+            </form>
+        </div>
+
+
+        
     
         <nav>
             <div class="container">
@@ -47,6 +65,7 @@
         </div>
         </nav>
 
+       
         <main>
             <!-- shopping list section -->
             <section class="shopping">
