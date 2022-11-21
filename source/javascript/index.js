@@ -37,6 +37,7 @@ function init () {
     document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
     document.getElementById('shopping_cancel_update').addEventListener('click', hideShoppingUpdateModal)
     document.getElementById('shopping_submit_update').addEventListener('click', updateItem)
+    readItemFromStorage()
 }
 
 function hideShoppingModal () {
@@ -97,6 +98,25 @@ function addEvents () {
     removeButton.addEventListener('click', () => { removeShoppingItem(removeButton) })
 }
 
+function addEventsToAll () {
+    const updateButtons = document.getElementsByClassName('update')
+
+    for (const button of updateButtons) {
+        button.addEventListener('click', () => {
+            const modal = document.getElementById('shopping_modal_update')
+            modal.style.display = 'flex'
+            updatingItem = button.parentNode.parentNode
+            console.log(updatingItem)
+        })
+    }
+
+    const removeButtons = document.getElementsByClassName('remove-button')
+
+    for (const button of removeButtons) {
+        button.addEventListener('click', () => { removeShoppingItem(button) })
+    }
+}
+
 function updateItem (button) {
     event.preventDefault()
     // get the value from the input
@@ -125,4 +145,25 @@ function removeShoppingItem (button) {
     const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     client.shopping.delete(shoppingList, name)
+}
+
+async function readItemFromStorage () {
+    const shoppingListFromStorage = JSON.parse(localStorage.getItem('shoppingList'))
+    const list = document.getElementById('shopping_list')
+    if (shoppingListFromStorage != null) {
+        for (const item of shoppingListFromStorage) {
+            list.innerHTML += `
+            <li>
+                <input type="checkbox">
+                <span class="name">${item.name}</span> | 
+                <span class="quantity">quantity: ${item.quantity}</span> | 
+                <span class="category">category: ${item.category} </span>
+                <span><button class="update">update</button></span>
+                <span class="remove-button">X</span>
+            </li>
+            `
+            shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
+        }
+    }
+    addEventsToAll()
 }
