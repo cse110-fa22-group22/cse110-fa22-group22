@@ -39,19 +39,36 @@ h2{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 80%;
     position: fixed;
     z-index: 1;
-    background-color: rgba(0,0,0,0.4);
+    /*background-color: rgba(0,0,0,0.4);*/
+    
 }
 
 #shopping_modal form, #shopping_modal_update form{
-    width: 20%;
-    background: white;
+    margin: auto;
+    background: rgb(132, 153, 136);
     
     padding: 2vw;
     border: 2px solid gray;
+    border-radius: 20px;
 }
+
+#background_for_modal{
+    display: none;
+    position: fixed;
+    margin: auto;
+    margin-top: -100%;
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    padding: 100%;
+    width: 200%;
+    height: 300%;
+}
+
+
+
 
 nav { 
     /* positioning of the navbar */
@@ -148,20 +165,20 @@ main {
     justify-content: center;
 }
 
-section {
-    /* positioning of elements inside */
+/*section {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    /* sizing of box */
-    width: 400px;
-    height: 70vh; /* height based on window size */
+    
+    width: 450px;
+    height: 70vh; 
     min-height: 400px;
     margin: 20px;
     border-radius: 10px;
     padding: 20px;
-}
+}*/
 
 section.shopping{
     background-color: #2E294E;
@@ -174,7 +191,7 @@ section.inventory{
 ul {
     /* sizing of box */
     height: 100%; 
-    width: 100%;
+    width: 85%;
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 5px;
@@ -209,4 +226,77 @@ button {
     line-height: 1;
     cursor: pointer;
     text-align: center;
+}
+
+form > input {
+    border-radius: 10px;
+    width:180px; 
+    height:30px;
+    font-size: large;
+    margin-bottom: 6px;
+}
+
+.btns{
+    text-align:right;
+    width: 180px;
+}
+
+#flex-container {
+    /* positioning of elements inside */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+/*small screen*/
+@media (max-width: 1077px) {
+    #flex-container {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    
+    section {
+        /* positioning of elements inside */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* sizing of box */
+        width: 450px;
+        height: 70vh; /* height based on window size */
+        min-height: 400px;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+}
+
+/*big screen*/
+@media (min-width: 1078px) {
+    #flex-container {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    
+    section {
+        /* positioning of elements inside */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* sizing of box */
+        width: 450px;
+        height: 70vh; /* height based on window size */
+        min-height: 400px;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
 }
