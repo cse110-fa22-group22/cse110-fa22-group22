@@ -11,7 +11,8 @@
     </head>
 
     <body>
-    
+        <div id="background_for_modal"></div>
+
         <div id="shopping_modal">
             <form>
                 <h3 id="shopping-modal-title">Add Shopping Item</h3>
@@ -22,8 +23,11 @@
                 <p>Category</p>
                 <input type="text" id="shopping_category" required>
                 <br/>
-                <button id="shopping_submit">OK</button>
-                <button id="shopping_cancel">Cancel</button>
+                <br/>
+                <div class="btns">
+                    <button id="shopping_submit">✔️</button>
+                    <button id="shopping_cancel">❌</button>
+                </div>
             </form>
         </div>
 
@@ -37,8 +41,8 @@
                 <p>Category</p>
                 <input type="text" id="shopping_category_update" required>
                 <br/>
-                <button id="shopping_submit_update">OK</button>
-                <button id="shopping_cancel_update">Cancel</button>
+                <button id="shopping_submit_update">✔️</button>
+                <button id="shopping_cancel_update">❌</button>
             </form>
         </div>
 
@@ -92,7 +96,7 @@
                 </ul>
 
                 <!-- Button for adding shopping items -->
-                <button id="shopping_add">Add Item</button>
+                <button id="shopping_add">➕</button>
 
             </section>
 
@@ -121,7 +125,7 @@
                 </ul>
 
                 <!-- Button for adding inventory items -->
-                <button>Add Item</button>
+                <button>➕</button>
             </section>
 
         </main>
