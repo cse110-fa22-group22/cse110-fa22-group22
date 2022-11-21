@@ -1,6 +1,6 @@
 export default function (shoppingList, name, quantity, category) {
     for (let i = 0; i < shoppingList.length; i++) {
-        if (shoppingList[i].name === name) {
+        if (shoppingList[i].name.toLowerCase() === name.toLowerCase()) {
             return false
         }
     }

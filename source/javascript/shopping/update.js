@@ -1,7 +1,7 @@
 export default function (shoppingList, prevName, name, quantity, category) {
     if (prevName !== name) {
         for (const item of shoppingList) {
-            if (item.name === name) {
+            if (item.name.toLowerCase() === name.toLowerCase()) {
                 return false
             }
         }
