@@ -79,26 +79,12 @@ function addShoppingItem () {
     client.shopping.create(shoppingList, name, quantity, category)
     addEvents()
     hideShoppingModal()
+    document.getElementById('shopping_name').value = ''
+    document.getElementById('shopping_quantity').value = ''
+    document.getElementById('shopping_category').value = ''
 }
 
 function addEvents () {
-    const updateButtons = document.getElementsByClassName('update')
-    const updateButton = updateButtons[updateButtons.length - 1]
-
-    updateButton.addEventListener('click', () => {
-        const modal = document.getElementById('shopping_modal_update')
-        modal.style.display = 'flex'
-        updatingItem = updateButton.parentNode.parentNode
-        console.log(updatingItem)
-    })
-
-    const removeButtons = document.getElementsByClassName('remove-button')
-    const removeButton = removeButtons[removeButtons.length - 1]
-
-    removeButton.addEventListener('click', () => { removeShoppingItem(removeButton) })
-}
-
-function addEventsToAll () {
     const updateButtons = document.getElementsByClassName('update')
 
     for (const button of updateButtons) {
@@ -138,6 +124,9 @@ function updateItem (button) {
     updatingItem.children[2].innerText = 'quantity: ' + quantity
     updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
+    document.getElementById('shopping_name_update').value = ''
+    document.getElementById('shopping_quantity_update').value = ''
+    document.getElementById('shopping_category_update').value = ''
 }
 
 function removeShoppingItem (button) {
@@ -165,5 +154,5 @@ async function readItemFromStorage () {
             shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
         }
     }
-    addEventsToAll()
+    addEvents()
 }
