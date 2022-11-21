@@ -37,6 +37,7 @@ function init () {
     document.getElementById('shopping_submit').addEventListener('click', addShoppingItem)
     document.getElementById('shopping_cancel_update').addEventListener('click', hideShoppingUpdateModal)
     document.getElementById('shopping_submit_update').addEventListener('click', updateItem)
+    readItemFromStorage()
 }
 
 function hideShoppingModal () {
@@ -125,4 +126,21 @@ function removeShoppingItem (button) {
     const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     client.shopping.delete(shoppingList, name)
+}
+
+function readItemFromStorage () {
+    const shoppingListFromStorage = JSON.parse(localStorage.getItem('shoppingList'))
+    const list = document.getElementById('shopping_list')
+    if (shoppingListFromStorage != null) {
+        for (const item of shoppingListFromStorage) {
+            list.innerHTML += `
+    <li>
+        <input type="checkbox">
+        <span>${item.name}</span> | <span>quantity: ${item.quantity}</span> | <span>${item.category} </span><span><button class = 'update'>update</button></span>
+        <span>X</span>
+    </li>
+    `
+            shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
+        }
+    }
 }
