@@ -1,3 +1,4 @@
+import create from '../inventory/create.js'
 export default function (inventoryList, prevName, prevCategory, vname, quantity, category) {
     const inventoryCategory = inventoryList[prevCategory]
     let copyInventoryList = JSON.stringify(inventoryList)
@@ -7,14 +8,13 @@ export default function (inventoryList, prevName, prevCategory, vname, quantity,
             itemRemoved += JSON.stringify(item)
         }
     }
-    inventoryList[category] = itemRemoved
+    inventoryList[prevCategory] = itemRemoved
     if (itemRemoved.length === 0) {
-        // copyInventoryList.splice(0, 1)
         copyInventoryList = JSON.stringify(inventoryList)
-        const copyInventoryListPart1 = copyInventoryList.substring(0, copyInventoryList.indexOf(category) - 1)
+        const copyInventoryListPart1 = copyInventoryList.substring(0, copyInventoryList.indexOf(prevCategory) - 1)
         const copyInventoryListPart2 = copyInventoryList.substring(copyInventoryList.indexOf('[],') + 3)
         inventoryList = JSON.parse(copyInventoryListPart1 + copyInventoryListPart2)
-        console.log(copyInventoryList)
-        console.log(inventoryList)
     }
+    const name = vname
+    create(inventoryList, name, quantity, category)
 }

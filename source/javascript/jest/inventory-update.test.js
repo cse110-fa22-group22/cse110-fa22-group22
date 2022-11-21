@@ -25,7 +25,7 @@ class LocalStorageMock {
   
 global.localStorage = new LocalStorageMock;
 
-test('Create 1 item with non-existence category', () => {
+test('update a item to non-existence category', () => {
     let inventoryList = {}
     let name = 'Apple'
     let quantity = '1'
@@ -33,5 +33,12 @@ test('Create 1 item with non-existence category', () => {
 
     create(inventoryList, name, quantity, category)
     create(inventoryList, 'orange', '3', 'notFruit')
-    update(inventoryList,name,category,name,'10',category)
+    update(inventoryList,name,category,"Apple Cider",'10',"Drinks")
+    inventoryList = JSON.parse(localStorage.getItem('inventoryList'))
+    expect(inventoryList['Drinks'].length).toBe(1)
+    expect(inventoryList['Drinks'][0]['name']).toBe('Apple Cider')
+    expect(inventoryList['Drinks'][0]['quantity']).toBe('10')
+    expect(inventoryList['Drinks'][0]['category']).toBe('Drinks')
+
+    expect(inventoryList[category]).toBeUndefined()
 })
