@@ -42,3 +42,21 @@ test('update a item to non-existence category', () => {
 
     expect(inventoryList[category]).toBeUndefined()
 })
+
+test('update a item to existence category', () => {
+    let inventoryList = {}
+    let name = 'Apple'
+    let quantity = '1'
+    let category = 'Fruit'
+
+    create(inventoryList, name, quantity, category)
+    create(inventoryList, 'orange', '3', 'notFruit')
+    update(inventoryList,name,category,"Apple Cider",'10',"notFruit")
+    inventoryList = JSON.parse(localStorage.getItem('inventoryList'))
+    expect(inventoryList['notFruit'].length).toBe(2)
+    expect(inventoryList['notFruit'][1]['name']).toBe('Apple Cider')
+    expect(inventoryList['notFruit'][1]['quantity']).toBe('10')
+    expect(inventoryList['notFruit'][1]['category']).toBe('notFruit')
+
+    expect(inventoryList[category]).toBeUndefined()
+})
