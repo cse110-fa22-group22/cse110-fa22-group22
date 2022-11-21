@@ -34,6 +34,25 @@ h2{
    
 } 
 
+#shopping_modal, #shopping_modal_update{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#shopping_modal form, #shopping_modal_update form{
+    width: 20%;
+    background: white;
+    
+    padding: 2vw;
+    border: 2px solid gray;
+}
+
 nav { 
     /* positioning of the navbar */
     position: fixed;
@@ -170,34 +189,10 @@ li{
     /* sizing of box */
     padding: 10px;
     border: 1px solid #ccc;
-    
+
     /* text apearance */
     text-align: center;
     font-size: 16px;
-}
-
-#shopping_modal{
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.4);
-}
-
-#shopping_modal form{
-    width: 20%;
-    background: white;
-    
-    padding: 2vw;
-    border: 2px solid gray;
-}
-
-span{
-    margin-left: 5px;
-    margin-right: 5px;
 }
 
 
