@@ -22,15 +22,23 @@ function init () {
         const updateModal = document.getElementById('shopping_modal_update')
         if (event.target === modal) {
             modal.style.display = 'none'
+            if(modal.style.display === 'none'){
+                document.getElementById('background_for_modal').style.display = 'none'
+            }
         }
         if (event.target === updateModal) {
             updateModal.style.display = 'none'
+            if(updateModal.style.display === 'none'){
+                document.getElementById('background_for_modal').style.display = 'none'
+            }
         }
+
     }
 
     document.getElementById('shopping_add').addEventListener('click', () => {
         const modal = document.getElementById('shopping_modal')
         modal.style.display = 'flex'
+        document.getElementById('background_for_modal').style.display = 'flex'
     })
 
     document.getElementById('shopping_cancel').addEventListener('click', hideShoppingModal)
@@ -43,11 +51,13 @@ function init () {
 function hideShoppingModal () {
     event.preventDefault()
     document.getElementById('shopping_modal').style.display = 'none'
+    document.getElementById('background_for_modal').style.display = 'none'
 }
 
 function hideShoppingUpdateModal () {
     event.preventDefault()
     document.getElementById('shopping_modal_update').style.display = 'none'
+    document.getElementById('background_for_modal').style.display = 'none'
 }
 
 function addShoppingItem () {
@@ -58,7 +68,7 @@ function addShoppingItem () {
     const category = document.getElementById('shopping_category').value
 
     if (!name || !quantity || !category) {
-        return
+        return alert('name or quantity or category can not be empty!')
     }
 
     if (!client.shopping.create(shoppingList, name, quantity, category)) {
@@ -73,7 +83,7 @@ function addShoppingItem () {
               <span class="quantity">quantity: ${quantity}</span> | 
               <span class="category">category: ${category} </span>
               <span><button class="update">update</button></span>
-              <span class="remove-button">X</span>
+              <span class="remove-button">❌</span>
           </li>
       `
     client.shopping.create(shoppingList, name, quantity, category)
@@ -88,6 +98,7 @@ function addEvents () {
     updateButton.addEventListener('click', () => {
         const modal = document.getElementById('shopping_modal_update')
         modal.style.display = 'flex'
+        document.getElementById('background_for_modal').style.display = 'flex'
         updatingItem = updateButton.parentNode.parentNode
         console.log(updatingItem)
     })
@@ -127,7 +138,7 @@ function updateItem (button) {
     const category = document.getElementById('shopping_category_update').value
 
     if (!name || !quantity || !category) {
-        return
+        return alert('name or quantity or category can not be empty!')
     }
 
     if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
