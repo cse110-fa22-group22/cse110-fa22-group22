@@ -17,4 +17,5 @@ export default function (inventoryList, prevName, prevCategory, vname, quantity,
     }
     const name = vname
     create(inventoryList, name, quantity, category)
+    return true
 }
