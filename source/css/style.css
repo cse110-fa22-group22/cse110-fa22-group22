@@ -47,7 +47,7 @@ h2{
 }
 
 #shopping_modal form, #shopping_modal_update form{
-    width: 11%;
+    margin: auto;
     background: rgb(132, 153, 136);
     
     padding: 2vw;
@@ -165,20 +165,20 @@ main {
     justify-content: center;
 }
 
-section {
-    /* positioning of elements inside */
+/*section {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    /* sizing of box */
+    
     width: 450px;
-    height: 70vh; /* height based on window size */
+    height: 70vh; 
     min-height: 400px;
     margin: 20px;
     border-radius: 10px;
     padding: 20px;
-}
+}*/
 
 section.shopping{
     background-color: #2E294E;
@@ -191,7 +191,7 @@ section.inventory{
 ul {
     /* sizing of box */
     height: 100%; 
-    width: 100%;
+    width: 85%;
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 5px;
@@ -233,9 +233,70 @@ form > input {
     width:180px; 
     height:30px;
     font-size: large;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
 }
 
 .btns{
     text-align:right;
+    width: 180px;
+}
+
+#flex-container {
+    /* positioning of elements inside */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+/*small screen*/
+@media (max-width: 1077px) {
+    #flex-container {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    
+    section {
+        /* positioning of elements inside */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* sizing of box */
+        width: 450px;
+        height: 70vh; /* height based on window size */
+        min-height: 400px;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
+}
+
+/*big screen*/
+@media (min-width: 1078px) {
+    #flex-container {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+    
+    section {
+        /* positioning of elements inside */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* sizing of box */
+        width: 450px;
+        height: 70vh; /* height based on window size */
+        min-height: 400px;
+        margin: 20px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    
 }
