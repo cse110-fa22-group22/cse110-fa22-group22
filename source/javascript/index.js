@@ -65,16 +65,9 @@ function addShoppingItem () {
     const name = document.getElementById('shopping_add_name').value
     const quantity = document.getElementById('shopping_add_quantity').value
     const category = document.getElementById('shopping_add_category').value
-    const nameRegex = /^\D+$/
     const NumberRegex = /^\d+$/
-    if (!nameRegex.test(name)) {
-        return alert('Name has to be a charater')
-    }
     if (!NumberRegex.test(quantity)) {
         return alert('quantity has to be a number')
-    }
-    if (!nameRegex.test(category)) {
-        return alert('Category has to be a charater')
     }
     if (!name || !quantity || !category) {
         return alert('name or quantity or category can not be empty!')
@@ -131,19 +124,12 @@ function updateItem (button) {
     const name = document.getElementById('shopping_update_name').value
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
-    const nameRegex = /^\D+$/
     const NumberRegex = /^\d+$/
     if (!name || !quantity || !category) {
         return alert('name or quantity or category can not be empty!')
     }
-    if (!nameRegex.test(name)) {
-        return alert('Name has to be a charater')
-    }
     if (!NumberRegex.test(quantity)) {
         return alert('quantity has to be a number')
-    }
-    if (!nameRegex.test(category)) {
-        return alert('Category has to be a charater')
     }
     if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating that item.')
