@@ -42,7 +42,6 @@ h2{
     height: 80%;
     position: fixed;
     z-index: 1;
-    /*background-color: rgba(0,0,0,0.4);*/
     
 }
 
@@ -208,7 +207,7 @@ li{
     border: 1px solid #ccc;
 
     /* text apearance */
-    text-align: center;
+    text-align: left;
     font-size: 16px;
 }
 
@@ -241,34 +240,22 @@ form > input {
     width: 180px;
 }
 
-#flex-container {
-    /* positioning of elements inside */
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-}
-
-
 /*small screen*/
 @media (max-width: 1077px) {
-    #flex-container {
+    main {
         /* positioning of elements inside */
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
     }
-
-    
 }
 
 /*big screen*/
 @media (min-width: 1078px) {
-    #flex-container {
+    main {
         /* positioning of elements inside */
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
     }
-
-    
 }
