@@ -136,8 +136,8 @@ nav {
     background-color: #eff3f7;
 }
 
+/* for mobile device resposivenes */
 @media (min-width: 768px) {
-    /* for mobile device resposivenes */
     .hamburger {
         display: none;
     }
