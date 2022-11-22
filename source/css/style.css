@@ -146,10 +146,12 @@ nav {
     }
 }
 
-
 body{
-    /* positioning of elements inside */
+    /* position of element itself */
     margin-top: 110px; 
+    
+    /* positioning of elements inside */
+    display: flex;
     flex-direction: column; 
     align-items: center;
 
@@ -157,11 +159,22 @@ body{
     background-color: #0c4d30 ;
 }
 
+/* default screen size */
 main {
     /* positioning of elements inside */
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: center;
+}
+
+/* small screen size */
+@media (max-width: 1077px) {
+    main {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
 }
 
 section {
@@ -238,24 +251,4 @@ form > input {
 .btns{
     text-align:right;
     width: 180px;
-}
-
-/*small screen*/
-@media (max-width: 1077px) {
-    main {
-        /* positioning of elements inside */
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-    }
-}
-
-/*big screen*/
-@media (min-width: 1078px) {
-    main {
-        /* positioning of elements inside */
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-    }
 }
