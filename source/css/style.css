@@ -56,21 +56,24 @@ h2{
 }
 
 nav { 
-    /* positioning of the navbar */
+    /* position of the navbar */
     position: fixed;
     top:0;
     left: 0;
     right: 0;
     z-index: 99;
     padding: 10px 32px;
+
     background-color:#093824; 
 }
 
+/* navbar container */
 .container{
-    /* navbar container */
+    /* sizing of box */
     max-width: 1500px;
     margin: 0 auto;
-    
+
+    /* position of elements inside */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,7 +107,7 @@ nav {
     transition: 0.4s;
 }
 
-/*hover effect for one of the span*/
+/*hover effect for a hamburger line*/
 .hamburger:hover span:nth-child(2) { 
     transform: translateX(10px);
 }
