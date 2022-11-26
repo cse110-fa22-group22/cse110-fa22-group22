@@ -53,6 +53,20 @@ function init () {
     document.getElementById('suggest_btn').addEventListener('click',showSuggest)
     document.getElementById('close_suggest').addEventListener('click',closeSuggest)
 
+    /*suggest list add to sp list*/
+    document.getElementById('apple_to_sp').addEventListener('click',suggestAddApple)
+    document.getElementById('banana_to_sp').addEventListener('click',suggestAddBanana)
+    document.getElementById('orange_to_sp').addEventListener('click',suggestAddOrange)
+    document.getElementById('tea_to_sp').addEventListener('click',suggestAddTea)
+    document.getElementById('juice_to_sp').addEventListener('click',suggestAddJuice)
+    document.getElementById('beer_to_sp').addEventListener('click',suggestAddBeer)
+    document.getElementById('bread_to_sp').addEventListener('click',suggestAddBread)
+    document.getElementById('bagel_to_sp').addEventListener('click',suggestAddBagel)
+    document.getElementById('hamburger_to_sp').addEventListener('click',suggestAddHamburger)
+    document.getElementById('curry_rice_to_sp').addEventListener('click',suggestAddCurryRice)
+    document.getElementById('chair_to_sp').addEventListener('click',suggestAddChaire)
+    document.getElementById('potted_plant_to_sp').addEventListener('click',suggestAddPottedPlant)
+    document.getElementById('telephone_to_sp').addEventListener('click',suggestAddtelephone)
     readItemFromStorage()
 }
 
@@ -74,25 +88,31 @@ function addShoppingItem () {
     const name = document.getElementById('shopping_add_name').value
     const quantity = document.getElementById('shopping_add_quantity').value
     const category = document.getElementById('shopping_add_category').value
-    const nameRegex = /^\D+$/
     const NumberRegex = /^\d+$/
-    if (!nameRegex.test(name)) {
-        return alert('Name has to be a charater')
-    }
+    let check_all_pass = true;
+
     if (!NumberRegex.test(quantity)) {
-        return alert('quantity has to be a number')
+        alert('quantity has to be a number')
+        check_all_pass = false
     }
-    if (!nameRegex.test(category)) {
-        return alert('Category has to be a charater')
-    }
+
     if (!name || !quantity || !category) {
-        return alert('name or quantity or category can not be empty!')
+        alert('name or quantity or category can not be empty!')
+        check_all_pass = false
     }
 
-    if (!client.shopping.create(shoppingList, name, quantity, category)) {
-        return alert('Item with the same name already existed. Please consider updating the item.')
+    if(quantity <= 0){
+        alert('Quantity needs to be greater than 0')
+        check_all_pass = false
+    }
+    else{
+        if (!client.shopping.create(shoppingList, name, quantity, category)) {
+            alert('Item with the same name already existed. Please consider updating the item.')
+            check_all_pass = false
+        }
     }
 
+    if(check_all_pass){
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
           <li>
@@ -104,8 +124,12 @@ function addShoppingItem () {
               <span class="remove-button">❌</span>
           </li>
       `
-    client.shopping.create(shoppingList, name, quantity, category)
-    addEvents()
+    
+        client.shopping.create(shoppingList, name, quantity, category)
+        addEvents()
+    }
+   
+    
     hideShoppingModal()
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''
@@ -140,27 +164,33 @@ function updateItem (button) {
     const name = document.getElementById('shopping_update_name').value
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
-    const nameRegex = /^\D+$/
     const NumberRegex = /^\d+$/
+    let check_all_pass = true;
+
     if (!name || !quantity || !category) {
-        return alert('name or quantity or category can not be empty!')
+        alert('name or quantity or category can not be empty!')
     }
-    if (!nameRegex.test(name)) {
-        return alert('Name has to be a charater')
-    }
+    
     if (!NumberRegex.test(quantity)) {
-        return alert('quantity has to be a number')
-    }
-    if (!nameRegex.test(category)) {
-        return alert('Category has to be a charater')
-    }
-    if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
-        return alert('Item with the same name already existed. Please consider updating that item.')
+        alert('quantity has to be a number')
     }
 
+    if(quantity <= 0){
+        alert('Quantity needs to be greater than 0')
+        check_all_pass = false
+    }
+    else{
+        if (!client.shopping.create(shoppingList, name, quantity, category)) {
+            alert('Item with the same name already existed. Please consider updating the item.')
+            check_all_pass = false
+        }
+    }
+
+    if(check_all_pass){
     updatingItem.children[1].innerText = name
     updatingItem.children[2].innerText = 'quantity: ' + quantity
     updatingItem.children[3].innerText = 'category: ' + category
+    }
     hideShoppingUpdateModal()
     document.getElementById('shopping_update_name').value = ''
     document.getElementById('shopping_update_quantity').value = ''
@@ -214,4 +244,111 @@ function showSuggest(){
 function closeSuggest(){
     document.getElementById("suggest_section").style.display = 'none';
     document.getElementById('background_for_modal').style.display = 'none'
+}
+
+
+/*suggest list add to Shopping list*/
+function suggestAddShoppingItem (iname,icategory) {
+    event.preventDefault()
+    // get the value from the input
+    const name = iname
+    const btn_name = name.replace(/ /, "_")
+    const quantity = document.getElementById(`${btn_name}_add_quantity`).value
+    const category = icategory
+    const NumberRegex = /^\d+$/
+    let check_all_pass = true;
+
+    if (!NumberRegex.test(quantity)) {
+        return alert('quantity has to be a number')
+    }
+
+    if (!name || !quantity || !category) {
+        return alert('name or quantity or category can not be empty!')
+    }
+
+
+    if(quantity <= 0){
+        alert('Quantity needs to be greater than 0')
+        check_all_pass = false
+    }
+    else{
+        if (!client.shopping.create(shoppingList, name, quantity, category)) {
+            alert('Item with the same name already existed. Please consider updating the item.')
+            check_all_pass = false
+        }
+    }
+
+    if(check_all_pass){
+        const list = document.getElementById('shopping_list')
+        list.innerHTML += `
+            <li>
+                <input type="checkbox">
+                <span class="name">${name}</span> | 
+                <span class="quantity">quantity: ${quantity}</span> | 
+                <span class="category">category: ${category} </span>
+                <span><button class="update">update</button></span>
+                <span class="remove-button">❌</span>
+            </li>
+        `
+        client.shopping.create(shoppingList, name, quantity, category)
+        addEvents()
+        alert('Item has been successfully added to shopping list')
+    }
+
+
+    document.getElementById('shopping_add_name').value = ''
+    document.getElementById('shopping_add_quantity').value = ''
+    document.getElementById('shopping_add_category').value = ''
+}
+
+function suggestAddApple(){
+    suggestAddShoppingItem('apple','fruits')
+}
+
+function suggestAddBanana(){
+    suggestAddShoppingItem('banana','fruits')
+}
+
+function suggestAddOrange(){
+    suggestAddShoppingItem('orange','fruits')
+}
+
+function suggestAddTea(){
+    suggestAddShoppingItem('tea','drink')
+}
+
+function suggestAddJuice(){
+    suggestAddShoppingItem('juice','drink')
+}
+
+function suggestAddBeer(){
+    suggestAddShoppingItem('beer','drink')
+}
+
+function suggestAddBread(){
+    suggestAddShoppingItem('bread','food')
+}
+
+function suggestAddBagel(){
+    suggestAddShoppingItem('bagel','food')
+}
+
+function suggestAddHamburger(){
+    suggestAddShoppingItem('hamburger','food')
+}
+
+function suggestAddCurryRice(){
+    suggestAddShoppingItem('curry rice','food')
+}
+
+function suggestAddChaire(){
+    suggestAddShoppingItem('chair','furniture')
+}
+
+function suggestAddPottedPlant(){
+    suggestAddShoppingItem('potted plant','furniture')
+}
+
+function suggestAddtelephone(){
+    suggestAddShoppingItem('telephone','furniture')
 }
