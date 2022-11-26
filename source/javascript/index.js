@@ -90,15 +90,15 @@ function addShoppingItem () {
     const category = document.getElementById('shopping_add_category').value
     const NumberRegex = /^\d+$/
     let CheckAllPass = true;
-
-    if (!NumberRegex.test(quantity)) {
-        alert('quantity has to be a number')
+    
+    if (!name || !quantity || !category) {
+        alert('name or quantity or category can not be empty!')
         CheckAllPass = false
         return
     }
 
-    if (!name || !quantity || !category) {
-        alert('name or quantity or category can not be empty!')
+    if (!NumberRegex.test(quantity)) {
+        alert('quantity has to be a number')
         CheckAllPass = false
         return
     }
@@ -268,18 +268,17 @@ function suggestAddShoppingItem (iname,icategory) {
     const NumberRegex = /^\d+$/
     let CheckAllPass = true;
 
-    if (!NumberRegex.test(quantity)) {
-        CheckAllPass = false
-        alert('quantity has to be a number')
-        return 
-    }
-
     if (!name || !quantity || !category) {
         CheckAllPass = false
         alert('name or quantity or category can not be empty!')
         return 
     }
 
+    if (!NumberRegex.test(quantity)) {
+        CheckAllPass = false
+        alert('quantity has to be a number')
+        return 
+    }
 
     if(quantity <= 0){
         alert('Quantity needs to be greater than 0')
