@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        
         <div id="background_for_modal"></div>
         <div id="shopping_add_modal">
             <form>
@@ -55,6 +56,7 @@
         <nav>
             <div class="container">
             <h1 id="title">Kaimono</h1>
+            <button id="guide_btn">❔Guide</button>
     
             <div class = "menu">
                 <a href="#" class = "is-active">Home</a>
@@ -72,14 +74,152 @@
             </div>
         </nav>
 
-       
+        <dialog id="guide">
+            <table style="text-align: center;">
+                <tr>
+                    <th colspan="2"><h3>User Guide</h3></th> 
+                </tr>
+                <tr>
+                    <td>📋 Suggest items</td>
+                    <td>Open the suggestion list. You can add items directly from here.</td>
+                </tr>
+                <tr>
+                    <td>➕ buttons</td>
+                    <td>Add items to the shopping list or to the inventory list.</td>
+                </tr>
+                <tr>
+                    <td>✔️ buttons</td>
+                    <td>Confirm/submit your item data.</td>
+                </tr>
+                <tr>
+                    <td>❌ buttons</td>
+                    <td>Cancel/delete item data.</td>
+                </tr>
+                <tr>
+                    <td>🟣↩ buttons</td>
+                    <td>Add this item to shopping list.</td>
+                </tr>
+                <tr>
+                    <td>↪🟠 buttons</td>
+                    <td>Add this item to inventory list.</td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button id="close_guide">Close🚫</button></th>
+                </tr>
+            </table>
+        </dialog>
+
+        <section id="suggest_section">
+            <!-- title of section -->
+            <h2 class="sectionTitle">Suggest list</h2>
+            
+
+            <ul id = "suggest_list">
+                <li>
+                    <details>
+                        <summary>Fruits</summary>
+                        <ul>
+                            <li>
+                                <span>Apple🍎</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text" id="apple_add_quantity" class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Banana🍌</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text" id="banana_add_quantity" class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Orange🍊</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text" id="orange_add_quantity" class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details>
+                        <summary>Drink</summary>
+                        <ul>
+                            <li>
+                                <span>Tea🍵</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text"  class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Apple juice🧃</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text" class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Beer🍺</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="text" class="sug">
+                                    <div>
+                                        <button>🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+
+            <!-- Button for adding shopping items -->
+            <button id="close_suggest">🚫</button>
+
+        </section>
+
+
         <main>
             <!-- shopping list section -->
             <section class="shopping">
 
                 <!-- title of section -->
-                <h2 class="sectionTitle">Shopping list</h2>
-                
+                <div id="suggest">
+                    <h2 class="sectionTitle">Shopping list</h2>
+                    <button id="suggest_btn">suggest items 📋</button>
+                </div>
+
                 <ul id = "shopping_list">
                     <li>Product 1</li>
                     <li>Product 2</li>
@@ -131,6 +271,13 @@
                 <button>➕</button>
             </section>
         </main>
+
+        <div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+         </div>
+
     </body>
 </html>
 

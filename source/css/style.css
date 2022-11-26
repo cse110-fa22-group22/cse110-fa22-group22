@@ -1,3 +1,6 @@
+/*import a font from google*/
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -35,7 +38,7 @@ h2{
 
 #shopping_add_modal form, #shopping_update_modal form{
     margin: auto;
-    background: rgb(132, 153, 136);
+    background: rgb(202, 223, 206);
     
     padding: 2vw;
     border: 2px solid gray;
@@ -47,7 +50,7 @@ h2{
     position: fixed;
     margin: auto;
     margin-top: -100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     border: none;
     padding: 100%;
     width: 200%;
@@ -187,6 +190,28 @@ section {
     border-radius: 10px;
     padding: 20px;
 }
+@media (max-width: 900px) {
+    #suggest_section{
+        background-color: #46b4a2;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        display: none;
+    }
+
+
+}
+
+@media (min-width: 901px) {
+    #suggest_section{
+        background-color: #46b4a2;
+        position: absolute;
+        z-index: 1;
+        width: 40%;
+        display: none;
+    }
+
+}
 
 section.shopping{
     background-color: #2E294E;
@@ -205,15 +230,60 @@ ul {
     padding: 5px;
 
     /* other list properties */
-    overflow: scroll;
+    overflow-y: scroll;
     list-style: none;
     background-color: white;  
+    border-radius: 17px;
+}
+
+/*scrollbar style*/
+ul::-webkit-scrollbar {
+    width: auto; 
+}
+
+ul::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 25px;
+}
+
+.shopping > ul::-webkit-scrollbar-thumb:vertical {
+    background: rgba(200, 194, 221, 0.5);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.shopping > ul::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: rgb(154, 153, 175);  
+}
+
+.inventory > ul::-webkit-scrollbar-thumb:vertical {
+    background: rgba(221, 208, 194, 0.5);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.inventory > ul::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #cf9b7c; 
+}
+
+
+ul::-webkit-scrollbar-thumb:horizontal {
+    background: #b8b4b4;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+ul::-webkit-scrollbar-corner{
+    background-color:#ffffff;
+    border-bottom-right-radius: 25px;
 }
 
 li{
     /* sizing of box */
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 15px;
 
     /* text apearance */
     text-align: left;
@@ -241,9 +311,189 @@ form > input {
     height:30px;
     font-size: large;
     margin-bottom: 6px;
+    padding-left: 10px;
 }
 
 .btns{
     text-align:right;
     width: 180px;
 }
+
+/* create/edit UI font*/
+form > h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: auto;
+}
+
+form > p {
+    font-family: 'Teko', sans-serif;
+    font-size: auto;
+}
+
+#suggest{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#suggest_btn{
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    font-family: 'Teko', sans-serif;
+}
+
+#guide_btn{
+    font-family: 'Teko', sans-serif;
+    margin-left: 10px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 10px;
+}
+
+#guide_btn:hover,#suggest_btn:hover{
+    background-color: #FF5714 ;
+    color:rgb(255, 255, 255);
+}
+
+#guide{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: #cbd8d7;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+
+#guide *{
+    font-family: 'Teko', sans-serif;
+}
+
+td{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 9px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table{
+    margin: 15px;
+}
+
+
+.sug{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 20px;
+    width: 40px;
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+details > ul > li >button{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
+details > ul > li{
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+}
+
+details > ul {
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Quoting the starry background from https://codepen.io/baarbaracrr/pen/KKovmGb */
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+  }
+  
+  .wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 19em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+  }
+  
+  .wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+  }
+  
+  @keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+  
+    25% {
+        transform: translateX(-25%);
+    }
+  
+    50% {
+        transform: translateX(-50%);
+    }
+  
+    75% {
+        transform: translateX(-25%);
+    }
+  
+    100% {
+        transform: translateX(1);
+    }
+  }
