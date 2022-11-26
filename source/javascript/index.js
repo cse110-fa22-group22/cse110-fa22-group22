@@ -89,30 +89,30 @@ function addShoppingItem () {
     const quantity = document.getElementById('shopping_add_quantity').value
     const category = document.getElementById('shopping_add_category').value
     const NumberRegex = /^\d+$/
-    let check_all_pass = true;
+    let CheckAllPass = true;
 
     if (!NumberRegex.test(quantity)) {
         alert('quantity has to be a number')
-        check_all_pass = false
+        CheckAllPass = false
     }
 
     if (!name || !quantity || !category) {
         alert('name or quantity or category can not be empty!')
-        check_all_pass = false
+        CheckAllPass = false
     }
 
     if(quantity <= 0){
         alert('Quantity needs to be greater than 0')
-        check_all_pass = false
+        CheckAllPass = false
     }
     else{
         if (!client.shopping.create(shoppingList, name, quantity, category)) {
             alert('Item with the same name already existed. Please consider updating the item.')
-            check_all_pass = false
+            CheckAllPass = false
         }
     }
 
-    if(check_all_pass){
+    if(CheckAllPass){
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
           <li>
@@ -165,7 +165,7 @@ function updateItem (button) {
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
     const NumberRegex = /^\d+$/
-    let check_all_pass = true;
+    let CheckAllPass = true;
 
     if (!name || !quantity || !category) {
         alert('name or quantity or category can not be empty!')
@@ -177,16 +177,16 @@ function updateItem (button) {
 
     if(quantity <= 0){
         alert('Quantity needs to be greater than 0')
-        check_all_pass = false
+        CheckAllPass = false
     }
     else{
         if (!client.shopping.create(shoppingList, name, quantity, category)) {
             alert('Item with the same name already existed. Please consider updating the item.')
-            check_all_pass = false
+            CheckAllPass = false
         }
     }
 
-    if(check_all_pass){
+    if(CheckAllPass){
     updatingItem.children[1].innerText = name
     updatingItem.children[2].innerText = 'quantity: ' + quantity
     updatingItem.children[3].innerText = 'category: ' + category
@@ -252,11 +252,11 @@ function suggestAddShoppingItem (iname,icategory) {
     event.preventDefault()
     // get the value from the input
     const name = iname
-    const btn_name = name.replace(/ /, "_")
-    const quantity = document.getElementById(`${btn_name}_add_quantity`).value
+    const btnName = name.replace(/ /, "_")
+    const quantity = document.getElementById(`${btnName}_add_quantity`).value
     const category = icategory
     const NumberRegex = /^\d+$/
-    let check_all_pass = true;
+    let CheckAllPass = true;
 
     if (!NumberRegex.test(quantity)) {
         return alert('quantity has to be a number')
@@ -269,16 +269,16 @@ function suggestAddShoppingItem (iname,icategory) {
 
     if(quantity <= 0){
         alert('Quantity needs to be greater than 0')
-        check_all_pass = false
+        CheckAllPass = false
     }
     else{
         if (!client.shopping.create(shoppingList, name, quantity, category)) {
             alert('Item with the same name already existed. Please consider updating the item.')
-            check_all_pass = false
+            CheckAllPass = false
         }
     }
 
-    if(check_all_pass){
+    if(CheckAllPass){
         const list = document.getElementById('shopping_list')
         list.innerHTML += `
             <li>
