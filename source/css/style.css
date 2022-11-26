@@ -42,7 +42,7 @@ h2{
     border-radius: 20px;
 }
 
-.background_for_modal{
+#background_for_modal{
     display: none;
     position: fixed;
     margin: auto;
