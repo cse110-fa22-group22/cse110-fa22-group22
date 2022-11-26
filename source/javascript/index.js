@@ -46,12 +46,12 @@ function init () {
     document.getElementById('shopping_update_submit').addEventListener('click', updateItem)
     
     /*guide event*/
-    document.getElementById('guide_btn').addEventListener('click',Show_Guide)
-    document.getElementById('close_guide').addEventListener('click',Close_Guide)
+    document.getElementById('guide_btn').addEventListener('click',showGuide)
+    document.getElementById('close_guide').addEventListener('click',closeGuide)
 
     /*suggest list event*/
-    document.getElementById('suggest_btn').addEventListener('click',Show_Suggest)
-    document.getElementById('close_suggest').addEventListener('click',Close_Suggest)
+    document.getElementById('suggest_btn').addEventListener('click',showSuggest)
+    document.getElementById('close_suggest').addEventListener('click',closeSuggest)
 
     readItemFromStorage()
 }
@@ -196,22 +196,22 @@ async function readItemFromStorage () {
 }
 
 
-function Show_Guide(){
+function showGuide(){
     document.getElementById("guide").show();
     document.getElementById('background_for_modal').style.display = 'flex'
 }
 
-function Close_Guide(){
+function closeGuide(){
     document.getElementById("guide").close();
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-function Show_Suggest(){
+function showSuggest(){
     document.getElementById("suggest_section").style.display = 'flex';
     document.getElementById('background_for_modal').style.display = 'flex'
 }
 
-function Close_Suggest(){
+function closeSuggest(){
     document.getElementById("suggest_section").style.display = 'none';
     document.getElementById('background_for_modal').style.display = 'none'
 }
