@@ -190,28 +190,16 @@ section {
     border-radius: 10px;
     padding: 20px;
 }
-@media (max-width: 900px) {
-    #suggest_section{
-        background-color: #46b4a2;
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        display: none;
-    }
 
-
+#suggest_section{
+    background-color: #46b4a2;
+    position: absolute;
+    z-index: 1;
+    width: 450px;
+    display: none;
 }
 
-@media (min-width: 901px) {
-    #suggest_section{
-        background-color: #46b4a2;
-        position: absolute;
-        z-index: 1;
-        width: 40%;
-        display: none;
-    }
 
-}
 
 section.shopping{
     background-color: #2E294E;
