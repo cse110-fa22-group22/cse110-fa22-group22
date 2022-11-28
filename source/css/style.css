@@ -308,6 +308,15 @@ form > input {
     width: 180px;
 }
 
+.sp_list{
+    background-color: #3c5a77;
+}
+
+.iv_list{
+    background-color: #C44900;
+}
+
+
 /* create/edit UI font*/
 form > h3 {
     font-family: 'Teko', sans-serif;
