@@ -1,3 +1,4 @@
+
 export default function (inventoryList, name, quantity, category) {
     if (!inventoryList[category]) inventoryList[category] = []
     else {
