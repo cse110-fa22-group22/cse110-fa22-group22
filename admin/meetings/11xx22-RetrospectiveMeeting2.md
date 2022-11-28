@@ -26,7 +26,7 @@ Absentees?
 N/A
 
 ## Agenda Items 
-1. Go over what we were happy and not happy about during our Sprint in which we completed shopping list features, and started working on inventory features. (Week November 14-21)
+1. Go over what we were happy and not happy about during our Sprint in which we completed shopping list features, and started working on inventory features. (Weeks November 14-28)
 2. Talk about the issues of what made us happy, and what didn't. Then take these into account and conduct Sprint Meeting #3. 
 
 ## New Developments
