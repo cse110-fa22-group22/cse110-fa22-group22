@@ -91,6 +91,7 @@ function addShoppingItem () {
     const NumberRegex = /^\d+$/
     let CheckAllPass = true;
     
+    /*Check whether the input is valid*/
     if (!name || !quantity || !category) {
         alert('name or quantity or category can not be empty!')
         CheckAllPass = false
@@ -171,6 +172,7 @@ function updateItem (button) {
     const NumberRegex = /^\d+$/
     let CheckAllPass = true;
 
+    /*Check whether the input is valid*/
     if (!name || !quantity || !category) {
         alert('name or quantity or category can not be empty!')
         CheckAllPass = false
@@ -235,22 +237,25 @@ async function readItemFromStorage () {
     addEvents()
 }
 
-
+/*show the user guide*/
 function showGuide(){
     document.getElementById("guide").show();
     document.getElementById('background_for_modal').style.display = 'flex'
 }
 
+/*close the user guide*/
 function closeGuide(){
     document.getElementById("guide").close();
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
+/*show the user suggest list*/
 function showSuggest(){
     document.getElementById("suggest_section").style.display = 'flex';
     document.getElementById('background_for_modal').style.display = 'flex'
 }
 
+/*close the user suggest list*/
 function closeSuggest(){
     document.getElementById("suggest_section").style.display = 'none';
     document.getElementById('background_for_modal').style.display = 'none'
@@ -268,6 +273,7 @@ function SuggestAddShoppingItem (iname,icategory) {
     const NumberRegex = /^\d+$/
     let CheckAllPass = true;
 
+    /*Check whether the input is valid*/
     if (!name || !quantity || !category) {
         CheckAllPass = false
         alert('name or quantity or category can not be empty!')
@@ -316,6 +322,9 @@ function SuggestAddShoppingItem (iname,icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
+
+
+/* These are preset item functions for suggest list */
 function SuggestAddApple(){
     SuggestAddShoppingItem('apple','fruits')
 }

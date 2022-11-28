@@ -228,7 +228,8 @@ ul {
     border-radius: 10px;
 }
 
-/*scrollbar style*/
+
+/*scrollbar style line 232-265*/
 ul::-webkit-scrollbar {
     width: auto; 
 }
@@ -257,11 +258,13 @@ ul::-webkit-scrollbar-track {
     background-color: #cf9b7c; 
 }
 
-
 ul::-webkit-scrollbar-corner{
     background-color:#ffffff;
     border-bottom-right-radius: 25px;
 }
+/*scrollbar style end*/
+
+
 
 li{
     /* sizing of box */
@@ -289,6 +292,8 @@ button {
     text-align: center;
 }
 
+
+/*input box style*/
 form > input {
     border-radius: 10px;
     width:180px; 
@@ -298,6 +303,7 @@ form > input {
     padding-left: 10px;
 }
 
+/*buttons style*/
 .btns{
     text-align:right;
     width: 180px;
@@ -314,6 +320,7 @@ form > p {
     font-size: auto;
 }
 
+/* suggest UI*/
 #suggest{
     display: flex;
     flex-wrap: nowrap;
@@ -327,6 +334,21 @@ form > p {
     font-family: 'Teko', sans-serif;
 }
 
+/*style for suggest input box*/
+.sug{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 20px;
+    width: 40px;
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/*guide UI*/
 #guide_btn{
     font-family: 'Teko', sans-serif;
     margin-left: 10px;
@@ -356,6 +378,7 @@ form > p {
     font-family: 'Teko', sans-serif;
 }
 
+/*table style for guide*/
 td{
     border: 1px solid rgb(0, 0, 0);
     border-radius: 9px;
@@ -373,18 +396,7 @@ table{
     margin: 15px;
 }
 
-
-.sug{
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    height: 20px;
-    width: 40px;
-    padding-left: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+/*list style*/
 
 details > ul > li >button{
     padding-top: 0px;
@@ -415,15 +427,8 @@ details > ul {
 
 
 
-/*z-index: -1;*/
-
-
-
-
 
 /*Quoting the wave background from https://codepen.io/Daag/pen/qBBvvdE*/
-
-
 
 .ocean {
   height: 5%;
