@@ -159,7 +159,6 @@ body{
 
     /*from wave*/
     background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #b7e8eb 100%);
-    overflow: hidden;
 }
 
 /* default screen size */
@@ -321,13 +320,13 @@ form > p {
 }
 
 /* suggest UI*/
-#suggest{
+.suggest{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
 }
 
-#suggest_btn{
+.suggest_btn{
     margin-left: 10px;
     padding-top: 5px;
     padding-bottom: 1px;
@@ -433,7 +432,7 @@ details > ul {
 .ocean {
   height: 5%;
   width: 100%;
-  position: absolute;
+  position:fixed;
   bottom: 0;
   left: 0;
   background: #015871;
