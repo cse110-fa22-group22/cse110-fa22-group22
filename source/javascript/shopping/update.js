@@ -1,5 +1,6 @@
 export default function (shoppingList, prevName, name, quantity, category) {
-    if (prevName !== name) {
+    console.log(name)
+    if (prevName.toLowerCase() !== name.toLowerCase()) {
         for (const item of shoppingList) {
             if (item.name.toLowerCase() === name.toLowerCase()) {
                 return false
