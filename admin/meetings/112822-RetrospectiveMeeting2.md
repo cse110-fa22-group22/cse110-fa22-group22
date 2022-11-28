@@ -33,7 +33,7 @@ N/A
 - 
 
 ## Unresolved Business?
-- 
+- Go over the retrospective thoughts in our Sprint meeting #3 that we will conduct directly after this meeting.
 
 ## Additional Information / Comments
 

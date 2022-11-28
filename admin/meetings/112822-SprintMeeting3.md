@@ -26,7 +26,11 @@ Absentees?
 N/A
 
 ## Agenda Items 
-1. 
+1. Talk about what we want to show Navya during our meeting today at 3:45
+2. Talk about the development and what we went over during retrospective meeting
+3. Talk about how we want to schedule ourselves to finish the inventory portion and get everything linked and working together.
+4. Talk about how we want to finish UI changes and make final edits during our last week. 
+5. Questions?
 
 ## New Developments
 - 
