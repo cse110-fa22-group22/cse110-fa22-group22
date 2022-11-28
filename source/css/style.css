@@ -196,7 +196,7 @@ section {
 }
 
 #suggest_section{
-    background-color: #46b4a2;
+    background-color: #46a7b4;
     position: absolute;
     z-index: 1;
     width: 450px;
@@ -206,7 +206,7 @@ section {
 
 
 section.shopping{
-    background-color: #2E294E;
+    background-color: #3c5a77;
 }
 
 section.inventory{
