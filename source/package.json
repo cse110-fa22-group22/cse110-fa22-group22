@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint --fix ./javascript/index.js && eslint --fix ./javascript/shopping/*.js && eslint --fix ./javascript/inventory/*.js",
+    "csslint": "csslint ./css/style.css",
     "test": "jest",
     "generate-docs": "jsdoc -c jsdoc-conf.json"
   },
