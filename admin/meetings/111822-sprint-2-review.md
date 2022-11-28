@@ -54,3 +54,5 @@ N/A
 - Delete UI: Paul / Anh
 
 Unit testing must start. Jack will co-ordinate this. 
+
+- Can see progress in video of demonstration of site at admin/videos/statusvideo1.mp4
