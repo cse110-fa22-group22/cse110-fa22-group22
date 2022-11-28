@@ -178,13 +178,12 @@ function updateItem (button) {
         CheckAllPass = false
         return
     }
-    
+
     if (!NumberRegex.test(quantity)) {
         alert('quantity has to be a number')
         CheckAllPass = false
         return
     }
-
     if(quantity <= 0){
         alert('Quantity needs to be greater than 0')
         CheckAllPass = false
@@ -195,7 +194,8 @@ function updateItem (button) {
             alert('Item with the same name already existed. Please consider updating the item.')
             CheckAllPass = false
             return
-        }
+    }
+
     }
 
     if(CheckAllPass){

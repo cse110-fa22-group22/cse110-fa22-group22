@@ -35,6 +35,11 @@ jobs:
         run: |
           npm run lint
       
+      - name: Run CSSLint
+        working-directory: ./source
+        run: |
+          npm run csslint
+      
       - name: Run Jest
         working-directory: ./source
         run: |

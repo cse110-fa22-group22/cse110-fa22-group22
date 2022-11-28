@@ -104,3 +104,20 @@ test('Create 1 item with non-existence category and inventoryList contains anoth
     expect(inventoryList[category][0]['category']).toBe('Fruit')
 })
 
+test('Create 1 item duplicated item', () => {
+    let inventoryList = { 
+        Fruit: [
+            { name: 'Apple', quantity: '3', category: 'Fruit' }
+        ] 
+    }
+
+    let name = 'Apple'
+    let quantity = '1'
+    let category = 'Fruit'
+
+    expect(create(inventoryList, name, quantity, category)).toBe(false)
+    expect(inventoryList[category].length).toBe(1)
+    expect(inventoryList[category][0]['name']).toBe('Apple')
+    expect(inventoryList[category][0]['quantity']).toBe('3')
+    expect(inventoryList[category][0]['category']).toBe('Fruit')
+})
