@@ -51,7 +51,7 @@ function init () {
 
     /* suggest list event */
     document.getElementById('suggest_btn').addEventListener('click', showSuggest)
-    document.getElementById('close_suggest').addEventListener('click',closeSuggest)
+    document.getElementById('close_suggest').addEventListener('click', closeSuggest)
 
     /* suggest list add to sp list */
     document.getElementById('apple_to_sp').addEventListener('click', SuggestAddApple)
