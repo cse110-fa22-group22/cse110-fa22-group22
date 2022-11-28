@@ -1,5 +1,5 @@
 # Team 22 Meeting Minutes
-## Type of meeting - 
+## Type of meeting - Retrospective Meeting
 
 **Meeting Date/Time:**   November 28th, 2:30 PM
 
