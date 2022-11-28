@@ -36,7 +36,7 @@ N/A
 - After going over the retrospective meeting, we all like the way we developed during sprint #2 so we want to keep this pace and keep this open channel of communication so that issues are getting worked on and solved. 
 
 ## Unresolved Business?
-- 
+- N/A Finished all tasks from sprint #2 we wanted to complete.
 
 ## Additional Information / Comments
 - UI Change #1: Fixing buttons for update and delete. Make sure they always fall under the bottom line so it looks good for text wrapping
@@ -48,4 +48,5 @@ N/A
 
 ## Important Notes / Decisions
 - Should be done with Development by Sunday December 4th so we have ample time to test and fix bugs and UI/UX elements. 
-
+- Look of site is posted in Sprint3 image below
+- ![](../misc/KaimonoDemoSprint3.png)
