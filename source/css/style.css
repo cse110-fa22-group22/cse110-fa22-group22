@@ -382,7 +382,7 @@ form > p {
 td{
     border: 1px solid rgb(0, 0, 0);
     border-radius: 9px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0); /* TODO: repeat */
     background-color: #ffffff;
     padding: 5px;
 }
@@ -398,7 +398,7 @@ table{
 
 /*list style*/
 
-details > ul > li >button{
+details > ul > li >button{ /* TODO: dont think this slector is correct */
     padding-top: 0px;
     padding-bottom: 0px;
     
