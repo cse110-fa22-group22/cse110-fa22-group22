@@ -13,7 +13,6 @@ h1{
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
-
 }
 
 h2{
@@ -23,55 +22,69 @@ h2{
     text-transform: uppercase;
 }
 
-.container{
-    /* navbar container */
-    max-width: 1500px;
-    margin: 0 auto;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-   
-} 
-
-#shopping_modal, #shopping_modal_update{
+#shopping_add_modal, #shopping_update_modal{
     display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 80%;
     position: fixed;
     z-index: 1;
-    background-color: rgba(0,0,0,0.4);
+    
 }
 
-#shopping_modal form, #shopping_modal_update form{
-    width: 20%;
-    background: white;
+#shopping_add_modal form, #shopping_update_modal form{
+    margin: auto;
+    background: rgb(132, 153, 136);
     
     padding: 2vw;
     border: 2px solid gray;
+    border-radius: 20px;
+}
+
+#background_for_modal{
+    display: none;
+    position: fixed;
+    margin: auto;
+    margin-top: -100%;
+    background-color: rgba(0,0,0,0.4);
+    border: none;
+    padding: 100%;
+    width: 200%;
+    height: 300%;
 }
 
 nav { 
-    /* positioning of the navbar */
+    /* position of the navbar */
     position: fixed;
     top:0;
     left: 0;
     right: 0;
     z-index: 99;
     padding: 10px 32px;
+
     background-color:#093824; 
 }
 
+/* navbar container */
+.container{
+    /* sizing of box */
+    max-width: 1500px;
+    margin: 0 auto;
+
+    /* position of elements inside */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+} 
+
+/* For mobile menu */
 .hamburger{
-    /* For mobile menu */
     display: block;
     position: relative;
     z-index: 1;
-
     user-select: none;
-
     appearance: none;
     border: none;
     outline: none;
@@ -79,20 +92,25 @@ nav {
     cursor: pointer;
 }
 
+/* appearance of hamburger lines */
 .hamburger span {
     display: block;
     width: 33px;
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-
     background-color: #F0EDE6;
     border-radius: 6px;
     z-index: 1;
-
     transform-origin: 0 0;
     transition: 0.4s;
 }
+
+/*hover effect for a hamburger line*/
+.hamburger:hover span:nth-child(2) { 
+    transform: translateX(10px);
+}
+
 .menu{
     display: none;
     flex :1 1 0%;
@@ -114,14 +132,8 @@ nav {
     background-color: #FF5714 ;
 }
 
-.hamburger:hover span:nth-child(2) {
-    /*hover effect for one of the span*/
-    transform: translateX(10px);
-    background-color: #eff3f7;
-}
-
+/* for mobile device resposivenes */
 @media (min-width: 768px) {
-    /* for mobile device resposivenes */
     .hamburger {
         display: none;
     }
@@ -130,10 +142,12 @@ nav {
     }
 }
 
-
 body{
-    /* positioning of elements inside */
+    /* position of element itself */
     margin-top: 110px; 
+    
+    /* positioning of elements inside */
+    display: flex;
     flex-direction: column; 
     align-items: center;
 
@@ -141,11 +155,22 @@ body{
     background-color: #0c4d30 ;
 }
 
+/* default screen size */
 main {
     /* positioning of elements inside */
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: center;
+}
+
+/* small screen size */
+@media (max-width: 1077px) {
+    main {
+        /* positioning of elements inside */
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
 }
 
 section {
@@ -155,7 +180,7 @@ section {
     align-items: center;
 
     /* sizing of box */
-    width: 400px;
+    width: 450px;
     height: 70vh; /* height based on window size */
     min-height: 400px;
     margin: 20px;
@@ -174,7 +199,7 @@ section.inventory{
 ul {
     /* sizing of box */
     height: 100%; 
-    width: 100%;
+    width: 85%;
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 5px;
@@ -191,10 +216,9 @@ li{
     border: 1px solid #ccc;
 
     /* text apearance */
-    text-align: center;
+    text-align: left;
     font-size: 16px;
 }
-
 
 button {
     /* box sizing */
@@ -209,4 +233,17 @@ button {
     line-height: 1;
     cursor: pointer;
     text-align: center;
+}
+
+form > input {
+    border-radius: 10px;
+    width:180px; 
+    height:30px;
+    font-size: large;
+    margin-bottom: 6px;
+}
+
+.btns{
+    text-align:right;
+    width: 180px;
 }

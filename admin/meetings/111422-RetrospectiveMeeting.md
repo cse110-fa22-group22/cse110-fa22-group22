@@ -40,5 +40,5 @@ N/A
 ## Important Notes / Decisions
 ![](/admin/misc/RetrospectiveMeeting.png)
 
-This is the results of our meeting and we understood what we want to do for our next sprint. Sprint meeting #2 will go over what we learned from our retrospective meeting and take into account how we should take into account values for our 2nd spring. 
+This is the results of our meeting and we understood what we want to do for our next sprint. Sprint meeting #2 will go over what we learned from our retrospective meeting and take into account how we should take into account values for our 2nd sprint. 
 

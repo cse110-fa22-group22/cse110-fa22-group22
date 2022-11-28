@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint --fix ./javascript/index.js && eslint --fix ./javascript/shopping/*.js",
     "csslint": "csslint ./css/style.css",
-    "test": "jest"
+    "test": "jest",
+    "generate-docs": "jsdoc -c jsdoc-conf.json"
   },
   "repository": {
     "type": "git",

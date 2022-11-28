@@ -30,10 +30,12 @@ N/A
 2. Go over what we need to do in terms of development for the inventory portion of the pagr
 3. Go over that we need to do suggestions as well and all of it needs to be done by next week with UI elements
 4. Go over pipeline duties and Jack can walk through the pipeline demonstration for the team.
+5. Go over retrospective meeting sad/mad/glad and talk about what we want to incorporate from this into our future development.
    
 
 ## New Developments
-- 
+- We want to start early and finish early according to retrospective meeting. We are going to be on top of deadlines and try and define the requisites of the various aspects of the project better. 
+- We want to make sure that we are scheduling more meetings so the team is able to develop together as a team more rather than individual efforts. So during this sprint, we will aim to develop together as a team with a lot more communication between who is doing what aspect and coordinating times to develop so that everyone is free. 
 
 ## Unresolved Business?
 - N/A Finished All Tasks
