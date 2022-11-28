@@ -54,19 +54,19 @@ function init () {
     document.getElementById('close_suggest').addEventListener('click',closeSuggest)
 
     /*suggest list add to sp list*/
-    document.getElementById('apple_to_sp').addEventListener('click',suggestAddApple)
-    document.getElementById('banana_to_sp').addEventListener('click',suggestAddBanana)
-    document.getElementById('orange_to_sp').addEventListener('click',suggestAddOrange)
-    document.getElementById('tea_to_sp').addEventListener('click',suggestAddTea)
-    document.getElementById('juice_to_sp').addEventListener('click',suggestAddJuice)
-    document.getElementById('beer_to_sp').addEventListener('click',suggestAddBeer)
-    document.getElementById('bread_to_sp').addEventListener('click',suggestAddBread)
-    document.getElementById('bagel_to_sp').addEventListener('click',suggestAddBagel)
-    document.getElementById('hamburger_to_sp').addEventListener('click',suggestAddHamburger)
-    document.getElementById('curry_rice_to_sp').addEventListener('click',suggestAddCurryRice)
-    document.getElementById('chair_to_sp').addEventListener('click',suggestAddChaire)
-    document.getElementById('potted_plant_to_sp').addEventListener('click',suggestAddPottedPlant)
-    document.getElementById('telephone_to_sp').addEventListener('click',suggestAddtelephone)
+    document.getElementById('apple_to_sp').addEventListener('click',SuggestAddApple)
+    document.getElementById('banana_to_sp').addEventListener('click',SuggestAddBanana)
+    document.getElementById('orange_to_sp').addEventListener('click',SuggestAddOrange)
+    document.getElementById('tea_to_sp').addEventListener('click',SuggestAddTea)
+    document.getElementById('juice_to_sp').addEventListener('click',SuggestAddJuice)
+    document.getElementById('beer_to_sp').addEventListener('click',SuggestAddBeer)
+    document.getElementById('bread_to_sp').addEventListener('click',SuggestAddBread)
+    document.getElementById('bagel_to_sp').addEventListener('click',SuggestAddBagel)
+    document.getElementById('hamburger_to_sp').addEventListener('click',SuggestAddHamburger)
+    document.getElementById('curry_rice_to_sp').addEventListener('click',SuggestAddCurryRice)
+    document.getElementById('chair_to_sp').addEventListener('click',SuggestAddChaire)
+    document.getElementById('potted_plant_to_sp').addEventListener('click',SuggestAddPottedPlant)
+    document.getElementById('telephone_to_sp').addEventListener('click',SuggestAddtelephone)
     readItemFromStorage()
 }
 
@@ -258,7 +258,7 @@ function closeSuggest(){
 
 
 /*suggest list add to Shopping list*/
-function suggestAddShoppingItem (iname,icategory) {
+function SuggestAddShoppingItem (iname,icategory) {
     event.preventDefault()
     // get the value from the input
     const name = iname
@@ -316,54 +316,54 @@ function suggestAddShoppingItem (iname,icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
-function suggestAddApple(){
-    suggestAddShoppingItem('apple','fruits')
+function SuggestAddApple(){
+    SuggestAddShoppingItem('apple','fruits')
 }
 
-function suggestAddBanana(){
-    suggestAddShoppingItem('banana','fruits')
+function SuggestAddBanana(){
+    SuggestAddShoppingItem('banana','fruits')
 }
 
-function suggestAddOrange(){
-    suggestAddShoppingItem('orange','fruits')
+function SuggestAddOrange(){
+    SuggestAddShoppingItem('orange','fruits')
 }
 
-function suggestAddTea(){
-    suggestAddShoppingItem('tea','drink')
+function SuggestAddTea(){
+    SuggestAddShoppingItem('tea','drink')
 }
 
-function suggestAddJuice(){
-    suggestAddShoppingItem('juice','drink')
+function SuggestAddJuice(){
+    SuggestAddShoppingItem('juice','drink')
 }
 
-function suggestAddBeer(){
-    suggestAddShoppingItem('beer','drink')
+function SuggestAddBeer(){
+    SuggestAddShoppingItem('beer','drink')
 }
 
-function suggestAddBread(){
-    suggestAddShoppingItem('bread','food')
+function SuggestAddBread(){
+    SuggestAddShoppingItem('bread','food')
 }
 
-function suggestAddBagel(){
-    suggestAddShoppingItem('bagel','food')
+function SuggestAddBagel(){
+    SuggestAddShoppingItem('bagel','food')
 }
 
-function suggestAddHamburger(){
-    suggestAddShoppingItem('hamburger','food')
+function SuggestAddHamburger(){
+    SuggestAddShoppingItem('hamburger','food')
 }
 
-function suggestAddCurryRice(){
-    suggestAddShoppingItem('curry rice','food')
+function SuggestAddCurryRice(){
+    SuggestAddShoppingItem('curry rice','food')
 }
 
-function suggestAddChaire(){
-    suggestAddShoppingItem('chair','furniture')
+function SuggestAddChaire(){
+    SuggestAddShoppingItem('chair','furniture')
 }
 
-function suggestAddPottedPlant(){
-    suggestAddShoppingItem('potted plant','furniture')
+function SuggestAddPottedPlant(){
+    SuggestAddShoppingItem('potted plant','furniture')
 }
 
-function suggestAddtelephone(){
-    suggestAddShoppingItem('telephone','furniture')
+function SuggestAddtelephone(){
+    SuggestAddShoppingItem('telephone','furniture')
 }
