@@ -1,15 +1,15 @@
 # Team 22 Meeting Minutes
 ## Type of meeting - 
 
-**Meeting Date/Time:**   
+**Meeting Date/Time:**   November 28th, 3:00 PM
 
-**Meeting Purpose:**   
+**Meeting Purpose:**   Sprint Meeting #3
 
 **Meeting Location:**   Zoom Call
 
 **Note Taker:** Varun Singhal
 
-**Meeting End Time:** 
+**Meeting End Time:** November 28th, 3:45 PM
 
 ## Attendance List
 - Varun Singhal
@@ -39,6 +39,9 @@ N/A
 - 
 
 ## Additional Information / Comments
+- UI Change #1: Fixing buttons for update and delete. Make sure they always fall under the bottom line so it looks good for text wrapping
+- Color of purple changes to blue for the "add to shopping list" if we have shopping list as a blue color.
+-  
 
 
 ## Important Notes / Decisions
