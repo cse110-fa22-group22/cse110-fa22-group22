@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="/source/css/style.css">
         <script type="module" src="/source/javascript/shopping/create.js"></script>
         <script type="module" src="/source/javascript/index.js"></script>
+        <link href="/source/favicon.ico" rel="icon">
     </head>
 
     <body>
+        
         <div id="background_for_modal"></div>
         <div id="shopping_add_modal">
             <form>
@@ -18,7 +20,7 @@
                 <p>Item name</p>
                 <input type="text" id="shopping_add_name" required>
                 <p>Number of items</p>
-                <input type="text" id="shopping_add_quantity" required>
+                <input type="number" id="shopping_add_quantity" required min="1" max="99">
                 <p>Category</p>
                 <input type="text" id="shopping_add_category" required>
                 <br/>
@@ -36,7 +38,7 @@
                 <p>Item name</p>
                 <input type="text" id="shopping_update_name" required>
                 <p>Number of items</p>
-                <input type="text" id="shopping_update_quantity" required>
+                <input type="number" id="shopping_update_quantity" required min="1" max="99">
                 <p>Category</p>
                 <input type="text" id="shopping_update_category" required>
                 <br/>
@@ -55,11 +57,12 @@
         <nav>
             <div class="container">
             <h1 id="title">Kaimono</h1>
+            <button id="guide_btn">❔Guide</button>
     
             <div class = "menu">
                 <a href="#" class = "is-active">Home</a>
-                <a href="#" >About</a>
-                <a href="#" >Project</a>
+                <a href="https://github.com/cse110-fa22-group22/cse110-fa22-group22/blob/main/admin/team.md" target=“_blank>About</a>
+                <a href="https://github.com/cse110-fa22-group22/cse110-fa22-group22" target=“_blank >Project</a>
                 <a href="#" >Contact</a>
             </div>
 
@@ -72,30 +75,266 @@
             </div>
         </nav>
 
-       
+        <dialog id="guide">
+            <table style="text-align: center;">
+                <tr>
+                    <th colspan="2"><h3>User Guide</h3></th> 
+                </tr>
+                <tr>
+                    <td>📋 Suggest items</td>
+                    <td>Open the suggestion list. You can add items directly from here.</td>
+                </tr>
+                <tr>
+                    <td>➕ buttons</td>
+                    <td>Add items to the shopping list or to the inventory list.</td>
+                </tr>
+                <tr>
+                    <td>✔️ buttons</td>
+                    <td>Confirm/submit your item data.</td>
+                </tr>
+                <tr>
+                    <td>❌ buttons</td>
+                    <td>Cancel/delete item data.</td>
+                </tr>
+                <tr>
+                    <td>🟣↩ buttons</td>
+                    <td>Add this item to shopping list.</td>
+                </tr>
+                <tr>
+                    <td>↪🟠 buttons</td>
+                    <td>Add this item to inventory list.</td>
+                </tr>
+                <tr>
+                    <th colspan="2"><button id="close_guide">Close🚫</button></th>
+                </tr>
+            </table>
+        </dialog>
+
+        <section id="suggest_section">
+            <!-- title of section -->
+            <h2 class="sectionTitle">Suggest list</h2>
+            
+            <!-- list of suggest -->
+            <ul id = "suggest_list">
+                <li>
+                    <details>
+                        <summary>Fruits</summary>
+                        <ul>
+                            <li>
+                                <span>Apple🍎</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="apple_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="apple_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Banana🍌</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="banana_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="banana_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Orange🍊</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="orange_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="orange_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details>
+                        <summary>Drink</summary>
+                        <ul>
+                            <li>
+                                <span>Tea🍵</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="tea_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="tea_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Juice🧃</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="juice_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="juice_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Beer🍺</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="beer_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="beer_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details>
+                        <summary>Food</summary>
+                        <ul>
+                            <li>
+                                <span>Bread🍞</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="bread_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="bread_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Bagel🥯</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="bagel_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="bagel_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Hamburger🍔</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="hamburger_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="hamburger_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                            <li>
+                                <span>Curry rice🍛</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="curry_rice_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="curry_rice_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details>
+                        <summary>Furniture</summary>
+                        <ul>
+                            <li>
+                                <span>Chair💺</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="chair_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="chair_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Potted plant💐</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="potted_plant_add_quantity" class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="potted_plant_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>
+                            <li>
+                                <span>Telephone📠</span>
+                                <details>
+                                    <summary>🛍️</summary>
+                                    <span> Quantity:</span>
+                                    <input type="number" id="telephone_add_quantity"  class="sug" min="1" max="99">
+                                    <div>
+                                        <button id="telephone_to_sp">🟣↩</button>
+                                        <button>↪🟠</button>
+                                    </div>
+                                </details>
+                            </li>  
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+
+            <!-- Button for close suggest list -->
+            <button id="close_suggest">🚫</button>
+
+        </section>
+
+
         <main>
             <!-- shopping list section -->
             <section class="shopping">
 
                 <!-- title of section -->
-                <h2 class="sectionTitle">Shopping list</h2>
-                
+                <div id="suggest">
+                    <h2 class="sectionTitle">Shopping list</h2>
+                    <button id="suggest_btn">suggest items 📋</button>
+                </div>
+
                 <ul id = "shopping_list">
                     <li>Product 1</li>
                     <li>Product 2</li>
                     <li>Product 3</li>
                     <li>Product 4</li>
                     <li>Product 5</li>
-                    <li>Product 6</li> 
-                    <li>Product 7</li> 
+                    <li>Product 6</li>
+                    <li>Product 7</li>
                     <li>Product 8</li>
                     <li>Product 9</li>
                     <li>Product 10</li>
                     <li>Product 11</li>
                     <li>Product 12</li>
                     <li>Product 13</li>
-                    <li>Product 14</li>
-                    <li>Product 15</li>
                 </ul>
 
                 <!-- Button for adding shopping items -->
@@ -115,22 +354,28 @@
                     <li>Product 3</li>
                     <li>Product 4</li>
                     <li>Product 5</li>
-                    <li>Product 6</li> 
-                    <li>Product 7</li> 
+                    <li>Product 6</li>
+                    <li>Product 7</li>
                     <li>Product 8</li>
                     <li>Product 9</li>
                     <li>Product 10</li>
                     <li>Product 11</li>
                     <li>Product 12</li>
                     <li>Product 13</li>
-                    <li>Product 14</li>
-                    <li>Product 15</li>
                 </ul>
 
                 <!-- Button for adding inventory items -->
                 <button>➕</button>
             </section>
         </main>
+
+
+        <!-- Show wave -->
+        <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </div>
+
     </body>
 </html>
 

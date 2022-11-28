@@ -1,3 +1,6 @@
+/*import a font from google*/
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -35,7 +38,7 @@ h2{
 
 #shopping_add_modal form, #shopping_update_modal form{
     margin: auto;
-    background: rgb(132, 153, 136);
+    background: rgb(202, 220, 223);
     
     padding: 2vw;
     border: 2px solid gray;
@@ -47,7 +50,7 @@ h2{
     position: fixed;
     margin: auto;
     margin-top: -100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     border: none;
     padding: 100%;
     width: 200%;
@@ -63,7 +66,7 @@ nav {
     z-index: 99;
     padding: 10px 32px;
 
-    background-color:#093824; 
+    background-color:#015871; 
 }
 
 /* navbar container */
@@ -153,6 +156,10 @@ body{
 
     /* background color of entire page */
     background-color: #0c4d30 ;
+
+    /*from wave*/
+    background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #b7e8eb 100%);
+    overflow: hidden;
 }
 
 /* default screen size */
@@ -188,8 +195,18 @@ section {
     padding: 20px;
 }
 
+#suggest_section{
+    background-color: #46a7b4;
+    position: absolute;
+    z-index: 1;
+    width: 450px;
+    display: none;
+}
+
+
+
 section.shopping{
-    background-color: #2E294E;
+    background-color: #3c5a77;
 }
 
 section.inventory{
@@ -205,15 +222,55 @@ ul {
     padding: 5px;
 
     /* other list properties */
-    overflow: scroll;
+    overflow-y: scroll;
     list-style: none;
     background-color: white;  
+    border-radius: 10px;
 }
+
+
+/*scrollbar style line 232-265*/
+ul::-webkit-scrollbar {
+    width: auto; 
+}
+
+ul::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0);
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 25px;
+}
+
+.shopping > ul::-webkit-scrollbar-thumb:vertical {
+    background: rgba(200, 194, 221, 0.5);
+    border-radius: 20px
+}
+
+.shopping > ul::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: rgb(154, 153, 175);  
+}
+
+.inventory > ul::-webkit-scrollbar-thumb:vertical {
+    background: rgba(221, 208, 194, 0.5);
+    border-radius: 20px
+}
+
+.inventory > ul::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #cf9b7c; 
+}
+
+ul::-webkit-scrollbar-corner{
+    background-color:#ffffff;
+    border-bottom-right-radius: 25px;
+}
+/*scrollbar style end*/
+
+
 
 li{
     /* sizing of box */
     padding: 10px;
     border: 1px solid #ccc;
+    border-radius: 10px;
 
     /* text apearance */
     text-align: left;
@@ -235,15 +292,187 @@ button {
     text-align: center;
 }
 
+
+/*input box style*/
 form > input {
     border-radius: 10px;
     width:180px; 
     height:30px;
     font-size: large;
     margin-bottom: 6px;
+    padding-left: 10px;
 }
 
+/*buttons style*/
 .btns{
     text-align:right;
     width: 180px;
+}
+
+/* create/edit UI font*/
+form > h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: auto;
+}
+
+form > p {
+    font-family: 'Teko', sans-serif;
+    font-size: auto;
+}
+
+/* suggest UI*/
+#suggest{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+#suggest_btn{
+    margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 1px;
+    font-family: 'Teko', sans-serif;
+}
+
+/*style for suggest input box*/
+.sug{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 20px;
+    width: 40px;
+    padding-left: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/*guide UI*/
+#guide_btn{
+    font-family: 'Teko', sans-serif;
+    margin-left: 10px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 10px;
+}
+
+#guide_btn:hover,#suggest_btn:hover{
+    background-color: #FF5714 ;
+    color:rgb(255, 255, 255);
+}
+
+#guide{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: #cbd8d7;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+
+#guide *{
+    font-family: 'Teko', sans-serif;
+}
+
+/*table style for guide*/
+td{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 9px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table{
+    margin: 15px;
+}
+
+/*list style*/
+
+details > ul > li >button{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
+details > ul > li{
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+}
+
+details > ul {
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Quoting the wave background from https://codepen.io/Daag/pen/qBBvvdE*/
+
+.ocean {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #015871;
+  z-index: -1;
+}
+
+.wave {
+  background: url(https://cdn.kcak11.com/codepen_assets/wave_animation/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+@keyframes swell {
+  0%,
+	100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+.endWave{
+	display:none;
 }
