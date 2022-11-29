@@ -3,7 +3,7 @@
 ## Overview 
 
 Our pipeline is designed to quickly and effenciently deploy new code while testing it for bugs. We have the following tools and processes outlined for our pipeline.
-We want to implement the following tasks in the section below for our pipeline so that we are able to check the code that is being merged and make sure it is clean and neat and held to a standard. Using the features we list below we can continue development (CI) so that we have no hold ups in the development process.
+We want to implement some more of the following tasks in the section below for our pipeline so that we are able to check the code that is being merged and make sure it is clean and neat and held to a standard. Using the features we list below we can continue development (CI) so that we have no hold ups in the development process. We already have a few features set up, but this phase irons out everything and gets everything set up.
 
 # Identified New Pipeline Features
 - CSS linting and code style enforcement
