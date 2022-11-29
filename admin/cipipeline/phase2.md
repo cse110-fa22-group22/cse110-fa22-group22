@@ -19,7 +19,7 @@ We have also implemented CSSLinting since our phase 1 to go along with our ESLin
 
 2. Firstly, installing CSSLint for NodeJS by running `npm install --save-dev csslint` in terminal. Then, implementing `csslint` in npm scripts of package.json to scan appropriate CSS file. Finally, adding `csslint` in yml file to get it into our workflow/pipeline.
 
-3. Run `npm run csslint` in terminal to get it works.
+3. Run `npm run csslint` in terminal to get it to work.
 
 **Methods of using JSDocs** 
 1. Follow the example comment below and this will allow us to use the configuration file made to auto-generate documentation based on the comments after they are done. Have members of the team write these comments for each function they write so that we can generate documentation for it. 
