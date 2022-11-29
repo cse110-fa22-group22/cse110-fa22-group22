@@ -15,7 +15,11 @@ We want to implement some more of the following tasks in the section below for o
 We have also implemented CSSLinting since our phase 1 to go along with our ESLint that we had done. 
 
 **Methods of using CSSLinting**
-1. Fill in this portion
+1. The purpose of CSSLint is to format the CSS codes written in this project.  
+
+2. Firstly, installing CSSLint for NodeJS by running `npm install --save-dev csslint` in terminal. Then, implementing `csslint` in npm scripts of package.json to scan appropriate CSS file. Finally, adding `csslint` in yml file to get it into our workflow/pipeline.
+
+3. Run `npm run csslint` in terminal to get it works.
 
 **Methods of using JSDocs** 
 1. Follow the example comment below and this will allow us to use the configuration file made to auto-generate documentation based on the comments after they are done. Have members of the team write these comments for each function they write so that we can generate documentation for it. 
