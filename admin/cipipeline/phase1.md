@@ -32,4 +32,4 @@ We are using **Jest** for unit testing.
 
 ## Pipeline Diagram
 
-![pipeline diagram](Pipelinediagram.png "Pipeline Diagram")
+![pipeline diagram](admin/../../misc/Pipelinediagram.png "Pipeline Diagram")
