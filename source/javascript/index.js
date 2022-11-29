@@ -204,11 +204,11 @@ function addInventoryEvents () {
         })
     }
 
-    // const removeButtons = document.getElementsByClassName('inventory_remove_button')
+    const removeButtons = document.getElementsByClassName('inventory_remove_button')
 
-    // for (const button of removeButtons) {
-    //     button.addEventListener('click', () => { removeInventoryItem(button) })
-    // }
+    for (const button of removeButtons) {
+        button.addEventListener('click', () => { removeInventoryItem(button) })
+    }
 }
 
 function updateItem (button) {
@@ -263,6 +263,13 @@ function removeShoppingItem (button) {
     const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     client.shopping.delete(shoppingList, name)
+}
+
+function removeInventoryItem (button) {
+    const item = button.parentNode
+    const name = item.innerHTML.split('>')[1].split('<')[0]
+    item.parentNode.removeChild(item)
+    client.inventory.delete(shoppingList, name)
 }
 
 async function readItemFromStorage () {
