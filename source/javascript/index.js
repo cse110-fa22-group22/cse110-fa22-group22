@@ -138,10 +138,10 @@ function addShoppingItem () {
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
         <li>
-            <input type="checkbox">
+            <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category} </span>
+            <span class="category">category: ${category}</span>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
@@ -174,6 +174,22 @@ async function addInventoryItem () {
 }
 
 function addEvents () {
+    const boughtButtons = document.getElementsByClassName('bought_button')
+
+    for (const button of boughtButtons) {
+        console.log(button.parentNode.parentNode.innerHTML)
+        button.addEventListener('click', async () => {
+            const name = button.parentNode.parentNode.innerHTML.split('e">')[1].split('<')[0]
+            const quantity = button.parentNode.parentNode.innerHTML.split('quantity: ')[1].split('<')[0]
+            const category = button.parentNode.parentNode.innerHTML.split('category: ')[1].split('<')[0]
+            console.log(name + ': ' + quantity + ': ' + category)
+            removeShoppingItem(button)
+            client.inventory.create(inventoryList, name, quantity, category)
+            await generateInventoryList(category)
+            addEvents()
+        })
+    }
+
     const updateButtons = document.getElementsByClassName('update')
 
     for (const button of updateButtons) {
@@ -272,12 +288,12 @@ async function readItemFromStorage () {
         for (const item of shoppingListFromStorage) {
             list.innerHTML += `
             <li>
-                <input type="checkbox">
+                <input class="bought_button" type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
                 <span class="category">category: ${item.category}</span>
                 <span><button class="update">update</button></span>
-                <span class="remove-button">❌</span>
+                <span class="remove_button">❌</span>
             </li>
             `
             shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
@@ -315,6 +331,8 @@ async function generateInventoryList (openCategory) {
             </li>
             `
         }
+    } else {
+        inventoryList = {}
     }
     addInventoryEvents()
 }
