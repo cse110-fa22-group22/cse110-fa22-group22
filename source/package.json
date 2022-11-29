@@ -4,7 +4,8 @@
   "description": "[Click here to check out team PEBKAC!](admin/team.md)",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --fix ./javascript/index.js && eslint --fix ./javascript/shopping/*.js",
+    "lint": "eslint --fix ./javascript/index.js && eslint --fix ./javascript/shopping/*.js && eslint --fix ./javascript/inventory/*.js",
+    "csslint": "csslint ./css/style.css",
     "test": "jest",
     "generate-docs": "jsdoc -c jsdoc-conf.json"
   },
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/cse110-fa22-group22/cse110-fa22-group22#readme",
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+    "csslint": "^1.0.5",
     "eslint": "^8.27.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
