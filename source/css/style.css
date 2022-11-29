@@ -25,7 +25,7 @@ h2{
     text-transform: uppercase;
 }
 
-#shopping_add_modal, #shopping_update_modal, #inventory_update_modal {
+#shopping_add_modal, #shopping_update_modal, #inventory_add_modal, #inventory_update_modal {
     display: none;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ h2{
     
 }
 
-#shopping_add_modal form, #shopping_update_modal form, #inventory_update_modal form{
+#shopping_add_modal form, #shopping_update_modal form, #inventory_add_modal form, #inventory_update_modal form{
     margin: auto;
     background: rgb(202, 220, 223);
     
