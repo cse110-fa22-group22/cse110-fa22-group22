@@ -2,6 +2,7 @@ import create from './shopping/create.js'
 import update from './shopping/update.js'
 import remove from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
+import inventoryUpdate from './inventory/update.js'
 
 const shoppingList = []
 let inventoryList = {}
@@ -15,7 +16,8 @@ client.shopping = {
 }
 
 client.inventory = {
-    create: inventoryCreate
+    create: inventoryCreate,
+    update: inventoryUpdate
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -66,7 +68,7 @@ function init () {
     document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryModal)
     document.getElementById('inventory_add_submit').addEventListener('click', addInventoryItem)
     document.getElementById('inventory_update_cancel').addEventListener('click', hideInventoryUpdateModal)
-    // document.getElementById('inventory_update_submit').addEventListener('click', updateInventoryItem)
+    document.getElementById('inventory_update_submit').addEventListener('click', updateInventoryItem)
 
     /* guide event */
     document.getElementById('guide_btn').addEventListener('click', showGuide)
@@ -211,41 +213,49 @@ function addInventoryEvents () {
 
 function updateItem (button) {
     event.preventDefault()
-    // get the value from the input
     const prevName = updatingItem.innerHTML.split('>')[2].split('<')[0]
     const name = document.getElementById('shopping_update_name').value
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
-    let CheckAllPass = true
 
-    /* Check whether the input is valid */
     if (!name || !quantity || !category) {
-        alert('name or quantity or category can not be empty!')
-        CheckAllPass = false
-        return
+        return alert('name or quantity or category can not be empty!')
     }
 
-    if (quantity <= 0) {
-        alert('Quantity needs to be greater than 0')
-        CheckAllPass = false
-        return
-    } else {
-        if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
-            alert('Item with the same name already existed. Please consider updating the item.')
-            CheckAllPass = false
-            return
-        }
+    if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
     }
 
-    if (CheckAllPass) {
-        updatingItem.children[1].innerText = name
-        updatingItem.children[2].innerText = 'quantity: ' + quantity
-        updatingItem.children[3].innerText = 'category: ' + category
-    }
+    updatingItem.children[1].innerText = name
+    updatingItem.children[2].innerText = 'quantity: ' + quantity
+    updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
     document.getElementById('shopping_update_name').value = ''
     document.getElementById('shopping_update_quantity').value = ''
     document.getElementById('shopping_update_category').value = ''
+}
+
+async function updateInventoryItem (button) {
+    event.preventDefault()
+    const prevName = updatingItem.innerHTML.split('>')[1].split('<')[0]
+    const prevCategory = updatingItem.innerHTML.split('category: ')[1].split('<')[0]
+    const name = document.getElementById('inventory_update_name').value
+    const quantity = document.getElementById('inventory_update_quantity').value
+    const category = document.getElementById('inventory_update_category').value
+
+    if (!name || !quantity || !category) {
+        return alert('name or quantity or category can not be empty!')
+    }
+
+    if (!client.inventory.update(inventoryList, prevName, prevCategory, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
+    }
+
+    await generateInventoryList(category)
+    hideInventoryUpdateModal()
+    document.getElementById('inventory_update_name').value = ''
+    document.getElementById('inventory_update_quantity').value = ''
+    document.getElementById('inventory_update_category').value = ''
 }
 
 function removeShoppingItem (button) {
@@ -265,7 +275,7 @@ async function readItemFromStorage () {
                 <input type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
-                <span class="category">category: ${item.category} </span>
+                <span class="category">category: ${item.category}</span>
                 <span><button class="update">update</button></span>
                 <span class="remove-button">❌</span>
             </li>
@@ -288,7 +298,7 @@ async function generateInventoryList (openCategory) {
                     <li style="display: block">
                         <span class="inventory_name">${value[i].name}</span> | 
                         <span class="inventory_quantity">quantity: ${value[i].quantity}</span> | 
-                        <span class="inventory_category">category: ${value[i].category} </span>
+                        <span class="inventory_category">category: ${value[i].category}</span>
                         <span><button class="inventory_update">update</button></span>
                         <span class="inventory_remove_button">❌</span>
                     </li>
