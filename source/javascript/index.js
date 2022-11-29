@@ -255,7 +255,7 @@ async function generateInventoryList () {
             let htmlList = ''
             for (let i = 0; i < value.length; i++) {
                 htmlList += `
-                    <li>
+                    <li style="display: block">
                         <span class="inventory_name">${value[i].name}</span> | 
                         <span class="inventory_quantity">quantity: ${value[i].quantity}</span> | 
                         <span class="inventory_category">category: ${value[i].category} </span>
