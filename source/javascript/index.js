@@ -45,12 +45,15 @@ function init () {
     document.getElementById('shopping_update_cancel').addEventListener('click', hideShoppingUpdateModal)
     document.getElementById('shopping_update_submit').addEventListener('click', updateItem)
 
+    document.getElementById('inventory_update_cancel').addEventListener('click', hideInventoryUpdateModal)
+    // document.getElementById('inventory_update_submit').addEventListener('click', updateInventoryItem)
+
     /* guide event */
     document.getElementById('guide_btn').addEventListener('click', showGuide)
     document.getElementById('close_guide').addEventListener('click', closeGuide)
 
     /* suggest list event */
-    document.getElementById('suggest_btn').addEventListener('click', showSuggest)
+    // document.getElementById('suggest_btn').addEventListener('click', showSuggest)
     document.getElementById('close_suggest').addEventListener('click', closeSuggest)
 
     /* suggest list add to sp list */
@@ -68,6 +71,7 @@ function init () {
     document.getElementById('potted_plant_to_sp').addEventListener('click', SuggestAddPottedPlant)
     document.getElementById('telephone_to_sp').addEventListener('click', SuggestAddtelephone)
     readItemFromStorage()
+    generateInventoryList()
 }
 
 function hideShoppingModal () {
@@ -79,6 +83,12 @@ function hideShoppingModal () {
 function hideShoppingUpdateModal () {
     event.preventDefault()
     document.getElementById('shopping_update_modal').style.display = 'none'
+    document.getElementById('background_for_modal').style.display = 'none'
+}
+
+function hideInventoryUpdateModal () {
+    event.preventDefault()
+    document.getElementById('inventory_update_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
@@ -117,7 +127,7 @@ function addShoppingItem () {
               <span class="quantity">quantity: ${quantity}</span> | 
               <span class="category">category: ${category} </span>
               <span><button class="update">update</button></span>
-              <span class="remove-button">❌</span>
+              <span class="remove_button">❌</span>
           </li>
       `
         client.shopping.create(shoppingList, name, quantity, category)
@@ -138,15 +148,34 @@ function addEvents () {
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
             updatingItem = button.parentNode.parentNode
-            console.log(updatingItem)
         })
     }
 
-    const removeButtons = document.getElementsByClassName('remove-button')
+    const removeButtons = document.getElementsByClassName('remove_button')
 
     for (const button of removeButtons) {
         button.addEventListener('click', () => { removeShoppingItem(button) })
     }
+}
+
+function addInventoryEvents () {
+    const updateButtons = document.getElementsByClassName('inventory_update')
+
+    for (const button of updateButtons) {
+        button.addEventListener('click', () => {
+            const modal = document.getElementById('inventory_update_modal')
+            modal.style.display = 'flex'
+            document.getElementById('background_for_modal').style.display = 'flex'
+            updatingItem = button.parentNode.parentNode
+            console.log(updatingItem)
+        })
+    }
+
+    // const removeButtons = document.getElementsByClassName('inventory_remove_button')
+
+    // for (const button of removeButtons) {
+    //     button.addEventListener('click', () => { removeInventoryItem(button) })
+    // }
 }
 
 function updateItem (button) {
@@ -215,6 +244,38 @@ async function readItemFromStorage () {
         }
     }
     addEvents()
+}
+
+async function generateInventoryList () {
+    const inventoryListFromStorage = JSON.parse(localStorage.getItem('inventoryList'))
+    const list = document.getElementById('inventory_list')
+    if (inventoryListFromStorage != null) {
+        for (const [key, value] of Object.entries(inventoryListFromStorage)) {
+            let htmlList = ''
+            for (let i = 0; i < value.length; i++) {
+                htmlList += `
+                    <li>
+                        <span class="inventory_name">${value[i].name}</span> | 
+                        <span class="inventory_quantity">quantity: ${value[i].quantity}</span> | 
+                        <span class="inventory_category">category: ${value[i].category} </span>
+                        <span><button class="inventory_update">update</button></span>
+                        <span class="inventory_remove_button">❌</span>
+                    </li>
+                `
+            }
+            list.innerHTML += `
+            <li>
+                <details>
+                <summary>${key}</summary>
+                    <ul>
+                        ${htmlList}
+                    </ul>
+                </details>
+            </li>
+            `
+        }
+    }
+    addInventoryEvents()
 }
 
 /* show the user guide */
