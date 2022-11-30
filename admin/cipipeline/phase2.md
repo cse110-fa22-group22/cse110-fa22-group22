@@ -32,7 +32,7 @@ We have also implemented CSSLinting since our phase 1 to go along with our ESLin
  * @param {string} author - The author of the book.
  */
 
- 1. Run `jsdoc file.js` in terminal to get it to work.
+ 1. Run `jsdoc file.js` in terminal to create a directory called /out and within that directory there will be HTML pages generated with the documenation from the comments in our code.
 
 **Pull Requests**
 1. These are manual and need to be done by individual members of the team. Go to github and check on pull requests that are waiting to be merged. Take these requests and view the changes made to the main code-base and see if there are any errors. Once you have combed through the request and identified any bugs, you can submit your review so that it can be approved or fixed before it is pushed to the main branch. 
