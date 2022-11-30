@@ -157,7 +157,7 @@ function addShoppingItem () {
             <span class="remove_button">❌</span>
         </li>
     `
-    addEvents()
+    addShoppingEvents()
     hideShoppingAddModal()
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''
@@ -184,7 +184,7 @@ async function addInventoryItem () {
     document.getElementById('inventory_add_category').value = ''
 }
 
-function addEvents () {
+function addShoppingEvents () {
     const boughtButtons = document.getElementsByClassName('bought_button')
 
     for (const button of boughtButtons) {
@@ -197,7 +197,7 @@ function addEvents () {
             removeShoppingItem(button)
             client.inventory.create(inventoryList, name, quantity, category)
             await generateInventoryList(category)
-            addEvents()
+            addShoppingEvents()
         })
     }
 
@@ -323,7 +323,7 @@ async function generateShoppingList () {
     } else {
         shoppingList = []
     }
-    addEvents()
+    addShoppingEvents()
 }
 
 async function generateInventoryList (openCategory) {
@@ -418,7 +418,7 @@ function SuggestAddShoppingItem (iname, icategory) {
             <span class="remove_button">❌</span>
         </li>
     `
-    addEvents()
+    addShoppingEvents()
     alert('Item has been successfully added to shopping list')
 
     document.getElementById('shopping_add_name').value = ''
