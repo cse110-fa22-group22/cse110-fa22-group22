@@ -3,6 +3,7 @@ import update from './shopping/update.js'
 import remove from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
+import inventoryDelete from './inventory/delete.js'
 
 const shoppingList = []
 let inventoryList = {}
@@ -17,7 +18,8 @@ client.shopping = {
 
 client.inventory = {
     create: inventoryCreate,
-    update: inventoryUpdate
+    update: inventoryUpdate,
+    delete: inventoryDelete
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -267,9 +269,10 @@ function removeShoppingItem (button) {
 
 function removeInventoryItem (button) {
     const item = button.parentNode
-    const name = item.innerHTML.split('>')[1].split('<')[0]
+    const name = item.innerHTML.split('me">')[1].split('<')[0]
+    const category = item.innerHTML.split('category: ')[1].split('<')[0]
     item.parentNode.removeChild(item)
-    client.inventory.delete(shoppingList, name)
+    client.inventory.delete(inventoryList, name, category)
 }
 
 async function readItemFromStorage () {
