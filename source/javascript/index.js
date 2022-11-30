@@ -3,6 +3,7 @@ import update from './shopping/update.js'
 import remove from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
+import inventoryDelete from './inventory/delete.js'
 import inventoryGet from './inventory/get.js'
 
 const shoppingList = []
@@ -19,6 +20,7 @@ client.shopping = {
 client.inventory = {
     create: inventoryCreate,
     update: inventoryUpdate,
+    delete: inventoryDelete,
     get: inventoryGet
 }
 
@@ -226,11 +228,11 @@ function addInventoryEvents () {
         })
     }
 
-    // const removeButtons = document.getElementsByClassName('inventory_remove_button')
+    const removeButtons = document.getElementsByClassName('inventory_remove_button')
 
-    // for (const button of removeButtons) {
-    //     button.addEventListener('click', () => { removeInventoryItem(button) })
-    // }
+    for (const button of removeButtons) {
+        button.addEventListener('click', () => { removeInventoryItem(button) })
+    }
 }
 
 function updateItem (button) {
@@ -289,6 +291,14 @@ function removeShoppingItem (button) {
     const name = item.innerHTML.split('>')[2].split('<')[0]
     item.parentNode.removeChild(item)
     client.shopping.delete(shoppingList, name)
+}
+
+function removeInventoryItem (button) {
+    const item = button.parentNode
+    const name = item.innerHTML.split('me">')[1].split('<')[0]
+    const category = item.innerHTML.split('category: ')[1].split('<')[0]
+    item.parentNode.removeChild(item)
+    client.inventory.delete(inventoryList, name, category)
 }
 
 async function readItemFromStorage () {
