@@ -179,9 +179,9 @@ async function addInventoryItem () {
     }
     await generateInventoryList(category)
     hideInventoryAddModal()
-    document.getElementById('shopping_add_name').value = ''
-    document.getElementById('shopping_add_quantity').value = ''
-    document.getElementById('shopping_add_category').value = ''
+    document.getElementById('inventory_add_name').value = ''
+    document.getElementById('inventory_add_quantity').value = ''
+    document.getElementById('inventory_add_category').value = ''
 }
 
 function addEvents () {
