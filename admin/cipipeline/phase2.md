@@ -48,7 +48,7 @@ To minify the code we can copy and paste are code into a free online JS, html, a
 Once basically all the code for this CRUD application is done, we will copy all the files into a minify directory, minify the code, then deploy the website from that directory. This will lessen the amount of times we need to minify our code.
 
 **Phase 2 Pipeline Diagram**
-
+![pipeline diagram](phase2.png "Pipeline Diagram")
 
 **Review from last time**
 
