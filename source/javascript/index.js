@@ -3,7 +3,9 @@ import update from './shopping/update.js'
 import remove from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
+import inventoryGet from './inventory/get.js'
 import inventoryDelete from './inventory/delete.js'
+import inventoryGet from './inventory/get.js'
 
 const shoppingList = []
 let inventoryList = {}
@@ -19,7 +21,8 @@ client.shopping = {
 client.inventory = {
     create: inventoryCreate,
     update: inventoryUpdate,
-    delete: inventoryDelete
+    delete: inventoryDelete,
+    get: inventoryGet
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -133,6 +136,10 @@ function addShoppingItem () {
         return alert('name or quantity or category can not be empty!')
     }
 
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
+    }
+
     if (!client.shopping.create(shoppingList, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
@@ -140,7 +147,7 @@ function addShoppingItem () {
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
         <li>
-            <input type="checkbox">
+            <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
             <span class="category">category: ${category} </span> <br>
@@ -176,6 +183,22 @@ async function addInventoryItem () {
 }
 
 function addEvents () {
+    const boughtButtons = document.getElementsByClassName('bought_button')
+
+    for (const button of boughtButtons) {
+        console.log(button.parentNode.parentNode.innerHTML)
+        button.addEventListener('click', async () => {
+            const name = button.parentNode.parentNode.innerHTML.split('e">')[1].split('<')[0]
+            const quantity = button.parentNode.parentNode.innerHTML.split('quantity: ')[1].split('<')[0]
+            const category = button.parentNode.parentNode.innerHTML.split('category: ')[1].split('<')[0]
+            console.log(name + ': ' + quantity + ': ' + category)
+            removeShoppingItem(button)
+            client.inventory.create(inventoryList, name, quantity, category)
+            await generateInventoryList(category)
+            addEvents()
+        })
+    }
+
     const updateButtons = document.getElementsByClassName('update')
 
     for (const button of updateButtons) {
@@ -222,6 +245,10 @@ function updateItem (button) {
 
     if (!name || !quantity || !category) {
         return alert('name or quantity or category can not be empty!')
+    }
+
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
     }
 
     if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
@@ -282,12 +309,12 @@ async function readItemFromStorage () {
         for (const item of shoppingListFromStorage) {
             list.innerHTML += `
             <li>
-                <input type="checkbox">
+                <input class="bought_button" type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
                 <span class="category">category: ${item.category}</span>
                 <span><button class="update">update</button></span>
-                <span class="remove-button">❌</span>
+                <span class="remove_button">❌</span>
             </li>
             `
             shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
@@ -325,6 +352,8 @@ async function generateInventoryList (openCategory) {
             </li>
             `
         }
+    } else {
+        inventoryList = {}
     }
     addInventoryEvents()
 }
@@ -361,43 +390,33 @@ function SuggestAddShoppingItem (iname, icategory) {
     const btnName = name.replace(/ /, '_')
     const quantity = document.getElementById(`${btnName}_add_quantity`).value
     const category = icategory
-    let CheckAllPass = true
 
     /* Check whether the input is valid */
     if (!name || !quantity || !category) {
-        CheckAllPass = false
-        alert('name or quantity or category can not be empty!')
-        return
+        return alert('name or quantity or category can not be empty!')
     }
 
-    if (quantity <= 0) {
-        alert('Quantity needs to be greater than 0')
-        CheckAllPass = false
-        return
-    } else {
-        if (!client.shopping.create(shoppingList, name, quantity, category)) {
-            alert('Item with the same name already existed. Please consider updating the item.')
-            CheckAllPass = false
-            return
-        }
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
     }
 
-    if (CheckAllPass) {
-        const list = document.getElementById('shopping_list')
-        list.innerHTML += `
-            <li>
-                <input type="checkbox">
-                <span class="name">${name}</span> | 
-                <span class="quantity">quantity: ${quantity}</span> | 
-                <span class="category">category: ${category} </span>
-                <span><button class="update">update</button></span>
-                <span class="remove-button">❌</span>
-            </li>
-        `
-        client.shopping.create(shoppingList, name, quantity, category)
-        addEvents()
-        alert('Item has been successfully added to shopping list')
+    if (!client.shopping.create(shoppingList, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
     }
+
+    const list = document.getElementById('shopping_list')
+    list.innerHTML += `
+        <li>
+            <input type="checkbox">
+            <span class="name">${name}</span> | 
+            <span class="quantity">quantity: ${quantity}</span> | 
+            <span class="category">category: ${category} </span>
+            <span><button class="update">update</button></span>
+            <span class="remove-button">❌</span>
+        </li>
+    `
+    addEvents()
+    alert('Item has been successfully added to shopping list')
 
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''

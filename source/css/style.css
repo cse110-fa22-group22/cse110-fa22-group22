@@ -426,6 +426,9 @@ details > ul {
     width: 100%;
 }
 
+.remove_button, .inventory_remove_button {
+    cursor: pointer;
+}
 
 
 
