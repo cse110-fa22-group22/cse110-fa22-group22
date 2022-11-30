@@ -403,10 +403,6 @@ function SuggestAddShoppingItem (iname, icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
-function openNav(){
-    
-}
-
 /* These are preset item functions for suggest list */
 function SuggestAddApple () {
     SuggestAddShoppingItem('apple', 'fruits')
