@@ -411,7 +411,7 @@ function SuggestAddShoppingItem (iname, icategory) {
             <span class="quantity">quantity: ${quantity}</span> | 
             <span class="category">category: ${category} </span>
             <span><button class="update">update</button></span>
-            <span class="remove-button">❌</span>
+            <span class="remove_button">❌</span>
         </li>
     `
     addEvents()
