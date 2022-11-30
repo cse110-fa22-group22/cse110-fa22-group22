@@ -1,5 +1,4 @@
 import create from '../inventory/create.js'
-import _delete from '../inventory/delete.js';
 import invDelete from '../inventory/delete.js'
 
 class LocalStorageMock {
