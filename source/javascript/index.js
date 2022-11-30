@@ -1,12 +1,12 @@
 import shoppingCreate from './shopping/create.js'
 import shoppingUpdate from './shopping/update.js'
-import shoppingDelete from './shopping/delete.js' // delete is a keyword
+import shoppingDelete from './shopping/delete.js'
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
 import inventoryGet from './inventory/get.js'
 import inventoryDelete from './inventory/delete.js'
 
-const shoppingList = []
+let shoppingList = []
 let inventoryList = {}
 const client = {
     updatingItem: {},
@@ -64,11 +64,13 @@ function init () {
         document.getElementById('background_for_modal').style.display = 'flex'
     })
 
+    /* shopping modal buttons */
     document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingAddModal)
     document.getElementById('shopping_add_submit').addEventListener('click', addShoppingItem)
     document.getElementById('shopping_update_cancel').addEventListener('click', hideShoppingUpdateModal)
     document.getElementById('shopping_update_submit').addEventListener('click', shoppingUpdateItem)
 
+    /* inventory modal buttons */
     document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryAddModal)
     document.getElementById('inventory_add_submit').addEventListener('click', addInventoryItem)
     document.getElementById('inventory_update_cancel').addEventListener('click', hideInventoryUpdateModal)
@@ -97,7 +99,8 @@ function init () {
     document.getElementById('chair_to_sp').addEventListener('click', SuggestAddChaire)
     document.getElementById('potted_plant_to_sp').addEventListener('click', SuggestAddPottedPlant)
     document.getElementById('telephone_to_sp').addEventListener('click', SuggestAddtelephone)
-    readItemFromStorage()
+
+    generateShoppingList()
     generateInventoryList()
 }
 
@@ -301,11 +304,11 @@ async function removeInventoryItem (button) {
     await generateInventoryList(category)
 }
 
-async function readItemFromStorage () {
-    const shoppingListFromStorage = JSON.parse(localStorage.getItem('shoppingList'))
+async function generateShoppingList () {
+    shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
     const list = document.getElementById('shopping_list')
-    if (shoppingListFromStorage != null) {
-        for (const item of shoppingListFromStorage) {
+    if (shoppingList != null) {
+        for (const item of shoppingList) {
             list.innerHTML += `
             <li>
                 <input class="bought_button" type="checkbox">
@@ -316,8 +319,9 @@ async function readItemFromStorage () {
                 <span class="remove_button">❌</span>
             </li>
             `
-            shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
         }
+    } else {
+        shoppingList = []
     }
     addEvents()
 }
@@ -406,7 +410,7 @@ function SuggestAddShoppingItem (iname, icategory) {
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
         <li>
-            <input type="checkbox">
+            <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
             <span class="category">category: ${category} </span>
