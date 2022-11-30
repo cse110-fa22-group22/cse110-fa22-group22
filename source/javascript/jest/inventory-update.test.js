@@ -26,37 +26,29 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock;
 
 test('update a item to non-existence category', () => {
-    let inventoryList = {}
-    let name = 'Apple'
-    let quantity = '1'
-    let category = 'Fruit'
-
-    create(inventoryList, name, quantity, category)
-    create(inventoryList, 'orange', '3', 'notFruit')
-    update(inventoryList,name,category,"Apple Cider",'10',"Drinks")
-    inventoryList = JSON.parse(localStorage.getItem('inventoryList'))
-    expect(inventoryList['Drinks'].length).toBe(1)
-    expect(inventoryList['Drinks'][0]['name']).toBe('Apple Cider')
-    expect(inventoryList['Drinks'][0]['quantity']).toBe('10')
-    expect(inventoryList['Drinks'][0]['category']).toBe('Drinks')
-
-    expect(inventoryList[category]).toBeUndefined()
+    let inventoryList = {
+        fruit: [{ name: 'apple', quantity: '6', category: 'fruit'}]
+    }
+    expect(update(inventoryList, 'apple', 'fruit', 'apple cider', '6 bottles', 'drink')).toBe(true)
+    expect(inventoryList['drink'].length).toBe(1)
+    expect(inventoryList['drink'][0]['name']).toBe('apple cider')
+    expect(inventoryList['drink'][0]['quantity']).toBe('6 bottles')
+    expect(inventoryList['drink'][0]['category']).toBe('drink')
+    expect(inventoryList['fruit']).toBeUndefined()
 })
 
 test('update a item to existence category', () => {
-    let inventoryList = {}
-    let name = 'Apple'
-    let quantity = '1'
-    let category = 'Fruit'
-
-    create(inventoryList, name, quantity, category)
-    create(inventoryList, 'orange', '3', 'notFruit')
-    update(inventoryList,name,category,"Apple Cider",'10',"notFruit")
-    inventoryList = JSON.parse(localStorage.getItem('inventoryList'))
-    expect(inventoryList['notFruit'].length).toBe(2)
-    expect(inventoryList['notFruit'][1]['name']).toBe('Apple Cider')
-    expect(inventoryList['notFruit'][1]['quantity']).toBe('10')
-    expect(inventoryList['notFruit'][1]['category']).toBe('notFruit')
-
-    expect(inventoryList[category]).toBeUndefined()
+    let inventoryList = {
+        fruit: [{ name: 'apple', quantity: '6', category: 'fruit'}],
+        drink: [{ name: 'milk', quantity: '3 pints', category: 'drink'}]
+    }
+    expect(update(inventoryList, 'apple', 'fruit', 'apple cider','6 bottles', 'drink')).toBe(true)
+    expect(inventoryList['drink'].length).toBe(2)
+    expect(inventoryList['drink'][0]['name']).toBe('milk')
+    expect(inventoryList['drink'][0]['quantity']).toBe('3 pints')
+    expect(inventoryList['drink'][0]['category']).toBe('drink')
+    expect(inventoryList['drink'][1]['name']).toBe('apple cider')
+    expect(inventoryList['drink'][1]['quantity']).toBe('6 bottles')
+    expect(inventoryList['drink'][1]['category']).toBe('drink')
+    expect(inventoryList['fruit']).toBeUndefined()
 })

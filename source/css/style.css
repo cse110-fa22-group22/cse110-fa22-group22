@@ -25,7 +25,7 @@ h2{
     text-transform: uppercase;
 }
 
-#shopping_add_modal, #shopping_update_modal{
+#shopping_add_modal, #shopping_update_modal, #inventory_add_modal, #inventory_update_modal {
     display: none;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ h2{
     
 }
 
-#shopping_add_modal form, #shopping_update_modal form{
+#shopping_add_modal form, #shopping_update_modal form, #inventory_add_modal form, #inventory_update_modal form{
     margin: auto;
     background: rgb(202, 220, 223);
     
@@ -159,7 +159,6 @@ body{
 
     /*from wave*/
     background: radial-gradient(ellipse at center, #fffeea 0%, #fffeea 35%, #b7e8eb 100%);
-    overflow: hidden;
 }
 
 /* default screen size */
@@ -309,6 +308,15 @@ form > input {
     width: 180px;
 }
 
+.sp_list{
+    background-color: #3c5a77;
+}
+
+.iv_list{
+    background-color: #C44900;
+}
+
+
 /* create/edit UI font*/
 form > h3 {
     font-family: 'Teko', sans-serif;
@@ -321,13 +329,13 @@ form > p {
 }
 
 /* suggest UI*/
-#suggest{
+.suggest{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
 }
 
-#suggest_btn{
+.suggest_btn{
     margin-left: 10px;
     padding-top: 5px;
     padding-bottom: 1px;
@@ -433,7 +441,7 @@ details > ul {
 .ocean {
   height: 5%;
   width: 100%;
-  position: absolute;
+  position:fixed;
   bottom: 0;
   left: 0;
   background: #015871;

@@ -4,7 +4,6 @@ export default function (inventoryList, name, quantity, category) {
     else {
         const arr = inventoryList[category]
         for (let i = 0; i < arr.length; i++) {
-            console.log(arr[i])
             if (arr[i].name === name) {
                 return false
             }
