@@ -77,8 +77,7 @@ function init () {
     document.getElementById('close_guide').addEventListener('click', closeGuide)
 
     /* suggest list event */
-    document.getElementById('suggest_btn_1').addEventListener('click', showSuggest)
-    document.getElementById('suggest_btn_2').addEventListener('click', showSuggest)
+    document.getElementById('suggest_btn').addEventListener('click', showSuggest)
     document.getElementById('close_suggest').addEventListener('click', closeSuggest)
 
     /* suggest list add to sp list */

@@ -335,7 +335,7 @@ form > p {
     flex-direction: row;
 }
 
-.suggest_btn{
+#suggest_btn{
     margin-left: 10px;
     padding-top: 5px;
     padding-bottom: 1px;
