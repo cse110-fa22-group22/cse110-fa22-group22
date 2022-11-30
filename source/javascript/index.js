@@ -3,8 +3,9 @@ import update from './shopping/update.js'
 import remove from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
-import inventoryDelete from './inventory/delete.js'
 import inventoryGet from './inventory/get.js'
+import inventoryDelete from './inventory/delete.js'
+>>>>>>>>> Temporary merge branch 2
 
 const shoppingList = []
 let inventoryList = {}
