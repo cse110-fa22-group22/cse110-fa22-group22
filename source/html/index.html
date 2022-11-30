@@ -20,7 +20,7 @@
                 <p>Item name</p>
                 <input type="text" id="shopping_add_name" required>
                 <p>Number of items</p>
-                <input type="number" id="shopping_add_quantity" required min="1" max="99">
+                <input type="text" id="shopping_add_quantity" required>
                 <p>Category</p>
                 <input type="text" id="shopping_add_category" required>
                 <br/>
@@ -32,13 +32,31 @@
             </form>
         </div>
 
+        <div id="inventory_add_modal">
+            <form>
+                <h3>Add Shopping Item</h3>
+                <p>Item name</p>
+                <input type="text" id="inventory_add_name" required>
+                <p>Number of items</p>
+                <input type="text" id="inventory_add_quantity" required>
+                <p>Category</p>
+                <input type="text" id="inventory_add_category" required>
+                <br/>
+                <br/>
+                <div class="btns">
+                    <button id="inventory_add_submit">✔️</button>
+                    <button id="inventory_add_cancel">❌</button>
+                </div>
+            </form>
+        </div>
+
         <div id="shopping_update_modal">
             <form>
                 <h3>Update Shopping Item</h3>
                 <p>Item name</p>
                 <input type="text" id="shopping_update_name" required>
                 <p>Number of items</p>
-                <input type="number" id="shopping_update_quantity" required min="1" max="99">
+                <input type="text" id="shopping_update_quantity" required>
                 <p>Category</p>
                 <input type="text" id="shopping_update_category" required>
                 <br/>
@@ -46,6 +64,25 @@
                 <div class="btns">
                     <button id="shopping_update_submit">✔️</button>
                     <button id="shopping_update_cancel">❌</button>
+                </div>
+                
+            </form>
+        </div>
+
+        <div id="inventory_update_modal">
+            <form>
+                <h3>Update Inventory Item</h3>
+                <p>Item name</p>
+                <input type="text" id="inventory_update_name" required>
+                <p>Number of items</p>
+                <input type="text" id="inventory_update_quantity" required>
+                <p>Category</p>
+                <input type="text" id="inventory_update_category" required>
+                <br/>
+                <br/>
+                <div class="btns">
+                    <button id="inventory_update_submit">✔️</button>
+                    <button id="inventory_update_cancel">❌</button>
                 </div>
                 
             </form>
@@ -322,19 +359,6 @@
                 </div>
 
                 <ul id = "shopping_list">
-                    <li>Product 1</li>
-                    <li>Product 2</li>
-                    <li>Product 3</li>
-                    <li>Product 4</li>
-                    <li>Product 5</li>
-                    <li>Product 6</li>
-                    <li>Product 7</li>
-                    <li>Product 8</li>
-                    <li>Product 9</li>
-                    <li>Product 10</li>
-                    <li>Product 11</li>
-                    <li>Product 12</li>
-                    <li>Product 13</li>
                 </ul>
 
                 <!-- Button for adding shopping items -->
@@ -351,25 +375,11 @@
                     <button id="suggest_btn_2" class = "suggest_btn">suggest items 📋</button>
                 </div>
 
-                
-                <ul>
-                    <li>Product 1</li>
-                    <li>Product 2</li>
-                    <li>Product 3</li>
-                    <li>Product 4</li>
-                    <li>Product 5</li>
-                    <li>Product 6</li>
-                    <li>Product 7</li>
-                    <li>Product 8</li>
-                    <li>Product 9</li>
-                    <li>Product 10</li>
-                    <li>Product 11</li>
-                    <li>Product 12</li>
-                    <li>Product 13</li>
+                <ul id="inventory_list">
                 </ul>
 
                 <!-- Button for adding inventory items -->
-                <button>➕</button>
+                <button id="inventory_add">➕</button>
             </section>
         </main>
 
