@@ -24,12 +24,15 @@ We have also implemented CSSLinting since our phase 1 to go along with our ESLin
 
 **Methods of using JSDocs** 
 1. Follow the example comment below and this will allow us to use the configuration file made to auto-generate documentation based on the comments after they are done. Have members of the team write these comments for each function they write so that we can generate documentation for it. 
+   
 /**
  * Represents a book.
  * @constructor
  * @param {string} title - The title of the book.
  * @param {string} author - The author of the book.
  */
+
+ 1. Run `jsdoc file.js` in terminal to get it to work.
 
 **Pull Requests**
 1. These are manual and need to be done by individual members of the team. Go to github and check on pull requests that are waiting to be merged. Take these requests and view the changes made to the main code-base and see if there are any errors. Once you have combed through the request and identified any bugs, you can submit your review so that it can be approved or fixed before it is pushed to the main branch. 
