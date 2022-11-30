@@ -1,52 +1,51 @@
-import create from './shopping/create.js'
-import update from './shopping/update.js'
-import remove from './shopping/delete.js' // delete is a keyword
+import shoppingCreate from './shopping/create.js'
+import shoppingUpdate from './shopping/update.js'
+import shoppingDelete from './shopping/delete.js' // delete is a keyword
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
 import inventoryGet from './inventory/get.js'
 import inventoryDelete from './inventory/delete.js'
-import inventoryGet from './inventory/get.js'
 
 const shoppingList = []
 let inventoryList = {}
-const client = {}
-let updatingItem = {}
-
-client.shopping = {
-    create,
-    update,
-    delete: remove
-}
-
-client.inventory = {
-    create: inventoryCreate,
-    update: inventoryUpdate,
-    delete: inventoryDelete,
-    get: inventoryGet
+const client = {
+    updatingItem: {},
+    shopping: {
+        create: shoppingCreate,
+        update: shoppingUpdate,
+        delete: shoppingDelete
+    },
+    inventory: {
+        create: inventoryCreate,
+        update: inventoryUpdate,
+        delete: inventoryDelete,
+        get: inventoryGet
+    }
 }
 
 window.addEventListener('DOMContentLoaded', init)
 
-// put all eventlisteners here
 function init () {
     window.onclick = function (event) {
-        const modal = document.getElementById('shopping_add_modal')
-        const updateModal = document.getElementById('shopping_update_modal')
-        if (event.target === modal) {
-            modal.style.display = 'none'
-            document.getElementById('background_for_modal').style.display = 'none'
-        }
-        if (event.target === updateModal) {
-            updateModal.style.display = 'none'
+        const shoppingAddModal = document.getElementById('shopping_add_modal')
+        if (event.target === shoppingAddModal) {
+            shoppingAddModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
         }
 
-        const inventoryModal = document.getElementById('inventory_add_modal')
-        const inventoryUpdateModal = document.getElementById('inventory_update_modal')
-        if (event.target === inventoryModal) {
-            inventoryModal.style.display = 'none'
+        const shoppingUpdateModal = document.getElementById('shopping_update_modal')
+        if (event.target === shoppingUpdateModal) {
+            shoppingUpdateModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
         }
+
+        const inventoryAddModal = document.getElementById('inventory_add_modal')
+        if (event.target === inventoryAddModal) {
+            inventoryAddModal.style.display = 'none'
+            document.getElementById('background_for_modal').style.display = 'none'
+        }
+
+        const inventoryUpdateModal = document.getElementById('inventory_update_modal')
         if (event.target === inventoryUpdateModal) {
             inventoryUpdateModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
@@ -65,12 +64,12 @@ function init () {
         document.getElementById('background_for_modal').style.display = 'flex'
     })
 
-    document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingModal)
+    document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingAddModal)
     document.getElementById('shopping_add_submit').addEventListener('click', addShoppingItem)
     document.getElementById('shopping_update_cancel').addEventListener('click', hideShoppingUpdateModal)
-    document.getElementById('shopping_update_submit').addEventListener('click', updateItem)
+    document.getElementById('shopping_update_submit').addEventListener('click', shoppingUpdateItem)
 
-    document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryModal)
+    document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryAddModal)
     document.getElementById('inventory_add_submit').addEventListener('click', addInventoryItem)
     document.getElementById('inventory_update_cancel').addEventListener('click', hideInventoryUpdateModal)
     document.getElementById('inventory_update_submit').addEventListener('click', updateInventoryItem)
@@ -102,13 +101,13 @@ function init () {
     generateInventoryList()
 }
 
-function hideShoppingModal () {
+function hideShoppingAddModal () {
     event.preventDefault()
     document.getElementById('shopping_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-function hideInventoryModal () {
+function hideInventoryAddModal () {
     event.preventDefault()
     document.getElementById('inventory_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
@@ -156,7 +155,7 @@ function addShoppingItem () {
         </li>
     `
     addEvents()
-    hideShoppingModal()
+    hideShoppingAddModal()
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''
     document.getElementById('shopping_add_category').value = ''
@@ -176,7 +175,7 @@ async function addInventoryItem () {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
     await generateInventoryList(category)
-    hideInventoryModal()
+    hideInventoryAddModal()
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''
     document.getElementById('shopping_add_category').value = ''
@@ -206,7 +205,7 @@ function addEvents () {
             const modal = document.getElementById('shopping_update_modal')
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
-            updatingItem = button.parentNode.parentNode
+            client.updatingItem = button.parentNode.parentNode
         })
     }
 
@@ -225,7 +224,7 @@ function addInventoryEvents () {
             const modal = document.getElementById('inventory_update_modal')
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
-            updatingItem = button.parentNode.parentNode
+            client.updatingItem = button.parentNode.parentNode
         })
     }
 
@@ -236,9 +235,9 @@ function addInventoryEvents () {
     }
 }
 
-function updateItem (button) {
+function shoppingUpdateItem (button) {
     event.preventDefault()
-    const prevName = updatingItem.innerHTML.split('>')[2].split('<')[0]
+    const prevName = client.updatingItem.innerHTML.split('>')[2].split('<')[0]
     const name = document.getElementById('shopping_update_name').value
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
@@ -255,9 +254,9 @@ function updateItem (button) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
 
-    updatingItem.children[1].innerText = name
-    updatingItem.children[2].innerText = 'quantity: ' + quantity
-    updatingItem.children[3].innerText = 'category: ' + category
+    client.updatingItem.children[1].innerText = name
+    client.updatingItem.children[2].innerText = 'quantity: ' + quantity
+    client.updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
     document.getElementById('shopping_update_name').value = ''
     document.getElementById('shopping_update_quantity').value = ''
@@ -266,8 +265,8 @@ function updateItem (button) {
 
 async function updateInventoryItem (button) {
     event.preventDefault()
-    const prevName = updatingItem.innerHTML.split('>')[1].split('<')[0]
-    const prevCategory = updatingItem.innerHTML.split('category: ')[1].split('<')[0]
+    const prevName = client.updatingItem.innerHTML.split('>')[1].split('<')[0]
+    const prevCategory = client.updatingItem.innerHTML.split('category: ')[1].split('<')[0]
     const name = document.getElementById('inventory_update_name').value
     const quantity = document.getElementById('inventory_update_quantity').value
     const category = document.getElementById('inventory_update_category').value
@@ -294,12 +293,12 @@ function removeShoppingItem (button) {
     client.shopping.delete(shoppingList, name)
 }
 
-function removeInventoryItem (button) {
+async function removeInventoryItem (button) {
     const item = button.parentNode
     const name = item.innerHTML.split('me">')[1].split('<')[0]
     const category = item.innerHTML.split('category: ')[1].split('<')[0]
-    item.parentNode.removeChild(item)
     client.inventory.delete(inventoryList, name, category)
+    await generateInventoryList(category)
 }
 
 async function readItemFromStorage () {
