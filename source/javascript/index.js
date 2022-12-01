@@ -149,7 +149,7 @@ function addShoppingItem () {
             <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category}</span>
+            <span class="category">category: ${category} </span> <br>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
