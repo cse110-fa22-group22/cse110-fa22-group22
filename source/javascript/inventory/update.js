@@ -1,7 +1,7 @@
 export default function (inventoryList, prevName, prevCategory, name, quantity, category) {
-    if (prevName !== name && inventoryList[category]) {
+    if (prevName.toLowerCase() !== name.toLowerCase() && inventoryList[category]) {
         for (let i = 0; i < inventoryList[category].length; i++) {
-            if (inventoryList[prevCategory][i].name === name) {
+            if (inventoryList[prevCategory][i].name.toLowerCase() === name.toLowerCase()) {
                 return false
             }
         }
