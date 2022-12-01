@@ -340,6 +340,7 @@ form > p {
     padding-top: 5px;
     padding-bottom: 1px;
     font-family: 'Teko', sans-serif;
+    border: 3px solid rgb(75, 134, 168);
 }
 
 /*style for suggest input box*/
