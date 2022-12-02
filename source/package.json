@@ -9,6 +9,10 @@
     "test": "jest",
     "generate-docs": "jsdoc -c jsdoc-conf.json"
   },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "verbose": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cse110-fa22-group22/cse110-fa22-group22.git"
@@ -27,6 +31,8 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-promise": "^6.1.1",
-    "jest": "^29.3.1"
+    "jest": "^29.3.1",
+    "jest-puppeteer": "^6.1.1",
+    "puppeteer": "^19.3.0"
   }
 }

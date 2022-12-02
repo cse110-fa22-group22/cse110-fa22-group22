@@ -151,7 +151,7 @@ function addShoppingItem () {
             <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category} </span> <br>
+            <span class="category">category: ${category}</span> <br>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
@@ -412,7 +412,7 @@ function SuggestAddShoppingItem (iname, icategory) {
             <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category} </span>
+            <span class="category">category: ${category}</span>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
