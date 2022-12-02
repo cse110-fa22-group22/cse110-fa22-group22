@@ -1,49 +1,51 @@
-import create from './shopping/create.js'
-import update from './shopping/update.js'
-import remove from './shopping/delete.js' // delete is a keyword
+import shoppingCreate from './shopping/create.js'
+import shoppingUpdate from './shopping/update.js'
+import shoppingDelete from './shopping/delete.js'
 import inventoryCreate from './inventory/create.js'
 import inventoryUpdate from './inventory/update.js'
+import inventoryGet from './inventory/get.js'
 import inventoryDelete from './inventory/delete.js'
 
-const shoppingList = []
+let shoppingList = []
 let inventoryList = {}
-const client = {}
-let updatingItem = {}
-
-client.shopping = {
-    create,
-    update,
-    delete: remove
-}
-
-client.inventory = {
-    create: inventoryCreate,
-    update: inventoryUpdate,
-    delete: inventoryDelete
+const client = {
+    updatingItem: {},
+    shopping: {
+        create: shoppingCreate,
+        update: shoppingUpdate,
+        delete: shoppingDelete
+    },
+    inventory: {
+        create: inventoryCreate,
+        update: inventoryUpdate,
+        delete: inventoryDelete,
+        get: inventoryGet
+    }
 }
 
 window.addEventListener('DOMContentLoaded', init)
 
-// put all eventlisteners here
 function init () {
     window.onclick = function (event) {
-        const modal = document.getElementById('shopping_add_modal')
-        const updateModal = document.getElementById('shopping_update_modal')
-        if (event.target === modal) {
-            modal.style.display = 'none'
-            document.getElementById('background_for_modal').style.display = 'none'
-        }
-        if (event.target === updateModal) {
-            updateModal.style.display = 'none'
+        const shoppingAddModal = document.getElementById('shopping_add_modal')
+        if (event.target === shoppingAddModal) {
+            shoppingAddModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
         }
 
-        const inventoryModal = document.getElementById('inventory_add_modal')
-        const inventoryUpdateModal = document.getElementById('inventory_update_modal')
-        if (event.target === inventoryModal) {
-            inventoryModal.style.display = 'none'
+        const shoppingUpdateModal = document.getElementById('shopping_update_modal')
+        if (event.target === shoppingUpdateModal) {
+            shoppingUpdateModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
         }
+
+        const inventoryAddModal = document.getElementById('inventory_add_modal')
+        if (event.target === inventoryAddModal) {
+            inventoryAddModal.style.display = 'none'
+            document.getElementById('background_for_modal').style.display = 'none'
+        }
+
+        const inventoryUpdateModal = document.getElementById('inventory_update_modal')
         if (event.target === inventoryUpdateModal) {
             inventoryUpdateModal.style.display = 'none'
             document.getElementById('background_for_modal').style.display = 'none'
@@ -62,12 +64,14 @@ function init () {
         document.getElementById('background_for_modal').style.display = 'flex'
     })
 
-    document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingModal)
+    /* shopping modal buttons */
+    document.getElementById('shopping_add_cancel').addEventListener('click', hideShoppingAddModal)
     document.getElementById('shopping_add_submit').addEventListener('click', addShoppingItem)
     document.getElementById('shopping_update_cancel').addEventListener('click', hideShoppingUpdateModal)
-    document.getElementById('shopping_update_submit').addEventListener('click', updateItem)
+    document.getElementById('shopping_update_submit').addEventListener('click', shoppingUpdateItem)
 
-    document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryModal)
+    /* inventory modal buttons */
+    document.getElementById('inventory_add_cancel').addEventListener('click', hideInventoryAddModal)
     document.getElementById('inventory_add_submit').addEventListener('click', addInventoryItem)
     document.getElementById('inventory_update_cancel').addEventListener('click', hideInventoryUpdateModal)
     document.getElementById('inventory_update_submit').addEventListener('click', updateInventoryItem)
@@ -77,8 +81,7 @@ function init () {
     document.getElementById('close_guide').addEventListener('click', closeGuide)
 
     /* suggest list event */
-    document.getElementById('suggest_btn_1').addEventListener('click', showSuggest)
-    document.getElementById('suggest_btn_2').addEventListener('click', showSuggest)
+    document.getElementById('suggest_btn').addEventListener('click', showSuggest)
     document.getElementById('close_suggest').addEventListener('click', closeSuggest)
 
     /* suggest list add to sp list */
@@ -95,17 +98,18 @@ function init () {
     document.getElementById('chair_to_sp').addEventListener('click', SuggestAddChaire)
     document.getElementById('potted_plant_to_sp').addEventListener('click', SuggestAddPottedPlant)
     document.getElementById('telephone_to_sp').addEventListener('click', SuggestAddtelephone)
-    readItemFromStorage()
+
+    generateShoppingList()
     generateInventoryList()
 }
 
-function hideShoppingModal () {
+function hideShoppingAddModal () {
     event.preventDefault()
     document.getElementById('shopping_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-function hideInventoryModal () {
+function hideInventoryAddModal () {
     event.preventDefault()
     document.getElementById('inventory_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
@@ -133,6 +137,10 @@ function addShoppingItem () {
         return alert('name or quantity or category can not be empty!')
     }
 
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
+    }
+
     if (!client.shopping.create(shoppingList, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
@@ -140,16 +148,16 @@ function addShoppingItem () {
     const list = document.getElementById('shopping_list')
     list.innerHTML += `
         <li>
-            <input type="checkbox">
+            <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category} </span>
+            <span class="category">category: ${category}</span> <br>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
     `
-    addEvents()
-    hideShoppingModal()
+    addShoppingEvents()
+    hideShoppingAddModal()
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''
     document.getElementById('shopping_add_category').value = ''
@@ -169,13 +177,29 @@ async function addInventoryItem () {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
     await generateInventoryList(category)
-    hideInventoryModal()
-    document.getElementById('shopping_add_name').value = ''
-    document.getElementById('shopping_add_quantity').value = ''
-    document.getElementById('shopping_add_category').value = ''
+    hideInventoryAddModal()
+    document.getElementById('inventory_add_name').value = ''
+    document.getElementById('inventory_add_quantity').value = ''
+    document.getElementById('inventory_add_category').value = ''
 }
 
-function addEvents () {
+function addShoppingEvents () {
+    const boughtButtons = document.getElementsByClassName('bought_button')
+
+    for (const button of boughtButtons) {
+        console.log(button.parentNode.parentNode.innerHTML)
+        button.addEventListener('click', async () => {
+            const name = button.parentNode.parentNode.innerHTML.split('e">')[1].split('<')[0]
+            const quantity = button.parentNode.parentNode.innerHTML.split('quantity: ')[1].split('<')[0]
+            const category = button.parentNode.parentNode.innerHTML.split('category: ')[1].split('<')[0]
+            console.log(name + ': ' + quantity + ': ' + category)
+            removeShoppingItem(button)
+            client.inventory.create(inventoryList, name, quantity, category)
+            await generateInventoryList(category)
+            addShoppingEvents()
+        })
+    }
+
     const updateButtons = document.getElementsByClassName('update')
 
     for (const button of updateButtons) {
@@ -183,7 +207,7 @@ function addEvents () {
             const modal = document.getElementById('shopping_update_modal')
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
-            updatingItem = button.parentNode.parentNode
+            client.updatingItem = button.parentNode.parentNode
         })
     }
 
@@ -202,7 +226,7 @@ function addInventoryEvents () {
             const modal = document.getElementById('inventory_update_modal')
             modal.style.display = 'flex'
             document.getElementById('background_for_modal').style.display = 'flex'
-            updatingItem = button.parentNode.parentNode
+            client.updatingItem = button.parentNode.parentNode
         })
     }
 
@@ -213,9 +237,9 @@ function addInventoryEvents () {
     }
 }
 
-function updateItem (button) {
+function shoppingUpdateItem (button) {
     event.preventDefault()
-    const prevName = updatingItem.innerHTML.split('>')[2].split('<')[0]
+    const prevName = client.updatingItem.innerHTML.split('>')[2].split('<')[0]
     const name = document.getElementById('shopping_update_name').value
     const quantity = document.getElementById('shopping_update_quantity').value
     const category = document.getElementById('shopping_update_category').value
@@ -224,13 +248,17 @@ function updateItem (button) {
         return alert('name or quantity or category can not be empty!')
     }
 
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
+    }
+
     if (!client.shopping.update(shoppingList, prevName, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
 
-    updatingItem.children[1].innerText = name
-    updatingItem.children[2].innerText = 'quantity: ' + quantity
-    updatingItem.children[3].innerText = 'category: ' + category
+    client.updatingItem.children[1].innerText = name
+    client.updatingItem.children[2].innerText = 'quantity: ' + quantity
+    client.updatingItem.children[3].innerText = 'category: ' + category
     hideShoppingUpdateModal()
     document.getElementById('shopping_update_name').value = ''
     document.getElementById('shopping_update_quantity').value = ''
@@ -239,8 +267,8 @@ function updateItem (button) {
 
 async function updateInventoryItem (button) {
     event.preventDefault()
-    const prevName = updatingItem.innerHTML.split('>')[1].split('<')[0]
-    const prevCategory = updatingItem.innerHTML.split('category: ')[1].split('<')[0]
+    const prevName = client.updatingItem.innerHTML.split('>')[1].split('<')[0]
+    const prevCategory = client.updatingItem.innerHTML.split('category: ')[1].split('<')[0]
     const name = document.getElementById('inventory_update_name').value
     const quantity = document.getElementById('inventory_update_quantity').value
     const category = document.getElementById('inventory_update_category').value
@@ -267,33 +295,34 @@ function removeShoppingItem (button) {
     client.shopping.delete(shoppingList, name)
 }
 
-function removeInventoryItem (button) {
+async function removeInventoryItem (button) {
     const item = button.parentNode
     const name = item.innerHTML.split('me">')[1].split('<')[0]
     const category = item.innerHTML.split('category: ')[1].split('<')[0]
-    item.parentNode.removeChild(item)
     client.inventory.delete(inventoryList, name, category)
+    await generateInventoryList(category)
 }
 
-async function readItemFromStorage () {
-    const shoppingListFromStorage = JSON.parse(localStorage.getItem('shoppingList'))
+async function generateShoppingList () {
+    shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
     const list = document.getElementById('shopping_list')
-    if (shoppingListFromStorage != null) {
-        for (const item of shoppingListFromStorage) {
+    if (shoppingList != null) {
+        for (const item of shoppingList) {
             list.innerHTML += `
             <li>
-                <input type="checkbox">
+                <input class="bought_button" type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
                 <span class="category">category: ${item.category}</span>
                 <span><button class="update">update</button></span>
-                <span class="remove-button">❌</span>
+                <span class="remove_button">❌</span>
             </li>
             `
-            shoppingList.push({ name: item.name, quantity: item.quantity, category: item.category })
         }
+    } else {
+        shoppingList = []
     }
-    addEvents()
+    addShoppingEvents()
 }
 
 async function generateInventoryList (openCategory) {
@@ -325,6 +354,8 @@ async function generateInventoryList (openCategory) {
             </li>
             `
         }
+    } else {
+        inventoryList = {}
     }
     addInventoryEvents()
 }
@@ -361,43 +392,33 @@ function SuggestAddShoppingItem (iname, icategory) {
     const btnName = name.replace(/ /, '_')
     const quantity = document.getElementById(`${btnName}_add_quantity`).value
     const category = icategory
-    let CheckAllPass = true
 
     /* Check whether the input is valid */
     if (!name || !quantity || !category) {
-        CheckAllPass = false
-        alert('name or quantity or category can not be empty!')
-        return
+        return alert('name or quantity or category can not be empty!')
     }
 
-    if (quantity <= 0) {
-        alert('Quantity needs to be greater than 0')
-        CheckAllPass = false
-        return
-    } else {
-        if (!client.shopping.create(shoppingList, name, quantity, category)) {
-            alert('Item with the same name already existed. Please consider updating the item.')
-            CheckAllPass = false
-            return
-        }
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
     }
 
-    if (CheckAllPass) {
-        const list = document.getElementById('shopping_list')
-        list.innerHTML += `
-            <li>
-                <input type="checkbox">
-                <span class="name">${name}</span> | 
-                <span class="quantity">quantity: ${quantity}</span> | 
-                <span class="category">category: ${category} </span>
-                <span><button class="update">update</button></span>
-                <span class="remove-button">❌</span>
-            </li>
-        `
-        client.shopping.create(shoppingList, name, quantity, category)
-        addEvents()
-        alert('Item has been successfully added to shopping list')
+    if (!client.shopping.create(shoppingList, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
     }
+
+    const list = document.getElementById('shopping_list')
+    list.innerHTML += `
+        <li>
+            <input class="bought_button" type="checkbox">
+            <span class="name">${name}</span> | 
+            <span class="quantity">quantity: ${quantity}</span> | 
+            <span class="category">category: ${category}</span>
+            <span><button class="update">update</button></span>
+            <span class="remove_button">❌</span>
+        </li>
+    `
+    addShoppingEvents()
+    alert('Item has been successfully added to shopping list')
 
     document.getElementById('shopping_add_name').value = ''
     document.getElementById('shopping_add_quantity').value = ''

@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="/source/css/style.css">
         <script type="module" src="/source/javascript/shopping/create.js"></script>
         <script type="module" src="/source/javascript/index.js"></script>
-        <link href="/source/favicon.ico" rel="icon"> <!-- this may ned to change -->
+        <script type="module" src="/source/javascript/menu.js"></script>
+        <link href="/source/favicon.ico" rel="icon">
     </head>
 
     <body>
@@ -98,19 +99,26 @@
     
             <div class = "menu">
                 <a href="#" class = "is-active">Home</a>
-                <a href="https://github.com/cse110-fa22-group22/cse110-fa22-group22/blob/main/admin/team.md" target=“_blank>About</a>
+                <a href="/source/html/about.html" target=“_blank>About</a>
                 <a href="https://github.com/cse110-fa22-group22/cse110-fa22-group22" target=“_blank >Project</a>
-                <a href="#" >Contact</a>
+                <!-- <a href="#" >Contact</a> -->
             </div>
 
             <!-- hamburger only for small screen-->
-            <button class = hamburger>
+            <button class = "hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             </div>
         </nav>
+
+        <div class = "mobile-menu">
+            <a href="#" class = "is-active">Home</a>
+            <a href="/source/html/about.html" target=“_blank>About</a>
+            <a href="https://github.com/cse110-fa22-group22/cse110-fa22-group22" target=“_blank >Project</a>
+            <!-- <a href="#" >Contact</a> -->
+        </div>
 
         <dialog id="guide">
             <table style="text-align: center;">
@@ -162,7 +170,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="apple_add_quantity" class="sug" min="1" max="99">
+                                    <input id="apple_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="apple_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -174,7 +182,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="banana_add_quantity" class="sug" min="1" max="99">
+                                    <input id="banana_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="banana_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -186,7 +194,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="orange_add_quantity" class="sug" min="1" max="99">
+                                    <input id="orange_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="orange_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -206,7 +214,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="tea_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="tea_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="tea_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -218,7 +226,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="juice_add_quantity" class="sug" min="1" max="99">
+                                    <input id="juice_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="juice_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -230,7 +238,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="beer_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="beer_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="beer_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -250,7 +258,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="bread_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="bread_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="bread_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -262,7 +270,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="bagel_add_quantity" class="sug" min="1" max="99">
+                                    <input id="bagel_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="bagel_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -274,7 +282,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="hamburger_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="hamburger_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="hamburger_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -286,7 +294,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="curry_rice_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="curry_rice_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="curry_rice_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -306,7 +314,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="chair_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="chair_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="chair_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -318,7 +326,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="potted_plant_add_quantity" class="sug" min="1" max="99">
+                                    <input id="potted_plant_add_quantity" class="sug" min="1" max="99">
                                     <div>
                                         <button id="potted_plant_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -330,7 +338,7 @@
                                 <details>
                                     <summary>🛍️</summary>
                                     <span> Quantity:</span>
-                                    <input type="number" id="telephone_add_quantity"  class="sug" min="1" max="99">
+                                    <input id="telephone_add_quantity"  class="sug" min="1" max="99">
                                     <div>
                                         <button id="telephone_to_sp" class="sp_list">↩</button>
                                         <button class="iv_list">↪</button>
@@ -347,7 +355,9 @@
 
         </section>
 
-
+        <!-- suggest item button; can add for shopping or inventory list-->
+        <button id="suggest_btn">suggest items 📋</button>
+        
         <main>
             <!-- shopping list section -->
             <section class="shopping">
@@ -355,11 +365,9 @@
                 <!-- title of section -->
                 <div class="suggest">
                     <h2 class="sectionTitle">Shopping list</h2>
-                    <button id="suggest_btn_1" class = "suggest_btn">suggest items 📋</button>
                 </div>
 
-                <ul id = "shopping_list">
-                </ul>
+                <ul id = "shopping_list"></ul>
 
                 <!-- Button for adding shopping items -->
                 <button id="shopping_add">➕</button>
@@ -372,11 +380,9 @@
                 <!-- title of section -->
                 <div class="suggest">
                     <h2 class="sectionTitle">Inventory list</h2>
-                    <button id="suggest_btn_2" class = "suggest_btn">suggest items 📋</button>
                 </div>
 
-                <ul id="inventory_list">
-                </ul>
+                <ul id="inventory_list"></ul>
 
                 <!-- Button for adding inventory items -->
                 <button id="inventory_add">➕</button>
