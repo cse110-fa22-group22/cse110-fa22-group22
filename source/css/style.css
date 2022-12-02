@@ -417,9 +417,10 @@ form > p {
 #guide_btn{
     font-family: 'Teko', sans-serif;
     margin-left: 10px;
-    padding-bottom: 0px;
-    padding-left: 3px;
-    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 #guide_btn:hover,#suggest_btn:hover{
