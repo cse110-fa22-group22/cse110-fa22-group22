@@ -43,5 +43,4 @@ jobs:
       - name: Run Jest
         working-directory: ./source
         run: |
-          sudo apt-get install chromium-browser
           npm run test

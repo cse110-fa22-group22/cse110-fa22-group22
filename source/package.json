@@ -9,10 +9,6 @@
     "test": "jest",
     "generate-docs": "jsdoc -c jsdoc-conf.json"
   },
-  "jest": {
-    "preset": "jest-puppeteer",
-    "verbose": true
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cse110-fa22-group22/cse110-fa22-group22.git"
