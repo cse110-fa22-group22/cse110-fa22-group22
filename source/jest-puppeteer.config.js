@@ -1,6 +1,12 @@
 module.exports = {
     launch: {
-        headless: false,
-        slowMo: 25
+        headless: true,
+        args: [
+            '--ignore-certificate-errors',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu'
+        ]
     }
 }
