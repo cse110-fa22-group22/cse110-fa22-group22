@@ -87,7 +87,7 @@ test('Delete multiple items', () => {
     create(shoppingList, 'Chicken', '1', 'Meat')
     create(shoppingList, 'Yogurt', '4', 'Dairy')
     expect(shoppingList.length).toBe(5)
-    delItem(shoppingList, 'Water')
+    delItem(shoppingList, 'water')
     expect(shoppingList.length).toBe(4)
     expect(shoppingList[2].name).toBe('Chicken')
     expect(shoppingList[2].quantity).toBe('1')
