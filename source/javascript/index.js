@@ -481,9 +481,6 @@ function SuggestAddInventoryItem (iname, icategory) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
 
-    const list = document.getElementById('shopping_list')
-
-
     alert('Item has been successfully added to Inventory list')
     generateInventoryList()
 }
