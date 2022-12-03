@@ -25,6 +25,9 @@ const client = {
 
 window.addEventListener('DOMContentLoaded', init)
 
+/**
+ * Add event listner to buttons and generate shopping list and inventory list from localStorage
+ */
 function init () {
     window.onclick = function (event) {
         const shoppingAddModal = document.getElementById('shopping_add_modal')
@@ -117,31 +120,46 @@ function init () {
     generateShoppingList()
     generateInventoryList()
 }
-
+/**
+ * Hide shopping list add modal
+ */
 function hideShoppingAddModal () {
     event.preventDefault()
     document.getElementById('shopping_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
+/**
+ * Hide inventory list add modal
+ */
 function hideInventoryAddModal () {
     event.preventDefault()
     document.getElementById('inventory_add_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
+/**
+ * Hide shopping list update modal
+ */
 function hideShoppingUpdateModal () {
     event.preventDefault()
     document.getElementById('shopping_update_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
+/**
+ * Hide inventory list update modal
+ */
 function hideInventoryUpdateModal () {
     event.preventDefault()
     document.getElementById('inventory_update_modal').style.display = 'none'
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
+/**
+ * Add new item to shopping list
+ * @returns exception alert, otherwise nothing
+ */
 function addShoppingItem () {
     event.preventDefault()
     const name = document.getElementById('shopping_add_name').value
@@ -178,6 +196,10 @@ function addShoppingItem () {
     document.getElementById('shopping_add_category').value = ''
 }
 
+/**
+ * Add new item to inventory list
+ * @returns exception alert, otherwise nothing
+ */
 async function addInventoryItem () {
     event.preventDefault()
     const name = document.getElementById('inventory_add_name').value
@@ -198,6 +220,9 @@ async function addInventoryItem () {
     document.getElementById('inventory_add_category').value = ''
 }
 
+/**
+ * Add event listners to buttons of items in shopping list
+ */
 function addShoppingEvents () {
     const boughtButtons = document.getElementsByClassName('bought_button')
 
@@ -233,6 +258,9 @@ function addShoppingEvents () {
     }
 }
 
+/**
+ * Add event listners to buttons of items in inventory list
+ */
 function addInventoryEvents () {
     const updateButtons = document.getElementsByClassName('inventory_update')
 
@@ -252,6 +280,11 @@ function addInventoryEvents () {
     }
 }
 
+/**
+ * Update item in shopping list
+ * @param {*} button the clicked update button
+ * @returns exception alert, otherwise nothing
+ */
 function shoppingUpdateItem (button) {
     event.preventDefault()
     const prevName = client.updatingItem.innerHTML.split('>')[2].split('<')[0]
@@ -280,6 +313,11 @@ function shoppingUpdateItem (button) {
     document.getElementById('shopping_update_category').value = ''
 }
 
+/**
+ * Update item in inventory list
+ * @param {*} button the clicked update button
+ * @returns exception alert, otherwise nothing
+ */
 async function updateInventoryItem (button) {
     event.preventDefault()
     const prevName = client.updatingItem.innerHTML.split('>')[1].split('<')[0]
@@ -303,6 +341,10 @@ async function updateInventoryItem (button) {
     document.getElementById('inventory_update_category').value = ''
 }
 
+/**
+ * Remove item in shopping list
+ * @param {*} button the clicked remove button
+ */
 function removeShoppingItem (button) {
     const item = button.parentNode
     const name = item.innerHTML.split('>')[2].split('<')[0]
@@ -310,6 +352,10 @@ function removeShoppingItem (button) {
     client.shopping.delete(shoppingList, name)
 }
 
+/**
+ * Remove item in inventory list
+ * @param {*} button the clicked remove button
+ */
 async function removeInventoryItem (button) {
     const item = button.parentNode
     const name = item.innerHTML.split('me">')[1].split('<')[0]
@@ -318,6 +364,9 @@ async function removeInventoryItem (button) {
     await generateInventoryList(category)
 }
 
+/**
+ * Generate shopping list with data from localStorage
+ */
 async function generateShoppingList () {
     shoppingList = JSON.parse(localStorage.getItem('shoppingList'))
     const list = document.getElementById('shopping_list')
@@ -328,7 +377,7 @@ async function generateShoppingList () {
                 <input class="bought_button" type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
-                <span class="category">category: ${item.category}</span>
+                <span class="category">category: ${item.category}</span> <br>
                 <span><button class="update">update</button></span>
                 <span class="remove_button">❌</span>
             </li>
@@ -340,6 +389,10 @@ async function generateShoppingList () {
     addShoppingEvents()
 }
 
+/**
+ * Generate inventory list with data from localStorage
+ * @param {*} openCategory the category to be expanded
+ */
 async function generateInventoryList (openCategory) {
     inventoryList = JSON.parse(localStorage.getItem('inventoryList'))
     const list = document.getElementById('inventory_list')
@@ -352,7 +405,7 @@ async function generateInventoryList (openCategory) {
                     <li style="display: block">
                         <span class="inventory_name">${value[i].name}</span> | 
                         <span class="inventory_quantity">quantity: ${value[i].quantity}</span> | 
-                        <span class="inventory_category">category: ${value[i].category}</span>
+                        <span class="inventory_category">category: ${value[i].category}</span> <br>
                         <span><button class="inventory_update">update</button></span>
                         <span class="inventory_remove_button">❌</span>
                     </li>
@@ -436,7 +489,7 @@ function SuggestAddShoppingItem (iname, icategory) {
             <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category}</span>
+            <span class="category">category: ${category}</span> <br>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
