@@ -10,6 +10,12 @@
     
 }
 
+
+
+
+/* 
+ * Styling for site title and section titles
+ */
 h1{
     color:#F0EDE6;
     font-size: 28px;
@@ -25,6 +31,12 @@ h2{
     text-transform: uppercase;
 }
 
+
+
+
+/*
+ * Styling for input form popups
+ */
 #shopping_add_modal, #shopping_update_modal, #inventory_add_modal, #inventory_update_modal {
     display: none;
     justify-content: center;
@@ -57,6 +69,12 @@ h2{
     height: 300%;
 }
 
+
+
+
+/* 
+ * Nav bar that will contain title, menu, and hamburger
+ */
 nav { 
     /* position of the navbar */
     position: fixed;
@@ -82,7 +100,7 @@ nav {
    
 } 
 
-/* For mobile menu */
+/* Hamburger for mobile menu */
 .hamburger{
     display: block;
     position: relative;
@@ -130,6 +148,7 @@ nav {
 .hamburger.is-active:hover span{
     background-color: #FF5714;
 }
+
 .menu{
     display: none;
     flex :1 1 0%;
@@ -201,6 +220,13 @@ nav {
     }
 }
 
+
+
+
+
+/*
+ * Styling for core site elements; namely the two list
+ */
 body{
     /* position of element itself */
     margin-top: 110px; 
@@ -235,6 +261,7 @@ main {
     }
 }
 
+/* shopping and inventory section*/
 section {
     /* positioning of elements inside */
     display: flex;
@@ -257,8 +284,6 @@ section {
     width: 450px;
     display: none;
 }
-
-
 
 section.shopping{
     background-color: #3c5a77;
@@ -284,7 +309,7 @@ ul {
 }
 
 
-/*scrollbar style line 232-265*/
+/* scrollbar style */
 ul::-webkit-scrollbar {
     width: auto; 
 }
@@ -319,8 +344,6 @@ ul::-webkit-scrollbar-corner{
 }
 /*scrollbar style end*/
 
-
-
 li{
     /* sizing of box */
     padding: 10px;
@@ -346,7 +369,6 @@ button {
     cursor: pointer;
     text-align: center;
 }
-
 
 /*input box style*/
 form > input {
@@ -384,7 +406,12 @@ form > p {
     font-size: auto;
 }
 
-/* suggest UI*/
+
+
+
+/* 
+ * suggest UI
+ */
 .suggest{
     display: flex;
     flex-wrap: nowrap;
@@ -412,8 +439,26 @@ form > p {
     margin-right: 10px;
 }
 
+/* list style for suggest items */
+details > ul > li{
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    
+}
+details > ul {
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
 
-/*guide UI*/
+
+
+
+/*
+ * guide UI
+ */
 #guide_btn{
     font-family: 'Teko', sans-serif;
     margin-left: 10px;
@@ -438,16 +483,14 @@ form > p {
     border-radius: 10px;
 }
 
-
 #guide *{
     font-family: 'Teko', sans-serif;
 }
 
-/*table style for guide*/
+/* table style for guide */
 td{
     border: 1px solid rgb(0, 0, 0);
     border-radius: 9px;
-    border: 1px solid rgb(0, 0, 0);
     background-color: #ffffff;
     padding: 5px;
 }
@@ -461,28 +504,11 @@ table{
     margin: 15px;
 }
 
-/*list style*/
 
-details > ul > li >button{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    
-}
 
-details > ul > li{
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    
-}
-
-details > ul {
-    margin: auto;
-    padding: auto;
-    width: 100%;
-}
-
+/*
+ * Hover pointer for remove item button
+ */
 .remove_button, .inventory_remove_button {
     cursor: pointer;
 }
@@ -490,14 +516,9 @@ details > ul {
 
 
 
-
-
-
-
-
-
-/*Quoting the wave background from https://codepen.io/Daag/pen/qBBvvdE*/
-
+/* 
+ * Wave background from https://codepen.io/Daag/pen/qBBvvdE 
+ */
 .ocean {
   height: 5%;
   width: 100%;
