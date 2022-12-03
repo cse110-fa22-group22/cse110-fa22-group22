@@ -193,6 +193,18 @@ nav {
     .menu {
         display: flex;
     }
+    .mobile-menu{
+        display: none;
+    }
+    
+    .mobile-menu.is-active{
+        display: none;
+    }
+    
+    .mobile-menu a{
+        display: none;
+    }
+    
 }
 
 @media screen and (max-width:600px){
@@ -367,11 +379,21 @@ form > input {
 .sp_list{
     background-color: #3c5a77;
 }
-
-.iv_list{
-    background-color: #C44900;
+.sp_list:hover{
+    background-color: #7e97ad;
 }
 
+.iv_list{
+    margin: 5px;
+    background-color: #C44900;
+}
+.iv_list:hover{
+    background-color: #ca7f53;
+}
+
+details > div{
+    text-align: center;
+}
 
 /* create/edit UI font*/
 form > h3 {
