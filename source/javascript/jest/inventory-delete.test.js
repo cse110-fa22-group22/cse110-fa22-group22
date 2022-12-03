@@ -63,7 +63,7 @@ test('Deleting multiple items that exist', () => {
     expect(inventoryList[category2][1]['category']).toBe(category2)
 })
 
-test('Deleting all items from a category', () => {
+test('Deleting all items from a category with lowercase name', () => {
     let inventoryList = {}
     create(inventoryList, 'Apple', '2', 'Fruit')
     create(inventoryList, 'Pear', '1', 'Fruit')
@@ -71,7 +71,7 @@ test('Deleting all items from a category', () => {
     expect(inventoryList['Fruit'].length).toBe(3)
     expect(invDelete(inventoryList, 'Pear', 'Fruit')).toBe(true)
     expect(inventoryList['Fruit'].length).toBe(2)
-    expect(invDelete(inventoryList, 'Apple', 'Fruit')).toBe(true)
+    expect(invDelete(inventoryList, 'apple', 'Fruit')).toBe(true)
     expect(inventoryList['Fruit'].length).toBe(1)
     expect(invDelete(inventoryList, 'Banana', 'Fruit')).toBe(true)
     expect(inventoryList['Fruit']).toBeUndefined()
