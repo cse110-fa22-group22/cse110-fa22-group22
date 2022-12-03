@@ -313,7 +313,7 @@ async function generateShoppingList () {
                 <input class="bought_button" type="checkbox">
                 <span class="name">${item.name}</span> | 
                 <span class="quantity">quantity: ${item.quantity}</span> | 
-                <span class="category">category: ${item.category}</span>
+                <span class="category">category: ${item.category}</span> <br>
                 <span><button class="update">update</button></span>
                 <span class="remove_button">❌</span>
             </li>
@@ -337,7 +337,7 @@ async function generateInventoryList (openCategory) {
                     <li style="display: block">
                         <span class="inventory_name">${value[i].name}</span> | 
                         <span class="inventory_quantity">quantity: ${value[i].quantity}</span> | 
-                        <span class="inventory_category">category: ${value[i].category}</span>
+                        <span class="inventory_category">category: ${value[i].category}</span> <br>
                         <span><button class="inventory_update">update</button></span>
                         <span class="inventory_remove_button">❌</span>
                     </li>
@@ -412,7 +412,7 @@ function SuggestAddShoppingItem (iname, icategory) {
             <input class="bought_button" type="checkbox">
             <span class="name">${name}</span> | 
             <span class="quantity">quantity: ${quantity}</span> | 
-            <span class="category">category: ${category}</span>
+            <span class="category">category: ${category}</span> <br>
             <span><button class="update">update</button></span>
             <span class="remove_button">❌</span>
         </li>
