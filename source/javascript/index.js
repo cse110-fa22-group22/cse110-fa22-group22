@@ -88,19 +88,34 @@ function init () {
     document.getElementById('close_suggest').addEventListener('click', closeSuggest)
 
     /* suggest list add to sp list */
-    document.getElementById('apple_to_sp').addEventListener('click', SuggestAddApple)
-    document.getElementById('banana_to_sp').addEventListener('click', SuggestAddBanana)
-    document.getElementById('orange_to_sp').addEventListener('click', SuggestAddOrange)
-    document.getElementById('tea_to_sp').addEventListener('click', SuggestAddTea)
-    document.getElementById('juice_to_sp').addEventListener('click', SuggestAddJuice)
-    document.getElementById('beer_to_sp').addEventListener('click', SuggestAddBeer)
-    document.getElementById('bread_to_sp').addEventListener('click', SuggestAddBread)
-    document.getElementById('bagel_to_sp').addEventListener('click', SuggestAddBagel)
-    document.getElementById('hamburger_to_sp').addEventListener('click', SuggestAddHamburger)
-    document.getElementById('curry_rice_to_sp').addEventListener('click', SuggestAddCurryRice)
-    document.getElementById('chair_to_sp').addEventListener('click', SuggestAddChaire)
-    document.getElementById('potted_plant_to_sp').addEventListener('click', SuggestAddPottedPlant)
-    document.getElementById('telephone_to_sp').addEventListener('click', SuggestAddtelephone)
+    document.getElementById('Apple_to_sp').addEventListener('click', SuggestAddApple)
+    document.getElementById('Banana_to_sp').addEventListener('click', SuggestAddBanana)
+    document.getElementById('Orange_to_sp').addEventListener('click', SuggestAddOrange)
+    document.getElementById('Tea_to_sp').addEventListener('click', SuggestAddTea)
+    document.getElementById('Juice_to_sp').addEventListener('click', SuggestAddJuice)
+    document.getElementById('Beer_to_sp').addEventListener('click', SuggestAddBeer)
+    document.getElementById('Bread_to_sp').addEventListener('click', SuggestAddBread)
+    document.getElementById('Bagel_to_sp').addEventListener('click', SuggestAddBagel)
+    document.getElementById('Hamburger_to_sp').addEventListener('click', SuggestAddHamburger)
+    document.getElementById('Curry_rice_to_sp').addEventListener('click', SuggestAddCurryRice)
+    document.getElementById('Chair_to_sp').addEventListener('click', SuggestAddChaire)
+    document.getElementById('Potted_plant_to_sp').addEventListener('click', SuggestAddPottedPlant)
+    document.getElementById('Telephone_to_sp').addEventListener('click', SuggestAddtelephone)
+
+    /* suggest list add to iv list */
+    document.getElementById('Apple_to_iv').addEventListener('click', SuggestAddAppleII)
+    document.getElementById('Banana_to_iv').addEventListener('click', SuggestAddBananaII)
+    document.getElementById('Orange_to_iv').addEventListener('click', SuggestAddOrangeII)
+    document.getElementById('Tea_to_iv').addEventListener('click', SuggestAddTeaII)
+    document.getElementById('Juice_to_iv').addEventListener('click', SuggestAddJuiceII)
+    document.getElementById('Beer_to_iv').addEventListener('click', SuggestAddBeerII)
+    document.getElementById('Bread_to_iv').addEventListener('click', SuggestAddBreadII)
+    document.getElementById('Bagel_to_iv').addEventListener('click', SuggestAddBagelII)
+    document.getElementById('Hamburger_to_iv').addEventListener('click', SuggestAddHamburgerII)
+    document.getElementById('Curry_rice_to_iv').addEventListener('click', SuggestAddCurryRiceII)
+    document.getElementById('Chair_to_iv').addEventListener('click', SuggestAddChaireII)
+    document.getElementById('Potted_plant_to_iv').addEventListener('click', SuggestAddPottedPlantII)
+    document.getElementById('Telephone_to_iv').addEventListener('click', SuggestAddtelephoneII)
 
     generateShoppingList()
     generateInventoryList()
@@ -437,7 +452,16 @@ function closeSuggest () {
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-/* suggest list add to Shopping list */
+
+/** 
+ * suggest list add to Shopping list
+ * Enter the name and type of an item, 
+ * and at the same time get the quantity from the input box on the html. 
+ * Add this information about the item to the shopping list.
+ * @param {*} iname   item name
+ * @param {*} icategory  type of item
+ * @returns 
+ */
 function SuggestAddShoppingItem (iname, icategory) {
     event.preventDefault()
     // get the value from the input
@@ -478,55 +502,146 @@ function SuggestAddShoppingItem (iname, icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
+
+
+/**
+ * suggest list add to Inventory list
+ * Enter the name and type of an item, 
+ * and at the same time get the quantity from the input box on the html. 
+ * Add this information about the item to the Inventory list.
+ * @param {*} iname   item name
+ * @param {*} icategory  type of item
+ * @returns 
+ */
+function SuggestAddInventoryItem (iname, icategory) {
+    event.preventDefault()
+    // get the value from the input
+    const name = iname
+    const btnName = name.replace(/ /, '_')
+    const quantity = document.getElementById(`${btnName}_add_quantity`).value
+    const category = icategory
+
+    /* Check whether the input is valid */
+    if (!name || !quantity || !category) {
+        return alert('name or quantity or category can not be empty!')
+    }
+
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory. Please consider using inventory item before purchasing more.')
+    }
+
+    if (!client.inventory.create(inventoryList, name, quantity, category)) {
+        return alert('Item with the same name already existed. Please consider updating the item.')
+    }
+
+    alert('Item has been successfully added to Inventory list')
+    generateInventoryList()
+}
+
+
 /* These are preset item functions for suggest list */
 function SuggestAddApple () {
-    SuggestAddShoppingItem('apple', 'fruits')
+    SuggestAddShoppingItem('Apple', 'Fruits')
 }
 
 function SuggestAddBanana () {
-    SuggestAddShoppingItem('banana', 'fruits')
+    SuggestAddShoppingItem('Banana', 'Fruits')
 }
 
 function SuggestAddOrange () {
-    SuggestAddShoppingItem('orange', 'fruits')
+    SuggestAddShoppingItem('Orange', 'Fruits')
 }
 
 function SuggestAddTea () {
-    SuggestAddShoppingItem('tea', 'drink')
+    SuggestAddShoppingItem('Tea', 'Drink')
 }
 
 function SuggestAddJuice () {
-    SuggestAddShoppingItem('juice', 'drink')
+    SuggestAddShoppingItem('Juice', 'Drink')
 }
 
 function SuggestAddBeer () {
-    SuggestAddShoppingItem('beer', 'drink')
+    SuggestAddShoppingItem('Beer', 'Drink')
 }
 
 function SuggestAddBread () {
-    SuggestAddShoppingItem('bread', 'food')
+    SuggestAddShoppingItem('Bread', 'Food')
 }
 
 function SuggestAddBagel () {
-    SuggestAddShoppingItem('bagel', 'food')
+    SuggestAddShoppingItem('Bagel', 'Food')
 }
 
 function SuggestAddHamburger () {
-    SuggestAddShoppingItem('hamburger', 'food')
+    SuggestAddShoppingItem('Hamburger', 'Food')
 }
 
 function SuggestAddCurryRice () {
-    SuggestAddShoppingItem('curry rice', 'food')
+    SuggestAddShoppingItem('Curry rice', 'Food')
 }
 
 function SuggestAddChaire () {
-    SuggestAddShoppingItem('chair', 'furniture')
+    SuggestAddShoppingItem('Chair', 'Furniture')
 }
 
 function SuggestAddPottedPlant () {
-    SuggestAddShoppingItem('potted plant', 'furniture')
+    SuggestAddShoppingItem('Potted plant', 'Furniture')
 }
 
 function SuggestAddtelephone () {
-    SuggestAddShoppingItem('telephone', 'furniture')
+    SuggestAddShoppingItem('Telephone', 'Furniture')
+}
+
+
+/* These are preset item functions for Inventory list */
+function SuggestAddAppleII () {
+    SuggestAddInventoryItem('Apple', 'Fruits')
+}
+
+function SuggestAddBananaII () {
+    SuggestAddInventoryItem('Banana', 'Fruits')
+}
+
+function SuggestAddOrangeII () {
+    SuggestAddInventoryItem('Orange', 'Fruits')
+}
+
+function SuggestAddTeaII () {
+    SuggestAddInventoryItem('Tea', 'Drink')
+}
+
+function SuggestAddJuiceII () {
+    SuggestAddInventoryItem('Juice', 'Drink')
+}
+
+function SuggestAddBeerII () {
+    SuggestAddInventoryItem('Beer', 'Drink')
+}
+
+function SuggestAddBreadII () {
+    SuggestAddInventoryItem('Bread', 'Food')
+}
+
+function SuggestAddBagelII () {
+    SuggestAddInventoryItem('Bagel', 'Food')
+}
+
+function SuggestAddHamburgerII () {
+    SuggestAddInventoryItem('Hamburger', 'Food')
+}
+
+function SuggestAddCurryRiceII () {
+    SuggestAddInventoryItem('Curry rice', 'Food')
+}
+
+function SuggestAddChaireII () {
+    SuggestAddInventoryItem('Chair', 'Furniture')
+}
+
+function SuggestAddPottedPlantII () {
+    SuggestAddInventoryItem('Potted plant', 'Furniture')
+}
+
+function SuggestAddtelephoneII () {
+    SuggestAddInventoryItem('Telephone', 'Furniture')
 }
