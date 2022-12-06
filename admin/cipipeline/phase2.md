@@ -25,11 +25,14 @@ We have also implemented CSSLinting since our phase 1 to go along with our ESLin
 **Methods of using JSDocs** 
 1. Follow the example comment below and this will allow us to use the configuration file made to auto-generate documentation based on the comments after they are done. Have members of the team write these comments for each function they write so that we can generate documentation for it. 
    
+Example from delete.js 
+
 /**
- * Represents a book.
- * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
+ * Deletes the item matching the name and category from inventoryList and updates localStorage
+ * @param {*} inventoryList list of all the categories and items in the categories
+ * @param {*} name the name of the item that is to be deleted
+ * @param {*} category the category of the item
+ * @returns true if the item is deleted and false otherwise
  */
 
  1. Run `jsdoc file.js` in terminal to create a directory called /out and within that directory there will be HTML pages generated with the documenation from the comments in our code.
