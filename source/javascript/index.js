@@ -330,6 +330,10 @@ async function updateInventoryItem (button) {
         return alert('name or quantity or category can not be empty!')
     }
 
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory.')
+    }
+
     if (!client.inventory.update(inventoryList, prevName, prevCategory, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
@@ -452,15 +456,14 @@ function closeSuggest () {
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-
-/** 
+/**
  * suggest list add to Shopping list
- * Enter the name and type of an item, 
- * and at the same time get the quantity from the input box on the html. 
+ * Enter the name and type of an item,
+ * and at the same time get the quantity from the input box on the html.
  * Add this information about the item to the shopping list.
  * @param {*} iname   item name
  * @param {*} icategory  type of item
- * @returns 
+ * @returns
  */
 function SuggestAddShoppingItem (iname, icategory) {
     event.preventDefault()
@@ -502,16 +505,14 @@ function SuggestAddShoppingItem (iname, icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
-
-
 /**
  * suggest list add to Inventory list
- * Enter the name and type of an item, 
- * and at the same time get the quantity from the input box on the html. 
+ * Enter the name and type of an item,
+ * and at the same time get the quantity from the input box on the html.
  * Add this information about the item to the Inventory list.
  * @param {*} iname   item name
  * @param {*} icategory  type of item
- * @returns 
+ * @returns
  */
 function SuggestAddInventoryItem (iname, icategory) {
     event.preventDefault()
@@ -537,7 +538,6 @@ function SuggestAddInventoryItem (iname, icategory) {
     alert('Item has been successfully added to Inventory list')
     generateInventoryList()
 }
-
 
 /* These are preset item functions for suggest list */
 function SuggestAddApple () {
@@ -591,7 +591,6 @@ function SuggestAddPottedPlant () {
 function SuggestAddtelephone () {
     SuggestAddShoppingItem('Telephone', 'Furniture')
 }
-
 
 /* These are preset item functions for Inventory list */
 function SuggestAddAppleII () {
