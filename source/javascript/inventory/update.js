@@ -1,4 +1,5 @@
 /**
+ * Update the item in the inventory list and update the localStorage
  * @param {*} inventoryList array of existing inventory items
  * @param {*} prevName name of the to be update item
  * @param {*} prevCategory category of the to be update item

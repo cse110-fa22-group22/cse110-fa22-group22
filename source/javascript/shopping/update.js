@@ -1,3 +1,12 @@
+/**
+ * Update item in the shopping list and update localStorage.
+ * @param {*} shoppingList array of existing inventory items
+ * @param {*} prevName name of the to be update item
+ * @param {*} name name of update item
+ * @param {*} quantity quantity of the update item
+ * @param {*} category category of update item
+ * @returns true if the item is successfully updated, return false otherwise
+ */
 export default function (shoppingList, prevName, name, quantity, category) {
     console.log(name)
     if (prevName.toLowerCase() !== name.toLowerCase()) {
