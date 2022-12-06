@@ -1,3 +1,12 @@
+/**
+ * @param {*} inventoryList array of existing inventory items
+ * @param {*} prevName name of the to be update item
+ * @param {*} prevCategory category of the to be update item
+ * @param {*} name name of update item
+ * @param {*} quantity quantity of the update item
+ * @param {*} category category of update item
+ * @returns true if the item is successfully updated, return false otherwise
+ */
 export default function (inventoryList, prevName, prevCategory, name, quantity, category) {
     if (prevName.toLowerCase() !== name.toLowerCase() && inventoryList[category]) {
         for (let i = 0; i < inventoryList[category].length; i++) {
