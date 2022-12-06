@@ -1,4 +1,4 @@
-describe('Shopping List: Delete', () => {
+describe('Shopping List: Update', () => {
     beforeAll(async () => {
         await page.goto('http://127.0.0.1:5501/source/html/index.html')
     })
