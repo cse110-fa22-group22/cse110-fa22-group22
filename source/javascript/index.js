@@ -227,11 +227,10 @@ function addShoppingEvents () {
     const boughtButtons = document.getElementsByClassName('bought_button')
 
     for (const button of boughtButtons) {
-        console.log(button.parentNode.parentNode.innerHTML)
         button.addEventListener('click', async () => {
-            const name = button.parentNode.parentNode.innerHTML.split('e">')[1].split('<')[0]
-            const quantity = button.parentNode.parentNode.innerHTML.split('quantity: ')[1].split('<')[0]
-            const category = button.parentNode.parentNode.innerHTML.split('category: ')[1].split('<')[0]
+            const name = button.parentNode.innerHTML.split('e">')[1].split('<')[0]
+            const quantity = button.parentNode.innerHTML.split('quantity: ')[1].split('<')[0]
+            const category = button.parentNode.innerHTML.split('category: ')[1].split('<')[0]
             console.log(name + ': ' + quantity + ': ' + category)
             removeShoppingItem(button)
             client.inventory.create(inventoryList, name, quantity, category)
@@ -452,15 +451,14 @@ function closeSuggest () {
     document.getElementById('background_for_modal').style.display = 'none'
 }
 
-
-/** 
+/**
  * suggest list add to Shopping list
- * Enter the name and type of an item, 
- * and at the same time get the quantity from the input box on the html. 
+ * Enter the name and type of an item,
+ * and at the same time get the quantity from the input box on the html.
  * Add this information about the item to the shopping list.
  * @param {*} iname   item name
  * @param {*} icategory  type of item
- * @returns 
+ * @returns
  */
 function SuggestAddShoppingItem (iname, icategory) {
     event.preventDefault()
@@ -502,16 +500,14 @@ function SuggestAddShoppingItem (iname, icategory) {
     document.getElementById('shopping_add_category').value = ''
 }
 
-
-
 /**
  * suggest list add to Inventory list
- * Enter the name and type of an item, 
- * and at the same time get the quantity from the input box on the html. 
+ * Enter the name and type of an item,
+ * and at the same time get the quantity from the input box on the html.
  * Add this information about the item to the Inventory list.
  * @param {*} iname   item name
  * @param {*} icategory  type of item
- * @returns 
+ * @returns
  */
 function SuggestAddInventoryItem (iname, icategory) {
     event.preventDefault()
@@ -537,7 +533,6 @@ function SuggestAddInventoryItem (iname, icategory) {
     alert('Item has been successfully added to Inventory list')
     generateInventoryList()
 }
-
 
 /* These are preset item functions for suggest list */
 function SuggestAddApple () {
@@ -591,7 +586,6 @@ function SuggestAddPottedPlant () {
 function SuggestAddtelephone () {
     SuggestAddShoppingItem('Telephone', 'Furniture')
 }
-
 
 /* These are preset item functions for Inventory list */
 function SuggestAddAppleII () {
