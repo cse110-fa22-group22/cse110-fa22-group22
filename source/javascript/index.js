@@ -329,6 +329,10 @@ async function updateInventoryItem (button) {
         return alert('name or quantity or category can not be empty!')
     }
 
+    if (client.inventory.get(inventoryList, name, category)) {
+        return alert('Item with the same name already existed in inventory.')
+    }
+
     if (!client.inventory.update(inventoryList, prevName, prevCategory, name, quantity, category)) {
         return alert('Item with the same name already existed. Please consider updating the item.')
     }
