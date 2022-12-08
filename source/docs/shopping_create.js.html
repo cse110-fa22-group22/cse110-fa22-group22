@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: shopping/create.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: shopping/create.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Add new item to existing shopping list and update localStorage
+ * @param {*} shoppingList array of existing shopping items
+ * @param {*} name name of new item
+ * @param {*} quantity quantity of new item
+ * @param {*} category category of new item
+ * @returns false if there exist item with same name in shopping list, true otherwise
+ */
+export default function (shoppingList, name, quantity, category) {
+    for (let i = 0; i &lt; shoppingList.length; i++) {
+        if (shoppingList[i].name.toLowerCase() === name.toLowerCase()) {
+            return false
+        }
+    }
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    shoppingList.push({ name, quantity, category })
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList))
+    return true
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

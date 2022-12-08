@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: shopping/delete.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,33 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: shopping/delete.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Deletes the item matching name from shopping and updates local storage
+ * @param {*} shopping array of the items on the current shopping list
+ * @param {*} name the name of the item to be removed from the shopping
+ * @returns n/a
+ */
+export default function (shopping, name) {
+    for (let i = 0; i &lt; shopping.length; i++) {
+        if (shopping[i].name.toLowerCase() === name.toLowerCase()) {
+            shopping.splice(i, 1)
+            localStorage.setItem('shoppingList', JSON.stringify(shopping))
+            return
+        }
+    }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

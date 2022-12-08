@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: inventory/create.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,40 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: inventory/create.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Add new item to inventory list and update localStorage
+ * @param {*} inventoryList array of existing inventory items
+ * @param {*} name name of new item
+ * @param {*} quantity quantity of new item
+ * @param {*} category category of new item
+ * @returns false if there exist item with same name in inventory list, true otherwise
+ */
+export default function (inventoryList, name, quantity, category) {
+    if (!inventoryList[category]) inventoryList[category] = []
+    else {
+        const arr = inventoryList[category]
+        for (let i = 0; i &lt; arr.length; i++) {
+            if (arr[i].name.toLowerCase() === name.toLowerCase()) {
+                return false
+            }
+        }
+    }
+    inventoryList[category].push({ name, quantity, category })
+    localStorage.setItem('inventoryList', JSON.stringify(inventoryList))
+    return true
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

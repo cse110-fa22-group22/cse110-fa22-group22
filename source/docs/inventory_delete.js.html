@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: inventory/delete.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: inventory/delete.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Deletes the item matching the name and category from inventoryList and updates localStorage
+ * @param {*} inventoryList list of all the categories and items in the categories
+ * @param {*} name the name of the item that is to be deleted
+ * @param {*} category the category of the item
+ * @returns true if the item is deleted and false otherwise
+ */
+export default function (inventoryList, name, category) {
+    const cat = inventoryList[category]
+    if (cat === undefined) { return false }
+    for (let i = 0; i &lt; cat.length; i++) {
+        if (name.toLowerCase() === cat[i].name.toLowerCase()) {
+            cat.splice(i, 1)
+            if (cat.length === 0) {
+                delete inventoryList[category]
+            } else {
+                inventoryList[category] = cat
+            }
+            localStorage.setItem('inventoryList', JSON.stringify(inventoryList))
+            return true
+        }
+    }
+    return false
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
