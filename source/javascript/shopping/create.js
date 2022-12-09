@@ -1,5 +1,5 @@
 /**
- * Add new item to existing shopping list and update localStorage
+ * Create new item to existing shopping list and update localStorage
  * @param {*} shoppingList array of existing shopping items
  * @param {*} name name of new item
  * @param {*} quantity quantity of new item
